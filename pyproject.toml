@@ -6,12 +6,15 @@ readme = "README.md"
 authors = [{ name = "Leila Alizadeh" }]
 requires-python = ">=3.10"
 dependencies = [
+    "huggingface-hub>=0.24",
     "numpy>=1.26",
+    "pyarrow>=17.0",
     "sentence-transformers>=3.0",
 ]
 
 [project.scripts]
 semantic-search = "semantic_search.cli:main"
+prepare-data = "semantic_search.prepare_data:main"
 
 [dependency-groups]
 dev = ["pytest>=8.0"]

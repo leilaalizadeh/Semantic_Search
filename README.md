@@ -23,13 +23,16 @@ user query ────► embedding model ──► query vector ──► cosi
 ## Project structure
 
 ```
-├── data/products.json            # sample catalog (30 products)
+├── data/
+│   ├── products.json             # tiny hand-made catalog (30 products)
+│   └── amazon_products.json      # real Amazon sample (created by `prepare-data`, not in git)
 ├── src/semantic_search/
 │   ├── data.py                   # Product model + loader
+│   ├── prepare_data.py           # download + clean real Amazon data
 │   ├── keyword_search.py         # baseline word-matching search
 │   ├── semantic.py               # embedding-based search
 │   └── cli.py                    # interactive command-line app
-└── tests/test_search.py
+└── tests/
 ```
 
 ## Quick start
@@ -57,9 +60,30 @@ Search> gift for a 6 year old
      0.250  Dog Chew Toy
 ```
 
+## Level 2: real Amazon data
+
+```bash
+uv run prepare-data                        # download, clean, keep 5,000 random products (~1 min)
+uv run semantic-search --amazon            # search them
+uv run prepare-data -n 20000 --files 2     # more products (slower to embed)
+```
+
+Data: [milistu/AMAZON-Products-2023](https://huggingface.co/datasets/milistu/AMAZON-Products-2023)
+(117k products from the Amazon Reviews 2023 dataset). Only the needed Parquet columns are
+downloaded; rows with empty or duplicate titles, very short descriptions, or digital-only
+categories are dropped.
+
+```
+Search> keep me warm when it snows
+  Keyword:
+     4.000  Red White Blue Patriotic Dangle Earrings for Women Girls 4th of July ...
+  Semantic:
+     0.496  Tough Headwear Full Face Mask for Cold Weather for Men - Work Balaclava ...
+     0.445  Columbia Men's Basin Trail Fleece Full Zip
+```
+
 ## Next steps
 
-- Use a real dataset (e.g. the Amazon product datasets on Kaggle / Hugging Face)
 - Store embeddings in a vector database (FAISS, Chroma, Qdrant)
 - Hybrid search: combine keyword (BM25) and semantic scores
 - Add a web UI (FastAPI / Streamlit)

@@ -14,7 +14,12 @@ class SemanticSearch:
         self.products = products
         self.model = SentenceTransformer(model_name)
         # Normalized vectors -> dot product equals cosine similarity.
-        self.embeddings = self.model.encode([p.text for p in products], normalize_embeddings=True)
+        self.embeddings = self.model.encode(
+            [p.text for p in products],
+            normalize_embeddings=True,
+            batch_size=64,  # embed 64 products at a time (faster than one by one)
+            show_progress_bar=len(products) > 100,
+        )
 
     def search(self, query: str, top_k: int = 3) -> list[tuple[float, Product]]:
         query_vec = self.model.encode([query], normalize_embeddings=True)[0]
