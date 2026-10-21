@@ -6,7 +6,7 @@ import re
 from semantic_search.data import Product
 #import class product from data.py
 
-STOPWORDS = {"a", "an", "the", "to", "for", "of", "on", "in", "my", "and", "or", "with", "i"}
+STOPWORDS = {"a", "an", "the", "to", "for", "of", "on", "in", "my", "and", "or", "with", "i", "this", "that", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "do", "does", "did", "but", "if", "then", "else", "when", "where", "why", "how"}
 
 
 def tokenize(text: str) -> set[str]:
