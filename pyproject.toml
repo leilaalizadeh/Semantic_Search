@@ -1,0 +1,21 @@
+[project]
+name = "semantic-search"
+version = "0.1.0"
+description = "Keyword search vs. semantic (embedding) search on a product catalog"
+readme = "README.md"
+authors = [{ name = "Leila Alizadeh" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "sentence-transformers>=3.0",
+]
+
+[project.scripts]
+semantic-search = "semantic_search.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
