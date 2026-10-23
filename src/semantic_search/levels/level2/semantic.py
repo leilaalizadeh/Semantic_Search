@@ -1,0 +1,29 @@
+"""Semantic search: embed products once, embed each query, rank by cosine similarity."""
+
+import numpy as np
+# A library that loads pretrained models that turn text into embeddings
+from sentence_transformers import SentenceTransformer
+
+from semantic_search.levels.level2.data import Product
+
+DEFAULT_MODEL = "all-MiniLM-L6-v2"  # small, free, runs locally on CPU
+
+
+class SemanticSearch:
+    def __init__(self, products: list[Product], model_name: str = DEFAULT_MODEL):
+        self.products = products
+        self.model = SentenceTransformer(model_name)
+        # Normalized vectors -> dot product equals cosine similarity.
+        self.embeddings = self.model.encode(
+            [p.text for p in products],
+            normalize_embeddings=True,
+            batch_size=64,  # embed 64 products at a time (faster than one by one)
+            show_progress_bar=len(products) > 100,
+        )
+
+    def search(self, query: str, top_k: int = 3) -> list[tuple[float, Product]]:
+        query_vec = self.model.encode([query], normalize_embeddings=True)[0]
+        # @ is matrix multiplication
+        scores = self.embeddings @ query_vec
+        best = np.argsort(-scores)[:top_k]
+        return [(float(scores[i]), self.products[i]) for i in best]
