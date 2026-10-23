@@ -1,5 +1,5 @@
-from semantic_search.data import Product
-from semantic_search.prepare_data import clean, clean_text
+from semantic_search.levels.level3.data import Product
+from semantic_search.levels.level3.prepare_data import clean, clean_text
 
 
 def make_row(**overrides):

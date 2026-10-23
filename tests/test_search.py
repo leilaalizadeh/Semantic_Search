@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
 
-from semantic_search import SemanticSearch, keyword_search, load_products
-from semantic_search.semantic import build_index
+from semantic_search.levels.level3 import SemanticSearch, keyword_search, load_products
+from semantic_search.levels.level3.semantic import build_index
 
 
 @pytest.fixture(scope="module")

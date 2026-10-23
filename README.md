@@ -27,11 +27,13 @@ user query ────► embedding model ──► query vector ──► cosi
 │   ├── products.json             # tiny hand-made catalog (30 products)
 │   └── amazon_products.json      # real Amazon sample (created by `prepare-data`, not in git)
 ├── src/semantic_search/
-│   ├── data.py                   # Product model + loader
-│   ├── prepare_data.py           # download + clean real Amazon data
-│   ├── keyword_search.py         # baseline word-matching search
-│   ├── semantic.py               # embedding-based search
-│   └── cli.py                    # interactive command-line app
+│   ├── web.py                    # web app (FastAPI), one tab per level
+│   ├── static/index.html         # search page
+│   └── levels/                   # each level's full code (from the git tags)
+│       ├── level1/               # data, keyword_search, semantic, cli
+│       ├── level2/               # + prepare_data (download Amazon data)
+│       ├── level3/               # + cache, FAISS / HNSW, benchmark
+│       └── level4/               # + BM25 and hybrid search (latest)
 └── tests/
 ```
 
@@ -81,6 +83,44 @@ Search> keep me warm when it snows
      0.496  Tough Headwear Full Face Mask for Cold Weather for Men - Work Balaclava ...
      0.445  Columbia Men's Basin Trail Fleece Full Zip
 ```
+
+## Level 4: BM25 and hybrid search
+
+- **BM25** (`levels/level4/bm25.py`): keyword ranking where rare words count more (IDF),
+  repeated words count less and less (k1), and long texts are normalized (b). An inverted
+  index makes it about 1000x faster than the old keyword search (0.07 ms vs 75 ms).
+- **Hybrid** (`levels/level4/hybrid.py`): combines BM25 and semantic rankings with
+  Reciprocal Rank Fusion, `1/(60 + rank)` summed over both lists.
+
+| Query | BM25 | Semantic | Hybrid |
+|---|---|---|---|
+| i have cold keep me warm | winter coat, mittens | face mask, fleece | mittens, face mask, coat |
+| something to fix a leaking sink | "I Fix Stuff" hat ❌ | kitchen mat | sink caddy (BM25 #2, semantic #2) |
+| going camping this weekend | sweater dress ❌ (rare word "weekend") | tent, sleeping bag | sleeping pad, sleeping bag (tent drops out) |
+
+Hybrid removes the worst mistakes of each method, but it is not better on every query.
+Measuring that properly is the next step (evaluation).
+
+## Web app
+
+```bash
+uv run web          # then open http://127.0.0.1:8000
+```
+
+One tab per level: Level 1 (30 products), Level 2 (Amazon data), Level 3 (Flat vs HNSW with
+search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid). Each tab runs that level's own code from
+`src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
+`benchmark` commands run the latest level. Only the import paths and the data
+folder depth were changed, and `tests/test_levels.py` checks that against git.
+The first search on the Level 2 tab takes about 25 seconds, because Level 2 had no embedding cache.
+
+You can also run an old level's command-line app:
+
+```bash
+uv run python -m semantic_search.levels.level1.cli
+uv run python -m semantic_search.levels.level2.cli --amazon
+``` A link like `http://127.0.0.1:8000/?q=running+shoes#level2`
+opens a search directly.
 
 ## Next steps
 

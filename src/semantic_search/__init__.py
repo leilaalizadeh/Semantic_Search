@@ -1,5 +1,5 @@
-from semantic_search.data import Product, load_products
-from semantic_search.keyword_search import keyword_search
-from semantic_search.semantic import SemanticSearch
+"""Semantic search project.
 
-__all__ = ["Product", "load_products", "keyword_search", "SemanticSearch"]
+  levels/levelN/  the code of each level (level3 is the latest)
+  web.py          web app that runs every level side by side
+"""
