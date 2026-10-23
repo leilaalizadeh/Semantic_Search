@@ -1,6 +1,7 @@
 """Interactive CLI comparing keyword search and semantic search side by side."""
 
 import argparse
+import time
 from pathlib import Path
 
 from semantic_search.data import AMAZON_PRODUCTS_PATH, DEFAULT_PRODUCTS_PATH, load_products
@@ -31,14 +32,18 @@ def main() -> None:
     parser.add_argument("--amazon", action="store_true", help="Use the real Amazon data (run `prepare-data` first)")
     parser.add_argument("--model", default=DEFAULT_MODEL, help="sentence-transformers model name")
     parser.add_argument("-k", "--top-k", type=int, default=3)
+    parser.add_argument("--index", choices=["flat", "hnsw"], default="flat", help="FAISS index type")
     args = parser.parse_args()
 
     data_path = AMAZON_PRODUCTS_PATH if args.amazon else args.data
     if not Path(data_path).exists():
         parser.error(f"{data_path} not found. Run `uv run prepare-data` first.")
     products = load_products(data_path)
-    print(f"Embedding {len(products)} products with {args.model}...")
-    engine = SemanticSearch(products, args.model)
+    print(f"Preparing {len(products)} products with {args.model}...")
+    start = time.perf_counter()
+    engine = SemanticSearch(products, args.model, index_type=args.index)
+    source = "loaded from cache" if engine.loaded_from_cache else "computed and saved to cache"
+    print(f"Embeddings {source} in {time.perf_counter() - start:.1f}s")
 
     def run(query: str) -> None:
         print_results("Keyword", keyword_search(query, products, args.top_k))
