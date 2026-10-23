@@ -51,9 +51,10 @@ class SemanticSearch:
         model_name: str = DEFAULT_MODEL,
         cache_dir: Path = CACHE_DIR,
         index_type: str = "flat",
+        model: SentenceTransformer | None = None,  # pass a loaded model to share it between engines
     ):
         self.products = products
-        self.model = SentenceTransformer(model_name)
+        self.model = model or SentenceTransformer(model_name)
 
         texts = [p.text for p in products]
         path = cache_path(texts, model_name, cache_dir)
