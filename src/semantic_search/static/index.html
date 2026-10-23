@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semantic Search</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #1d1d1b;
+    --muted: #6b6b66;
+    --border: #e3e2dd;
+    --accent: #2f5bd3;
+    --accent-soft: #e8eefc;
+    --good: #1f7a4d;
+    --good-soft: #e3f3ea;
+    --bar: #c9d6f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161615;
+      --surface: #1f1f1d;
+      --text: #ecebe6;
+      --muted: #9c9b94;
+      --border: #34332f;
+      --accent: #8aa8ff;
+      --accent-soft: #24304d;
+      --good: #6fcf97;
+      --good-soft: #1d3327;
+      --bar: #34467a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; overflow-x: auto; }
+  .tab {
+    border: 0; background: none; color: var(--muted); font: inherit; font-weight: 600;
+    padding: 10px 14px; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
+  }
+  .tab:hover { color: var(--text); }
+  .tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .about { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; }
+  .about h2 { font-size: 16px; margin: 0 0 4px; }
+  .about p { margin: 0; color: var(--muted); }
+
+  form { display: flex; gap: 8px; }
+  input[type="search"] {
+    flex: 1; min-width: 0; font: inherit; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  }
+  input[type="search"]:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  button.go {
+    font: inherit; font-weight: 600; padding: 10px 18px; border: 0; border-radius: 8px;
+    background: var(--accent); color: var(--surface); cursor: pointer;
+  }
+  .examples { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+  .chip {
+    font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+  }
+  .chip:hover { color: var(--accent); border-color: var(--accent); }
+
+  .controls { display: flex; align-items: center; gap: 10px; margin-top: 12px; color: var(--muted); font-size: 14px; flex-wrap: wrap; }
+  .controls input[type="range"] { width: 180px; accent-color: var(--accent); }
+
+  .status { color: var(--muted); font-size: 14px; margin: 18px 0 10px; min-height: 21px; }
+  .error { color: #c0392b; }
+
+  .columns { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 900px) { .columns { grid-template-columns: 1fr; } }
+  .column { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .column header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+  .column h3 { margin: 0; font-size: 15px; }
+  .column .time { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .empty { padding: 16px 14px; color: var(--muted); }
+
+  .result { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .result:last-child { border-bottom: 0; }
+  .result .top { display: flex; gap: 10px; align-items: baseline; }
+  .rank { color: var(--muted); font-size: 13px; width: 18px; flex: none; }
+  .title { font-weight: 600; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .title .name { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .score { font-size: 13px; font-variant-numeric: tabular-nums; color: var(--muted); flex: none; }
+  .bar { height: 3px; background: var(--border); border-radius: 2px; margin: 6px 0 4px 28px; }
+  .bar span { display: block; height: 100%; background: var(--bar); border-radius: 2px; }
+  .meta, .desc { margin-left: 28px; font-size: 13px; color: var(--muted); }
+  .desc { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tag { display: inline-block; font-size: 12px; padding: 0 6px; border-radius: 4px; margin-left: 6px; }
+  .tag.same { background: var(--good-soft); color: var(--good); }
+  .tag.missed { background: var(--accent-soft); color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Semantic Search</h1>
+  <p class="sub">Keyword search vs. semantic search, one tab per level of the project.</p>
+
+  <nav class="tabs" role="tablist"></nav>
+
+  <section class="about">
+    <h2 id="about-title"></h2>
+    <p id="about-text"></p>
+  </section>
+
+  <form id="form">
+    <input type="search" id="query" placeholder="Search products..." autocomplete="off" aria-label="Search query">
+    <button class="go" type="submit">Search</button>
+  </form>
+  <div class="examples" id="examples"></div>
+
+  <div class="controls">
+    <label>Results <select id="k">
+      <option>3</option><option selected>5</option><option>10</option>
+    </select></label>
+    <span id="ef-control" hidden>
+      <label for="ef">efSearch</label>
+      <input type="range" id="ef" min="0" max="7" value="3">
+      <strong id="ef-value">64</strong>
+    </span>
+  </div>
+
+  <div class="status" id="status"></div>
+  <div class="columns" id="columns"></div>
+</main>
+
+<script>
+const LEVELS = {
+  1: {
+    tab: "Level 1 · Basics",
+    title: "Level 1: keyword vs. semantic on 30 products",
+    text: "Runs the code from tag Level1 (levels/level1). 30 hand-made products. Keyword search counts matching words. Semantic search embeds the query with all-MiniLM-L6-v2 and ranks products by cosine similarity with numpy.",
+    examples: ["gift for a 6 year old", "block out noise on the airplane", "charge my phone on a trip", "make breakfast quickly"],
+  },
+  2: {
+    tab: "Level 2 · Amazon data",
+    title: "Level 2: real Amazon products",
+    text: "Runs the code from tag level2 (levels/level2). 5,000 real products from the AMAZON-Products-2023 dataset. Same two methods, but real data is messier. Level 2 had no cache, so the first search embeds all products (about 25 seconds).",
+    examples: ["going camping this weekend", "keep me warm when it snows", "i have cold keep me warm?", "something to fix a leaking sink"],
+  },
+  3: {
+    tab: "Level 3 · FAISS & HNSW",
+    title: "Level 3: exact (Flat) vs. approximate (HNSW) index",
+    text: "Runs the code from tag level3 (levels/level3). Both columns are semantic search over the same 5,000 Amazon vectors. Flat compares with every vector. HNSW jumps through a graph of neighbours. Lower efSearch is faster but can miss results.",
+    examples: ["running shoes", "my car is dirty", "office chair", "birthday gift for mom"],
+  },
+  4: {
+    tab: "Level 4 · Hybrid",
+    title: "Level 4: BM25 + semantic = hybrid search",
+    text: "Runs levels/level4. BM25 is a smarter keyword search: rare words count more (IDF), and an inverted index makes it fast. It still doesn't understand meaning. Hybrid combines the BM25 and semantic rankings with Reciprocal Rank Fusion: score = 1/(60 + BM25 rank) + 1/(60 + semantic rank), so products both methods like come first.",
+    examples: ["i have cold keep me warm", "something to fix a leaking sink", "going camping this weekend", "Columbia"],
+  },
+};
+const EF_VALUES = [1, 4, 16, 64, 128, 256, 512, 1024];
+
+const $ = (id) => document.getElementById(id);
+let level = Number(location.hash.replace("#level", "")) || 1;
+if (!LEVELS[level]) level = 1;
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;  // textContent: never interpret data as HTML
+  return node;
+}
+
+function renderTabs() {
+  const tabs = document.querySelector(".tabs");
+  tabs.replaceChildren();
+  for (const [n, info] of Object.entries(LEVELS)) {
+    const tab = el("button", "tab", info.tab);
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-selected", String(Number(n) === level));
+    tab.onclick = () => selectLevel(Number(n));
+    tabs.append(tab);
+  }
+}
+
+function selectLevel(n) {
+  level = n;
+  history.replaceState(null, "", `#level${n}`);
+  const info = LEVELS[n];
+  renderTabs();
+  $("about-title").textContent = info.title;
+  $("about-text").textContent = info.text;
+  $("ef-control").hidden = n !== 3;
+  const examples = $("examples");
+  examples.replaceChildren();
+  for (const q of info.examples) {
+    const chip = el("button", "chip", q);
+    chip.type = "button";
+    chip.onclick = () => { $("query").value = q; search(); };
+    examples.append(chip);
+  }
+  $("columns").replaceChildren();
+  $("status").textContent = "";
+  if ($("query").value.trim()) search();
+}
+
+function renderResult(r, rank, mark, kind) {
+  const item = el("div", "result");
+  const top = el("div", "top");
+  top.append(el("span", "rank", String(rank)));
+  const title = el("span", "title");
+  title.append(el("span", "name", r.title));
+  if (mark) title.append(el("span", `tag ${mark.cls}`, mark.text));
+  // Keyword score = number of matching words; semantic score = cosine similarity (0..1).
+  // Keyword: number of matching words. BM25: sum of word weights (no fixed max). Semantic: cosine similarity 0..1.
+  const score = kind === "keyword" ? `${r.score} word${r.score === 1 ? "" : "s"}`
+    : kind === "bm25" ? r.score.toFixed(2) : kind === "hybrid" ? r.score.toFixed(4) : r.score.toFixed(3);
+  top.append(title, el("span", "score", score));
+  item.append(top);
+
+  if (kind === "semantic") {
+    const bar = el("div", "bar");
+    const fill = el("span");
+    fill.style.width = `${Math.max(0, Math.min(1, r.score)) * 100}%`;
+    bar.append(fill);
+    item.append(bar);
+  }
+
+  const meta = [r.category, r.price != null ? `$${r.price.toFixed(2)}` : "", r.rating != null ? `★ ${r.rating}` : ""].filter(Boolean);
+  if (meta.length) item.append(el("div", "meta", meta.join(" · ")));
+  if (kind === "hybrid") {
+    const from = el("div", "meta");
+    for (const [name, rank] of [["BM25", r.bm25_rank], ["Semantic", r.semantic_rank]]) {
+      from.append(el("span", `tag ${rank ? "same" : "missed"}`, rank ? `${name} #${rank}` : `not in ${name}`));
+    }
+    item.append(from);
+  }
+  item.append(el("div", "desc", r.description));
+  return item;
+}
+
+function render(data) {
+  const columns = $("columns");
+  columns.replaceChildren();
+  columns.style.setProperty("--cols", data.columns.length);
+  const flatIds = level === 3 ? new Set(data.columns[0].results.map((r) => r.id)) : null;
+
+  data.columns.forEach((col, i) => {
+    const box = el("section", "column");
+    const header = el("header");
+    header.append(el("h3", "", col.name), el("span", "time", col.note ? `${col.ms} ms (${col.note})` : `${col.ms} ms`));
+    box.append(header);
+    if (!col.results.length) box.append(el("div", "empty", "No results"));
+    col.results.forEach((r, j) => {
+      let mark = null;
+      if (level === 3 && i === 1) {
+        mark = flatIds.has(r.id) ? { cls: "same", text: "same as Flat" } : { cls: "missed", text: "different" };
+      }
+      box.append(renderResult(r, j + 1, mark, col.kind));
+    });
+    columns.append(box);
+  });
+
+  let status = `${data.num_products.toLocaleString()} products`;
+  if (data.embed_ms != null) status += ` · embedding the query took ${data.embed_ms} ms`;
+  if (level === 3) {
+    const found = data.columns[1].results.filter((r) => flatIds.has(r.id)).length;
+    status += ` · HNSW found ${found} of Flat's top ${data.columns[0].results.length}`;
+  }
+  $("status").textContent = status;
+}
+
+let requestId = 0;
+async function search() {
+  const q = $("query").value.trim();
+  if (!q) return;
+  const id = ++requestId;
+  $("status").className = "status";
+  $("status").textContent = "Searching... (the first search of a level loads the model and data)";
+  const params = new URLSearchParams({ q, level, k: $("k").value, ef_search: EF_VALUES[$("ef").value] });
+  try {
+    const res = await fetch(`/api/search?${params}`);
+    const data = await res.json();
+    if (id !== requestId) return;  // a newer search started meanwhile
+    if (!res.ok) {
+      // FastAPI sends either a text detail or a list of validation errors ({msg: ...}).
+      const detail = Array.isArray(data.detail) ? data.detail.map((d) => d.msg).join("; ") : data.detail;
+      throw new Error(detail || res.statusText);
+    }
+    render(data);
+  } catch (err) {
+    if (id !== requestId) return;
+    $("columns").replaceChildren();
+    $("status").className = "status error";
+    $("status").textContent = `Error: ${err.message}`;
+  }
+}
+
+$("form").onsubmit = (e) => { e.preventDefault(); search(); };
+$("k").onchange = search;
+$("ef").oninput = () => { $("ef-value").textContent = EF_VALUES[$("ef").value]; };
+$("ef").onchange = search;
+// A link like /?q=running+shoes#level2 opens that search directly.
+$("query").value = new URLSearchParams(location.search).get("q") || "";
+selectLevel(level);
+</script>
+</body>
+</html>
