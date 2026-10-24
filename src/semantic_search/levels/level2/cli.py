@@ -8,6 +8,7 @@ from semantic_search.levels.level2.keyword_search import keyword_search
 from semantic_search.levels.level2.semantic import DEFAULT_MODEL, SemanticSearch
 
 
+# Cuts long titles so they fit in the terminal. It only changes what is printed, not the search results.
 def shorten(text: str, width: int = 80) -> str:
     return text if len(text) <= width else text[: width - 3] + "..."
 

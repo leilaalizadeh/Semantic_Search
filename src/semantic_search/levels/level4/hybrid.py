@@ -25,6 +25,9 @@ class HybridResult:
     semantic_rank: int | None  # position in the semantic list
 
 
+# Hybrid search: combines BM25 and semantic search with Reciprocal Rank Fusion (RRF).
+# RRF only uses each product's position in each list, so the different score scales don't matter.
+# Products that rank well in both lists end up on top.
 class HybridSearch:
     def __init__(self, semantic: SemanticSearch, bm25: BM25Search, rrf_k: int = 60, candidates: int = 50):
         self.semantic = semantic

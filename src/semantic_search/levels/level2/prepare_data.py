@@ -31,9 +31,12 @@ def download(num_files: int) -> list[dict]:
     fs = HfFileSystem()
     rows = []
     for i in range(num_files):
+        # Parquet is a column-based format, so we can skip the big "embeddings" column
+        # and download about 90% less.
         path = f"{PARQUET_DIR}/{i:04d}.parquet"
         print(f"Downloading file {i + 1}/{num_files} (about 1 minute each)...")
         with fs.open(path, block_size=2**20) as f:
+            # to_pylist() turns the table into a list of Python dicts, one dict per product
             rows.extend(pq.read_table(f, columns=COLUMNS).to_pylist())
     return rows
 
@@ -82,9 +85,12 @@ def main() -> None:
     print(f"Downloaded {len(rows)} products, {len(products)} left after cleaning.")
 
     random.seed(args.seed)
+    # Picks a random sample of products. If there are fewer products than requested, it keeps all of them.
     sample = random.sample(products, min(args.num_products, len(products)))
 
     with open(args.output, "w") as f:
+        # Saves all products as one JSON list (load_products reads it back with json.load).
+        # indent=1 makes the file easy to read, ensure_ascii=False keeps characters like "é" as they are.
         json.dump(sample, f, indent=1, ensure_ascii=False)
     print(f"Saved {len(sample)} products to {args.output}")
 

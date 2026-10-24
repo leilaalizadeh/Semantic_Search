@@ -1,5 +1,9 @@
-"""The code in src/semantic_search/levels/ must stay a faithful copy of the git tags."""
+"""The code in src/semantic_search/levels/ must stay a faithful copy of the git tags.
 
+Comments, note strings and blank lines may differ (you can add your own notes), the code may not.
+"""
+
+import ast
 import re
 import subprocess
 from pathlib import Path
@@ -29,6 +33,20 @@ def allowed_changes(code: str, folder: str) -> str:
     return code.replace("parents[2]", "parents[4]")
 
 
+class RemoveNotes(ast.NodeTransformer):
+    """Drop standalone strings ('''notes''' and docstrings): they don't change what the code does."""
+
+    def visit_Expr(self, node):
+        if isinstance(node.value, ast.Constant) and isinstance(node.value.value, str):
+            return None
+        return node
+
+
+def code_only(source: str) -> str:
+    # ast.dump = the code as Python understands it, without # comments or formatting
+    return ast.dump(RemoveNotes().visit(ast.parse(source)))
+
+
 @pytest.mark.parametrize("folder, tag", LEVELS.items())
 def test_level_matches_git_tag(folder, tag):
     if not tag_exists(tag):
@@ -37,7 +55,8 @@ def test_level_matches_git_tag(folder, tag):
     for path in files:
         original = git("show", f"{tag}:{path}")
         copy = (ROOT / "src/semantic_search/levels" / folder / Path(path).name).read_text()
-        assert copy == allowed_changes(original, folder), f"{folder}/{Path(path).name} differs from {tag}"
+        same_code = code_only(copy) == code_only(allowed_changes(original, folder))
+        assert same_code, f"{folder}/{Path(path).name}: code differs from tag {tag}"
 
 
 def test_level1_code_still_works():

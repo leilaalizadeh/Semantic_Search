@@ -17,15 +17,18 @@ class Product:
         return f"{self.title}. {self.description}"
 
 
+# The same class written by hand, without @dataclass:
+#
 # class Product:
 #     def __init__(self, id: int, title: str, description: str):
 #         self.id = id
 #         self.title = title
 #         self.description = description
 
+#     @property
 #     def text(self) -> str:
 #         return f"{self.title}. {self.description}"
-
+#
 #     def __repr__(self):
 #         return f"Product(id={self.id}, title={self.title!r}, description={self.description!r})"
 

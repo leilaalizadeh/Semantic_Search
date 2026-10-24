@@ -38,3 +38,14 @@ def test_level_4_columns():
     data = client.get("/api/search", params={"q": "camping", "level": 4, "k": 3}).json()
     assert [c["kind"] for c in data["columns"]] == ["bm25", "semantic", "hybrid"]
     assert "bm25_rank" in data["columns"][2]["results"][0]
+
+
+def test_level_3_hnsw_does_not_crash():
+    # Building HNSW after PyTorch has run used to crash the server (OpenMP conflict on macOS).
+    from semantic_search.levels.level3.data import AMAZON_PRODUCTS_PATH
+
+    if not AMAZON_PRODUCTS_PATH.exists():
+        pytest.skip("Amazon data not downloaded (run `uv run prepare-data`)")
+    client.get("/api/search", params={"q": "Columbia", "level": 1})  # PyTorch runs first
+    data = client.get("/api/search", params={"q": "Columbia", "level": 3, "k": 3}).json()
+    assert [c["kind"] for c in data["columns"]] == ["semantic", "semantic"]

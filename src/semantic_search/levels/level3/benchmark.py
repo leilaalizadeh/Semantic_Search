@@ -29,6 +29,9 @@ QUERIES = [
 K = 10
 
 
+# 5000 products are too few to see a speed difference, so we scale up:
+# each extra vector is a real product vector + a little random noise.
+# This keeps the "shape" of real data (similar products stay close together).
 def scale_up(base: np.ndarray, size: int, noise: float, seed: int = 0) -> np.ndarray:
     """Make `size` vectors: random real vectors + small noise, normalized again."""
     rng = np.random.default_rng(seed)
@@ -38,6 +41,7 @@ def scale_up(base: np.ndarray, size: int, noise: float, seed: int = 0) -> np.nda
     return np.vstack([base, vectors])
 
 
+# Measures how fast a FAISS index can search.
 def time_search(index: faiss.Index, queries: np.ndarray, repeats: int = 5) -> tuple[float, np.ndarray]:
     """Average milliseconds per query (one query at a time, like a real user)."""
     start = time.perf_counter()
@@ -49,6 +53,7 @@ def time_search(index: faiss.Index, queries: np.ndarray, repeats: int = 5) -> tu
     return ms, ids
 
 
+# recall@10: how many of the true top 10 (from Flat) did the index also find?
 def recall(found: np.ndarray, truth: np.ndarray) -> float:
     hits = sum(len(set(f) & set(t)) for f, t in zip(found, truth))
     return hits / truth.size

@@ -22,6 +22,9 @@ from semantic_search.levels.level4.data import Product
 from semantic_search.levels.level4.keyword_search import STOPWORDS
 
 
+# BM25 needs to know that "tent" appears 3 times in a product, so we tokenize into a list of words, not a set.
+# (It also needs the length of each product, the average length, and how many products contain
+# each word for IDF. Those are computed in BM25Search.__init__ below.)
 def tokenize(text: str) -> list[str]:
     """Like keyword_search.tokenize, but returns a list: BM25 needs to count repeats."""
     return [w for w in re.findall(r"[a-z0-9]+", text.lower()) if w not in STOPWORDS]
@@ -45,6 +48,8 @@ class BM25Search:
         self.avg_length = sum(self.lengths) / max(len(products), 1)
 
         n = len(products)
+        # Rare words count more than common words. The "1 +" inside the log keeps IDF above 0,
+        # even for a word that is in almost every product.
         self.idf = {
             word: math.log(1 + (n - len(docs) + 0.5) / (len(docs) + 0.5))
             for word, docs in self.postings.items()

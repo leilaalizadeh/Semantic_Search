@@ -16,6 +16,7 @@
     --good: #1f7a4d;
     --good-soft: #e3f3ea;
     --bar: #c9d6f7;
+    --mark: #fde68a;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -29,6 +30,7 @@
       --good: #6fcf97;
       --good-soft: #1d3327;
       --bar: #34467a;
+      --mark: #6b5310;
     }
   }
   * { box-sizing: border-box; }
@@ -53,6 +55,12 @@
   .about { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; }
   .about h2 { font-size: 16px; margin: 0 0 4px; }
   .about p { margin: 0; color: var(--muted); }
+  .about ol { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
+  .about li { margin: 2px 0; }
+  .about .try { margin-top: 8px; color: var(--text); }
+  .about h3 { font-size: 14px; margin: 12px 0 0; }
+  .about ul { margin: 4px 0 0; padding-left: 20px; color: var(--muted); }
+  .about .fixed { font-size: 12px; padding: 0 6px; border-radius: 4px; margin-left: 6px; background: var(--good-soft); color: var(--good); white-space: nowrap; }
 
   form { display: flex; gap: 8px; }
   input[type="search"] {
@@ -73,6 +81,8 @@
 
   .controls { display: flex; align-items: center; gap: 10px; margin-top: 12px; color: var(--muted); font-size: 14px; flex-wrap: wrap; }
   .controls input[type="range"] { width: 180px; accent-color: var(--accent); }
+  .ef-help { margin: 8px 0 0; max-width: 720px; font-size: 13px; color: var(--muted); }
+  .ef-help strong { color: var(--text); }
 
   .status { color: var(--muted); font-size: 14px; margin: 18px 0 10px; min-height: 21px; }
   .error { color: #c0392b; }
@@ -99,6 +109,9 @@
   .tag { display: inline-block; font-size: 12px; padding: 0 6px; border-radius: 4px; margin-left: 6px; }
   .tag.same { background: var(--good-soft); color: var(--good); }
   .tag.missed { background: var(--accent-soft); color: var(--accent); }
+  mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
+  .matched { margin-left: 28px; font-size: 13px; color: var(--muted); }
+  .matched strong { color: var(--text); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -111,6 +124,10 @@
   <section class="about">
     <h2 id="about-title"></h2>
     <p id="about-text"></p>
+    <ol id="about-steps"></ol>
+    <p class="try" id="about-try"></p>
+    <h3>Problems</h3>
+    <ul id="about-problems"></ul>
   </section>
 
   <form id="form">
@@ -129,6 +146,11 @@
       <strong id="ef-value">64</strong>
     </span>
   </div>
+  <p class="ef-help" id="ef-help" hidden>
+    <strong>efSearch</strong> is how many candidate products HNSW keeps while it jumps through the graph.
+    Low (1, 4): very fast, but it can miss good products, marked "different".
+    High (256 and more): slower, almost the same as Flat. 64 is a good balance.
+  </p>
 
   <div class="status" id="status"></div>
   <div class="columns" id="columns"></div>
@@ -138,26 +160,81 @@
 const LEVELS = {
   1: {
     tab: "Level 1 · Basics",
-    title: "Level 1: keyword vs. semantic on 30 products",
-    text: "Runs the code from tag Level1 (levels/level1). 30 hand-made products. Keyword search counts matching words. Semantic search embeds the query with all-MiniLM-L6-v2 and ranks products by cosine similarity with numpy.",
+    title: "Level 1: keyword search vs. semantic search",
+    intro: "30 products I wrote by hand, searched in two ways.",
+    steps: [
+      "Keyword: the query and each product are split into words. Small words like \"a\" and \"the\" are removed. The score is the number of words they share.",
+      "Semantic: at the start, the model (all-MiniLM-L6-v2) turns every product into a list of 384 numbers that describe its meaning.",
+      "When you search, your query is turned into 384 numbers too.",
+      "Each product gets a score from 0 to 1 (cosine similarity): how close its numbers are to the query's numbers. The highest score comes first.",
+    ],
+    tryThis: "Try \"gift for a 6 year old\": keyword search finds a speaker because of the \"6\" in its name, semantic search finds LEGO.",
+    problems: [
+      ["Only 30 products, all written by hand. Real product text is much messier.", "fixed in Level 2"],
+      ["Keyword search gives every word the same weight: \"6\" counts as much as \"gift\".", "fixed in Level 4"],
+      ["Keyword search can't match different words with the same meaning, like \"sneakers\" and \"running shoes\"."],
+      ["Semantic search always returns something, even when nothing fits. A low score is the only sign."],
+    ],
     examples: ["gift for a 6 year old", "block out noise on the airplane", "charge my phone on a trip", "make breakfast quickly"],
   },
   2: {
     tab: "Level 2 · Amazon data",
     title: "Level 2: real Amazon products",
-    text: "Runs the code from tag level2 (levels/level2). 5,000 real products from the AMAZON-Products-2023 dataset. Same two methods, but real data is messier. Level 2 had no cache, so the first search embeds all products (about 25 seconds).",
+    intro: "The same two methods, now on 5,000 real products.",
+    steps: [
+      "The products come from the AMAZON-Products-2023 dataset. Empty, duplicate and digital products were removed, then 5,000 were picked at random.",
+      "Each product now has a category, a price and a rating. The category is added to the text the model reads.",
+      "The first search on this tab turns all 5,000 products into numbers. This takes about 25 seconds, and it happens again every time the server restarts.",
+      "Then each search works like Level 1.",
+    ],
+    tryThis: "Real text is messy. Try \"i have cold keep me warm?\" and look at what keyword search finds.",
+    problems: [
+      ["Every start turns all 5,000 products into numbers again (about 25 seconds), even when nothing changed.", "fixed in Level 3"],
+      ["Semantic search compares the query with every product. Fine for 5,000, too slow for millions.", "fixed in Level 3"],
+      ["Keyword search reads all 5,000 products on every search (about 75 ms).", "fixed in Level 4"],
+      ["Keyword search still counts common words like \"have\" as much as important ones like \"cold\".", "fixed in Level 4"],
+      ["Semantic search is weak with brand names, model numbers and words like \"not\" or \"without\"."],
+    ],
     examples: ["going camping this weekend", "keep me warm when it snows", "i have cold keep me warm?", "something to fix a leaking sink"],
   },
   3: {
     tab: "Level 3 · FAISS & HNSW",
-    title: "Level 3: exact (Flat) vs. approximate (HNSW) index",
-    text: "Runs the code from tag level3 (levels/level3). Both columns are semantic search over the same 5,000 Amazon vectors. Flat compares with every vector. HNSW jumps through a graph of neighbours. Lower efSearch is faster but can miss results.",
+    title: "Level 3: faster semantic search",
+    intro: "Both columns are semantic search on the same 5,000 products. Only the way of finding the closest products is different.",
+    steps: [
+      "After the first time, the product numbers are saved to a file. Starting takes about 1 second instead of 25.",
+      "The numbers are put in a FAISS index, a structure made for finding close vectors.",
+      "Flat (left) compares your query with all 5,000 products. It always finds the true best results.",
+      "HNSW (right) links each product to its closest neighbours. A search jumps from neighbour to neighbour toward the query, so it checks only a small part of the products.",
+      "efSearch is how many products HNSW checks. Lower is faster but can miss some of the best results.",
+    ],
+    tryThis: "Move the efSearch slider to 1 or 4 and watch for results marked \"different\".",
+    problems: [
+      ["HNSW is approximate: with a low efSearch it misses some of the best results."],
+      ["Building the HNSW index takes time (about 10 seconds for 200,000 products) and uses more memory than Flat."],
+      ["The results are as good as Level 2, not better. This level only makes search faster."],
+      ["The speed test used noisy copies of real products, so its numbers are only a rough guide."],
+    ],
     examples: ["running shoes", "my car is dirty", "office chair", "birthday gift for mom"],
   },
   4: {
     tab: "Level 4 · Hybrid",
-    title: "Level 4: BM25 + semantic = hybrid search",
-    text: "Runs levels/level4. BM25 is a smarter keyword search: rare words count more (IDF), and an inverted index makes it fast. It still doesn't understand meaning. Hybrid combines the BM25 and semantic rankings with Reciprocal Rank Fusion: score = 1/(60 + BM25 rank) + 1/(60 + semantic rank), so products both methods like come first.",
+    title: "Level 4: BM25 and hybrid search",
+    intro: "A better keyword search (BM25), and a mix of BM25 and semantic search (hybrid).",
+    steps: [
+      "BM25: rare words count more than common words. A word that appears many times in a product helps, but less each time. Long descriptions don't win just because they have more words.",
+      "BM25 keeps a list of which products contain each word, so a search only looks at those products. It is about 1000 times faster than the old keyword search.",
+      "Semantic: the same as Level 3.",
+      "Hybrid: takes the top 50 products from BM25 and from semantic search. Each product gets 1/(60 + its position) from each list, and the two numbers are added. Products that both lists like come first.",
+      "The highlighted words are the words a product shares with your query.",
+    ],
+    tryThis: "Try \"going camping this weekend\": BM25 shows a dress because \"weekend\" is a rare word. See what hybrid does with it.",
+    problems: [
+      ["BM25 knows which words are rare, not which words are important: \"weekend\" brought a dress to #2."],
+      ["BM25 needs the exact word: \"camp\" doesn't match \"camping\", and \"sneakers\" doesn't match \"shoes\"."],
+      ["Hybrid is not always better: for \"going camping this weekend\" the tent from semantic search drops out."],
+      ["We judge the results by looking at a few examples. Without test queries that have correct answers, we can't say which method is better overall.", "next: Level 5"],
+    ],
     examples: ["i have cold keep me warm", "something to fix a leaking sink", "going camping this weekend", "Columbia"],
   },
 };
@@ -192,8 +269,16 @@ function selectLevel(n) {
   const info = LEVELS[n];
   renderTabs();
   $("about-title").textContent = info.title;
-  $("about-text").textContent = info.text;
+  $("about-text").textContent = info.intro;
+  $("about-steps").replaceChildren(...info.steps.map((step) => el("li", "", step)));
+  $("about-try").textContent = info.tryThis;
+  $("about-problems").replaceChildren(...info.problems.map(([text, fixedIn]) => {
+    const item = el("li", "", text);
+    if (fixedIn) item.append(el("span", "fixed", fixedIn));  // e.g. "fixed in Level 3"
+    return item;
+  }));
   $("ef-control").hidden = n !== 3;
+  $("ef-help").hidden = n !== 3;
   const examples = $("examples");
   examples.replaceChildren();
   for (const q of info.examples) {
@@ -207,12 +292,24 @@ function selectLevel(n) {
   if ($("query").value.trim()) search();
 }
 
+// Put text in a node and wrap the matched words in <mark>.
+// Words are split like Python's tokenize(): runs of letters/digits, compared in lowercase.
+function highlighted(tag, className, text, matched) {
+  const node = el(tag, className);
+  const words = new Set(matched || []);
+  for (const part of text.split(/([A-Za-z0-9]+)/)) {
+    if (words.has(part.toLowerCase())) node.append(el("mark", "", part));
+    else node.append(document.createTextNode(part));
+  }
+  return node;
+}
+
 function renderResult(r, rank, mark, kind) {
   const item = el("div", "result");
   const top = el("div", "top");
   top.append(el("span", "rank", String(rank)));
   const title = el("span", "title");
-  title.append(el("span", "name", r.title));
+  title.append(highlighted("span", "name", r.title, r.matched));
   if (mark) title.append(el("span", `tag ${mark.cls}`, mark.text));
   // Keyword score = number of matching words; semantic score = cosine similarity (0..1).
   // Keyword: number of matching words. BM25: sum of word weights (no fixed max). Semantic: cosine similarity 0..1.
@@ -238,7 +335,16 @@ function renderResult(r, rank, mark, kind) {
     }
     item.append(from);
   }
-  item.append(el("div", "desc", r.description));
+  if (r.matched) {
+    const line = el("div", "matched");
+    if (r.matched.length) {
+      line.append("matched: ", el("strong", "", r.matched.join(", ")));
+    } else {
+      line.append("no shared words (found by meaning)");
+    }
+    item.append(line);
+  }
+  item.append(highlighted("div", "desc", r.description, r.matched));
   return item;
 }
 
