@@ -29,3 +29,14 @@ def test_semantic_only_results_still_appear(hybrid):
     results = hybrid.fuse("gift for a 6 year old", top_k=3)
     assert all(r.bm25_rank is None or r.semantic_rank is not None for r in results)
     assert any("LEGO" in r.product.title for r in results)
+
+
+def test_weighted_rrf_trusts_the_heavier_list():
+    from semantic_search.levels.level5.data import Product
+    from semantic_search.levels.level5.hybrid import rrf
+
+    a, b = Product(id=1, title="A", description=""), Product(id=2, title="B", description="")
+    bm25_list, semantic_list = [(9.0, a), (8.0, b)], [(0.9, b), (0.8, a)]  # the two lists disagree
+    assert rrf(bm25_list, semantic_list)[0].score == rrf(bm25_list, semantic_list)[1].score  # equal weights: a tie
+    assert rrf(bm25_list, semantic_list, semantic_weight=2.0)[0].product == b   # semantic counts more
+    assert rrf(bm25_list, semantic_list, bm25_weight=2.0)[0].product == a       # BM25 counts more

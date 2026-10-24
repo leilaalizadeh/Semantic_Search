@@ -33,7 +33,8 @@ user query ────► embedding model ──► query vector ──► cosi
 │       ├── level1/               # data, keyword_search, semantic, cli
 │       ├── level2/               # + prepare_data (download Amazon data)
 │       ├── level3/               # + cache, FAISS / HNSW, benchmark
-│       └── level4/               # + BM25 and hybrid search (latest)
+│       ├── level4/               # + BM25 and hybrid search
+│       └── level5/               # + evaluation: labels, metrics, experiments (latest)
 └── tests/
 ```
 
@@ -101,6 +102,40 @@ Search> keep me warm when it snows
 Hybrid removes the worst mistakes of each method, but it is not better on every query.
 Measuring that properly is the next step (evaluation).
 
+## Level 5: evaluation
+
+Measure every method on labeled queries instead of looking at a few examples.
+
+1. **Test queries** (`levels/level5/queries.py`): 20 queries of 4 types: intent, simple, exact, tricky.
+2. **Pooling** (`pool.py`): the top 10 of every method are merged into `data/eval/pool.json`
+   (684 query-product pairs). Only these are labeled.
+3. **Labeling** (`/label` page in the web app): each pair is marked relevant or not, without seeing
+   which method found it. Two labelers labeled everything separately and agreed on 91% of the pairs
+   (Cohen's kappa 0.80).
+4. **Metrics** (`evaluate.py`): P@5, R@10, MRR and nDCG@10.
+5. **Experiments**: tuning hybrid (`tune.py`) and comparing embedding models (`compare_models.py`).
+
+| Method | Model | nDCG@10 |
+|---|---|---|
+| Keyword | - | 0.360 |
+| BM25 | - | 0.570 |
+| Semantic | all-MiniLM-L6-v2 (Levels 1-4) | 0.664 |
+| Semantic | all-mpnet-base-v2 (5x bigger) | 0.646 |
+| Semantic | BAAI/bge-small-en-v1.5 | 0.684 |
+| Hybrid | MiniLM, tuned (k=5, semantic weight 2) | 0.695 |
+| Hybrid | **BGE-small (k=60, equal weights)** | **0.697** |
+
+Level 5 uses BGE-small with plain hybrid by default. The bigger model was not better, and the
+first model comparison looked wrong until the new models' results were labeled too (pool bias).
+With 18 queries, the top results are too close to call a clear winner.
+
+```bash
+uv run python -m semantic_search.levels.level5.evaluate          # agreement + metrics
+uv run python -m semantic_search.levels.level5.tune              # Experiment 1: hybrid settings
+uv run python -m semantic_search.levels.level5.compare_models    # Experiment 2: embedding models
+uv run python -m semantic_search.levels.level5.pool --add-models # add new models' results to the pool
+```
+
 ## Web app
 
 ```bash
@@ -108,7 +143,8 @@ uv run web          # then open http://127.0.0.1:8000
 ```
 
 One tab per level: Level 1 (30 products), Level 2 (Amazon data), Level 3 (Flat vs HNSW with
-search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid). Each tab runs that level's own code from
+search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid), Level 5 (results table, and
+BM25 vs semantic vs hybrid with BGE-small). Each tab runs that level's own code from
 `src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
 `benchmark` commands run the latest level. Only the import paths and the data
 folder depth were changed, and `tests/test_levels.py` checks that against git.
@@ -119,11 +155,13 @@ You can also run an old level's command-line app:
 ```bash
 uv run python -m semantic_search.levels.level1.cli
 uv run python -m semantic_search.levels.level2.cli --amazon
-``` A link like `http://127.0.0.1:8000/?q=running+shoes#level2`
-opens a search directly.
+```
+
+A link like `http://127.0.0.1:8000/?q=running+shoes#level2` opens a search directly.
 
 ## Next steps
 
-- Store embeddings in a vector database (FAISS, Chroma, Qdrant)
-- Hybrid search: combine keyword (BM25) and semantic scores
-- Add a web UI (FastAPI / Streamlit)
+- Fine-tune the embedding model. Train on synthetic queries made by an LLM,
+  and test on the hand-labeled queries from Level 5 (never train on them).
+- Add more test queries, so close methods can be told apart.
+- RAG: let an LLM answer questions like "what should I buy for camping?" using the search results.

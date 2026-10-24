@@ -80,3 +80,10 @@ def test_hnsw_finds_same_best_product_as_flat(engine):
 def test_unknown_index_type_fails(engine):
     with pytest.raises(ValueError):
         build_index(engine.embeddings, "magic")
+
+
+def test_level5_adds_the_bge_query_instruction():
+    from semantic_search.levels.level5.semantic import DEFAULT_MODEL, QUERY_PREFIXES
+
+    assert DEFAULT_MODEL == "BAAI/bge-small-en-v1.5"
+    assert QUERY_PREFIXES[DEFAULT_MODEL].startswith("Represent this sentence")

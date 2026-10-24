@@ -60,6 +60,11 @@
   .about .try { margin-top: 8px; color: var(--text); }
   .about h3 { font-size: 14px; margin: 12px 0 0; }
   .about ul { margin: 4px 0 0; padding-left: 20px; color: var(--muted); }
+  .about table.results { border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  .about table.results caption { white-space: nowrap; text-align: left; color: var(--muted); font-size: 13px; padding-bottom: 4px; }
+  .about table.results th, .about table.results td { text-align: left; padding: 3px 18px 3px 0; border-bottom: 1px solid var(--border); }
+  .about table.results td:last-child { font-variant-numeric: tabular-nums; }
+  .about .link { display: inline-block; margin-top: 10px; color: var(--accent); font-weight: 600; }
   .about .fixed { font-size: 12px; padding: 0 6px; border-radius: 4px; margin-left: 6px; background: var(--good-soft); color: var(--good); white-space: nowrap; }
 
   form { display: flex; gap: 8px; }
@@ -126,6 +131,7 @@
     <p id="about-text"></p>
     <ol id="about-steps"></ol>
     <p class="try" id="about-try"></p>
+    <div id="about-extra"></div>
     <h3>Problems</h3>
     <ul id="about-problems"></ul>
   </section>
@@ -233,9 +239,43 @@ const LEVELS = {
       ["BM25 knows which words are rare, not which words are important: \"weekend\" brought a dress to #2."],
       ["BM25 needs the exact word: \"camp\" doesn't match \"camping\", and \"sneakers\" doesn't match \"shoes\"."],
       ["Hybrid is not always better: for \"going camping this weekend\" the tent from semantic search drops out."],
-      ["We judge the results by looking at a few examples. Without test queries that have correct answers, we can't say which method is better overall.", "next: Level 5"],
+      ["We judge the results by looking at a few examples. Without test queries that have correct answers, we can't say which method is better overall.", "fixed in Level 5"],
     ],
     examples: ["i have cold keep me warm", "something to fix a leaking sink", "going camping this weekend", "Columbia"],
+  },
+  5: {
+    tab: "Level 5 · Evaluation",
+    title: "Level 5: measuring search with labeled queries",
+    intro: "Instead of judging a few examples, every method is measured on 20 test queries with labels made by hand.",
+    steps: [
+      "20 test queries in 4 types: intent (\"my car is dirty\"), simple (\"yoga mat\"), exact (\"Columbia jacket\") and tricky (\"shoes without laces\").",
+      "Pooling: the top 10 of every method are merged, 684 query-product pairs in total. Only these were labeled.",
+      "Two labelers labeled every pair separately, without seeing which method found it. They gave the same label 91% of the time (Cohen's kappa 0.80).",
+      "Each method is scored with P@5, R@10, MRR and nDCG@10. nDCG@10 is the main score: good results near the top count more.",
+      "Experiments: tuning hybrid, and comparing 3 embedding models. The winner is BGE-small with plain hybrid, which this tab uses.",
+    ],
+    tryThis: "Compare with the Level 4 tab: same BM25, but the semantic column now uses BGE-small.",
+    table: {
+      caption: "nDCG@10 on our 18 labeled queries (higher is better, 1.0 = perfect)",
+      head: ["Method", "Model", "nDCG@10"],
+      rows: [
+        ["Keyword", "-", "0.360"],
+        ["BM25", "-", "0.570"],
+        ["Semantic", "MiniLM (Levels 1-4)", "0.664"],
+        ["Semantic", "MPNet (5x bigger)", "0.646"],
+        ["Semantic", "BGE-small", "0.684"],
+        ["Hybrid", "MiniLM, tuned", "0.695"],
+        ["Hybrid", "BGE-small", "0.697"],
+      ],
+    },
+    link: { href: "/label", text: "Open the labeling page" },
+    problems: [
+      ["18 queries are too few to separate the best methods: 0.695 and 0.697 are the same within the noise (one query is worth about 0.056)."],
+      ["Pooling: products that no method found were never labeled. The first model comparison was unfair until the new models' results were labeled too."],
+      ["Experiment 1 tuned hybrid on the same queries it was tested on, so its result is a little too optimistic."],
+      ["The model was never trained on our products or labels. Fine-tuning needs much more training data than 684 labels.", "next: fine-tuning"],
+    ],
+    examples: ["my car is dirty", "I want to learn music", "Columbia jacket", "phone charger"],
   },
 };
 const EF_VALUES = [1, 4, 16, 64, 128, 256, 512, 1024];
@@ -272,6 +312,26 @@ function selectLevel(n) {
   $("about-text").textContent = info.intro;
   $("about-steps").replaceChildren(...info.steps.map((step) => el("li", "", step)));
   $("about-try").textContent = info.tryThis;
+  const extra = $("about-extra");
+  extra.replaceChildren();
+  if (info.table) {
+    const table = el("table", "results");
+    table.append(el("caption", "", info.table.caption));
+    const head = el("tr");
+    for (const h of info.table.head) head.append(el("th", "", h));
+    table.append(head);
+    for (const row of info.table.rows) {
+      const tr = el("tr");
+      for (const cell of row) tr.append(el("td", "", cell));
+      table.append(tr);
+    }
+    extra.append(table);
+  }
+  if (info.link) {
+    const a = el("a", "link", info.link.text);
+    a.href = info.link.href;
+    extra.append(a);
+  }
   $("about-problems").replaceChildren(...info.problems.map(([text, fixedIn]) => {
     const item = el("li", "", text);
     if (fixedIn) item.append(el("span", "fixed", fixedIn));  // e.g. "fixed in Level 3"

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relevance Labeling</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #1d1d1b;
+    --muted: #6b6b66;
+    --border: #e3e2dd;
+    --accent: #2f5bd3;
+    --accent-soft: #e8eefc;
+    --good: #1f7a4d;
+    --good-soft: #e3f3ea;
+    --bad: #a33a2b;
+    --bad-soft: #f8e6e3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161615;
+      --surface: #1f1f1d;
+      --text: #ecebe6;
+      --muted: #9c9b94;
+      --border: #34332f;
+      --accent: #8aa8ff;
+      --accent-soft: #24304d;
+      --good: #6fcf97;
+      --good-soft: #1d3327;
+      --bad: #f19a8c;
+      --bad-soft: #3a2320;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .sub a { color: var(--accent); }
+
+  .box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; }
+  .box h2 { font-size: 16px; margin: 0 0 6px; }
+  .box ul { margin: 0; padding-left: 20px; color: var(--muted); }
+  .who { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .who input[type="checkbox"] { width: auto; padding: 0; }
+  .who input:not([type="checkbox"]) { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); width: 140px; }
+
+  .progress { height: 6px; background: var(--border); border-radius: 3px; margin: 8px 0 4px; overflow: hidden; }
+  .progress span { display: block; height: 100%; background: var(--good); width: 0; transition: width .2s; }
+  .progress-text { font-size: 13px; color: var(--muted); }
+
+  .layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 20px; align-items: start; }
+  @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } }
+
+  .queries { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .q { display: flex; justify-content: space-between; gap: 8px; width: 100%; text-align: left; border: 0; border-bottom: 1px solid var(--border);
+       background: none; color: var(--text); font: inherit; font-size: 14px; padding: 9px 12px; cursor: pointer; }
+  .q:last-child { border-bottom: 0; }
+  .q:hover { background: var(--bg); }
+  .q[aria-current="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .q .count { color: var(--muted); font-variant-numeric: tabular-nums; flex: none; font-weight: 400; }
+  .q.done .count { color: var(--good); }
+
+  .current h2 { font-size: 20px; margin: 0; }
+  .current .type { display: inline-block; font-size: 12px; padding: 0 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-left: 8px; vertical-align: middle; }
+  .current .hint { color: var(--muted); font-size: 14px; margin: 4px 0 14px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-left-width: 4px; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+  .card.yes { border-left-color: var(--good); }
+  .card.no { border-left-color: var(--bad); }
+  .card .top { display: flex; gap: 12px; align-items: flex-start; }
+  .card .title { font-weight: 600; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .card .cat { font-size: 13px; color: var(--muted); }
+  .card .desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .buttons { display: flex; gap: 6px; flex: none; }
+  .buttons button { font: inherit; font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 8px; cursor: pointer;
+                    border: 1px solid var(--border); background: var(--bg); color: var(--muted); }
+  .buttons button.yes[aria-pressed="true"] { background: var(--good-soft); color: var(--good); border-color: var(--good); }
+  .buttons button.no[aria-pressed="true"] { background: var(--bad-soft); color: var(--bad); border-color: var(--bad); }
+  @media (max-width: 560px) { .card .top { flex-direction: column; } }
+
+  .next { font: inherit; font-weight: 600; padding: 10px 18px; border: 0; border-radius: 8px; background: var(--accent); color: var(--surface); cursor: pointer; }
+  .status { font-size: 13px; color: var(--muted); min-height: 20px; margin-top: 8px; }
+  .error { color: var(--bad); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Relevance labeling</h1>
+  <p class="sub">Level 5: mark which products are good results for each test query. <a href="/#level4">Back to search</a></p>
+
+  <section class="box">
+    <h2>How to label</h2>
+    <ul>
+      <li>Ask yourself: <strong>would I be happy to see this product in the top results for this search?</strong> Yes = Relevant, No = Not relevant.</li>
+      <li>Judge each product on its own. Don't think about which search method found it (the page hides that on purpose, and the order is shuffled).</li>
+      <li>If you are not sure, choose what most shoppers would think. Your labels are saved as soon as you click.</li>
+    </ul>
+    <div class="who">
+      <label for="name">Your name</label>
+      <input id="name" autocomplete="off" spellcheck="false">
+      <span class="progress-text" id="who-note"></span>
+    </div>
+    <div class="who">
+      <label><input type="checkbox" id="only-unlabeled" checked> Only show products without a label</label>
+    </div>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="progress-text" id="progress-text"></div>
+  </section>
+
+  <div class="layout">
+    <nav class="queries" id="queries" aria-label="Test queries"></nav>
+    <section class="current" id="current"></section>
+  </div>
+  <div class="status" id="status"></div>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const TYPE_HINTS = {
+  intent: "The query describes a need. Relevant = a product that solves it.",
+  simple: "A normal product search. Relevant = that kind of product.",
+  exact: "Exact words matter here (brand, material, product type).",
+  tricky: "Read the query carefully, words like \"without\" matter.",
+};
+
+let queries = [];
+let labels = {};
+let current = 0;
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;  // textContent: product text is never treated as HTML
+  return node;
+}
+
+function annotator() {
+  return $("name").value.trim().toLowerCase();
+}
+
+function labeledCount(q) {
+  const saved = labels[q.query] || {};
+  return q.candidates.filter((c) => c.id in saved).length;
+}
+
+function renderProgress() {
+  const total = queries.reduce((n, q) => n + q.candidates.length, 0);
+  const done = queries.reduce((n, q) => n + labeledCount(q), 0);
+  $("bar").style.width = total ? `${(done / total) * 100}%` : "0";
+  $("progress-text").textContent = `${done} of ${total} labeled`;
+}
+
+function renderQueries() {
+  const nav = $("queries");
+  nav.replaceChildren();
+  queries.forEach((q, i) => {
+    const done = labeledCount(q);
+    const button = el("button", `q${done === q.candidates.length ? " done" : ""}`);
+    button.setAttribute("aria-current", String(i === current));
+    button.append(el("span", "", q.query), el("span", "count", `${done}/${q.candidates.length}`));
+    button.onclick = () => { current = i; render(); window.scrollTo(0, 0); };
+    nav.append(button);
+  });
+}
+
+function renderCard(q, c) {
+  const value = (labels[q.query] || {})[c.id];
+  const card = el("div", `card${value === 1 ? " yes" : value === 0 ? " no" : ""}`);
+  const top = el("div", "top");
+  const text = el("div", "title", c.title);
+  const buttons = el("div", "buttons");
+  for (const [cls, label, v] of [["yes", "Relevant", 1], ["no", "Not relevant", 0]]) {
+    const b = el("button", cls, label);
+    b.setAttribute("aria-pressed", String(value === v));
+    b.onclick = () => setLabel(q, c, value === v ? null : v, card);  // click again to undo
+    buttons.append(b);
+  }
+  top.append(text, buttons);
+  card.append(top);
+  if (c.category) card.append(el("div", "cat", c.category));
+  if (c.description) card.append(el("div", "desc", c.description));
+  return card;
+}
+
+function renderCurrent() {
+  const box = $("current");
+  box.replaceChildren();
+  const q = queries[current];
+  if (!q) return;
+  const title = el("h2", "", `"${q.query}"`);
+  title.append(el("span", "type", q.type));
+  box.append(title, el("p", "hint", TYPE_HINTS[q.type] || ""));
+
+  // Cards stay on the page after you label them; they disappear when you open the query again.
+  const saved = labels[q.query] || {};
+  const shown = $("only-unlabeled").checked ? q.candidates.filter((c) => !(c.id in saved)) : q.candidates;
+  if (!shown.length) box.append(el("p", "hint", "Everything in this query is labeled."));
+  for (const c of shown) box.append(renderCard(q, c));
+
+  if (current < queries.length - 1) {
+    const next = el("button", "next", "Next query");
+    next.onclick = () => { current += 1; render(); window.scrollTo(0, 0); };
+    box.append(next);
+  }
+}
+
+function render() {
+  renderProgress();
+  renderQueries();
+  renderCurrent();
+}
+
+async function setLabel(q, c, value, card) {
+  const name = annotator();
+  // update the page first, then save
+  labels[q.query] = labels[q.query] || {};
+  if (value === null) delete labels[q.query][c.id];
+  else labels[q.query][c.id] = value;
+  // Redraw only this card (and the counters), so nothing else on the page moves under the mouse.
+  card.replaceWith(renderCard(q, c));
+  renderProgress();
+  renderQueries();
+  try {
+    const res = await fetch("/api/label", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ annotator: name, query: q.query, product_id: c.id, label: value }),
+    });
+    if (!res.ok) throw new Error((await res.json()).detail || res.statusText);
+    $("status").className = "status";
+    $("status").textContent = "Saved.";
+  } catch (err) {
+    $("status").className = "status error";
+    $("status").textContent = `Not saved: ${err.message}`;
+  }
+}
+
+async function load() {
+  const name = annotator();
+  if (!name) return;
+  try { localStorage.setItem("annotator", name); } catch {}
+  $("who-note").textContent = `labels are saved to data/eval/labels_${name}.json`;
+  try {
+    const res = await fetch(`/api/label-data?annotator=${encodeURIComponent(name)}`);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || res.statusText);
+    queries = data.queries;
+    labels = data.labels;
+    // start at the first query that isn't finished
+    const firstOpen = queries.findIndex((q) => labeledCount(q) < q.candidates.length);
+    current = firstOpen === -1 ? 0 : firstOpen;
+    $("status").textContent = "";
+    render();
+  } catch (err) {
+    $("status").className = "status error";
+    $("status").textContent = `Error: ${err.message}`;
+  }
+}
+
+let saved = "";
+try { saved = localStorage.getItem("annotator") || ""; } catch {}
+$("name").value = new URLSearchParams(location.search).get("name") || saved || "leila";
+$("name").onchange = load;
+$("only-unlabeled").onchange = renderCurrent;
+load();
+</script>
+</body>
+</html>

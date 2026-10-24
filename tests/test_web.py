@@ -49,3 +49,12 @@ def test_level_3_hnsw_does_not_crash():
     client.get("/api/search", params={"q": "Columbia", "level": 1})  # PyTorch runs first
     data = client.get("/api/search", params={"q": "Columbia", "level": 3, "k": 3}).json()
     assert [c["kind"] for c in data["columns"]] == ["semantic", "semantic"]
+
+
+def test_level_5_uses_bge_small():
+    from semantic_search.levels.level5.data import AMAZON_PRODUCTS_PATH
+
+    if not AMAZON_PRODUCTS_PATH.exists():
+        pytest.skip("Amazon data not downloaded (run `uv run prepare-data`)")
+    data = client.get("/api/search", params={"q": "yoga mat", "level": 5, "k": 3}).json()
+    assert [c["name"] for c in data["columns"]] == ["BM25", "Semantic (BGE-small)", "Hybrid (RRF)"]

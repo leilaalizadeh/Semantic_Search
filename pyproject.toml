@@ -16,9 +16,9 @@ dependencies = [
 ]
 
 [project.scripts]
-semantic-search = "semantic_search.levels.level4.cli:main"
-prepare-data = "semantic_search.levels.level4.prepare_data:main"
-benchmark = "semantic_search.levels.level4.benchmark:main"
+semantic-search = "semantic_search.levels.level5.cli:main"
+prepare-data = "semantic_search.levels.level5.prepare_data:main"
+benchmark = "semantic_search.levels.level5.benchmark:main"
 web = "semantic_search.web:main"
 
 [dependency-groups]
