@@ -35,7 +35,8 @@ user query ────► embedding model ──► query vector ──► cosi
 │       ├── level3/               # + cache, FAISS / HNSW, benchmark
 │       ├── level4/               # + BM25 and hybrid search
 │       ├── level5/               # + evaluation: labels, metrics, experiments
-│       └── level6/               # + fine-tuning: synthetic training queries, training (latest)
+│       ├── level6/               # + fine-tuning: synthetic training queries, training
+│       └── level7/               # + RAG: an LLM answers with products from the search (latest)
 └── tests/
 ```
 
@@ -187,7 +188,8 @@ uv run web          # then open http://127.0.0.1:8000
 
 One tab per level: Level 1 (30 products), Level 2 (Amazon data), Level 3 (Flat vs HNSW with
 search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid), Level 5 (results table, and
-BM25 vs semantic vs hybrid with BGE-small), Level 6 (BGE-small before and after fine-tuning, and gte-small). Each tab runs that level's own code from
+BM25 vs semantic vs hybrid with BGE-small), Level 6 (BGE-small before and after fine-tuning, and gte-small),
+Level 7 (ask a question, get an LLM answer with the products it used). Each tab runs that level's own code from
 `src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
 `benchmark` commands run the latest level. Only the import paths and the data
 folder depth were changed, and `tests/test_levels.py` checks that against git.
@@ -201,6 +203,40 @@ uv run python -m semantic_search.levels.level2.cli --amazon
 ```
 
 A link like `http://127.0.0.1:8000/?q=running+shoes#level2` opens a search directly.
+
+## Level 7: RAG (Retrieval-Augmented Generation)
+
+The search finds products, and an LLM writes an answer that uses only those products.
+
+1. **Search**: gte-small finds the top 5 products for the question.
+2. **Check**: the LLM answers yes/no for each product ("could it be useful for what the customer wants?").
+3. **Answer**: the LLM gets the kept products, numbered [1]..[5], and writes a short answer that cites them.
+   If the check removed everything, the answer is "the shop doesn't have anything that fits".
+
+```bash
+uv run ask "I'm going camping with my kids, what should I buy?"           # without the check
+uv run ask --check "I need a toy for my dog"                              # with the product check
+uv run python -m semantic_search.levels.level7.rag_eval --check          # all 20 labeled queries
+```
+
+The LLM is `Qwen/Qwen2.5-1.5B-Instruct` (about 3 GB, 15 to 30 seconds per answer on an 8 GB Mac).
+`notebooks/level7_colab.ipynb` runs the same evaluation with `Qwen2.5-3B-Instruct` on a free Colab GPU.
+
+| LLM | Product check | Precision | Refused when nothing fits | Refused although good products were found |
+|---|---|---|---|---|
+| Qwen 1.5B | none | 58% | 0 of 2 | 0 |
+| Qwen 1.5B | yes | 65% | 1 of 2 | 0 |
+| Qwen 3B | none | 66% | 0 of 2 | 0 |
+| Qwen 3B | strict question | 94% | 2 of 2 | 7 |
+| Qwen 3B | "could it be useful" | **91%** | **2 of 2** | 3 |
+
+Precision = recommended products that are relevant (Level 5 labels). No version invented a product.
+Without the check, the LLM recommends whatever the search finds, even a dog statue for "dog toy".
+Score thresholds could not decide when to refuse (for gte-small and for a cross-encoder reranker), but
+an LLM check works if the model is big enough and the question is right.
+
+The LLM can't be loaded in the web server (FAISS is loaded there first, and the LLM must come before
+FAISS), so the web app runs RAG in its own process (`levels/level7/rag_service.py`).
 
 ## Next steps
 

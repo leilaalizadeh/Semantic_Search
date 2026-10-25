@@ -1,0 +1,493 @@
+[
+ {
+  "query": "going camping this weekend",
+  "type": "intent",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   1,
+   4
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a quick and easy setup, I recommend [1] Coleman Camp Burst 4-Person Camping Tent. Its umbrella-style design allows for a fast 45-second setup, perfect for your camping trip. If you're looking for something to keep you hydrated, [4] ASR Outdoor Stainless Steel Collapsible Camping Cup is a good choice, as it's durable and can hold up to 8.5oz of liquid.",
+  "products": [
+   {
+    "title": "Coleman Camp Burst 4-Person Camping Tent, Umbrella-Style Pop-Up Tent with 45s Easy Setup, Dark Room Option Available, Tub Floor and Taped Seams Keep You Dry, 360° Views",
+    "relevant": true
+   },
+   {
+    "title": "Sighdorm Happy Camping Gifts for Men Women,Making Memories One Campsite at a Time Stainless Steel 30 oz Camper Tumbler,Gifts For Camper Lover",
+    "relevant": true
+   },
+   {
+    "title": "CORE Sleeping Bags for Adults | 40 Degree & 20 Degree Sleeping Bag Options for Outdoor and Travel | Convenient Storage Pocket for Camping Accessories | Built-in Straps for Sleeping Pad Compatibility",
+    "relevant": true
+   },
+   {
+    "title": "ASR Outdoor Stainless Steel Collapsible Camping Cup 8.5oz",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "i have cold keep me warm",
+  "type": "intent",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For someone looking to stay warm, I would recommend [1] the Hooded Double Pocket Polar Fleece Sherpa Lined Winter Pea Coat. It provides warmth with its long length and hooded design, perfect for chilly weather. If you're also looking for gloves to keep your hands warm, [2] the NARBOR Heated Gloves could be a good choice. They offer battery-powered heating for extra warmth during outdoor activities.",
+  "products": [
+   {
+    "title": "Hooded Double Pocket Polar Fleece Sherpa Lined Winter Pea Coat Black Large",
+    "relevant": true
+   },
+   {
+    "title": "NARBOR Heated Gloves for Men Women, Battery Heating Gloves, Winter Thermal Warm Touchscreen Gloves for Outdoor Climbing Hiking Cycling, Winter Must Have Thermal Heated Gloves (B),pink",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "something to fix a leaking sink",
+  "type": "intent",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   2
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a leaking sink, I would recommend [2]. This waterproof sink mat is specifically designed to protect your sink cabinet base from water damage caused by leaks, spills, and soaps. It's perfect for fixing and preventing future issues with your sink.",
+  "products": [
+   {
+    "title": "Under Sink Mat, Prevent Water Damage with Waterproof Sink Mat, 34\"x22\" Silicone Liner for Kitchen/Bathroom, Flexible Drip Tray with Lip, Non-Slip, Grey",
+    "relevant": false
+   },
+   {
+    "title": "Under Sink Mat for Kitchen Waterproof, 34\" X 22\" Sink Mats for Bottom of Kitchen Sink, Silicone Under Sink Liner, Kitchen Bathroom Cabinet Mat and Protector for Drips Leaks Spills",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "my car is dirty",
+  "type": "intent",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   2,
+   4
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a dirty car, I would recommend [2] JUSTTOP Universal Cleaning Gel for Car. It's designed to clean and remove tough stains effectively, making it perfect for your situation. Alternatively, [4] LEGONGSO Cleaning Gel is also a good choice as it tackles various types of dirt and grime on your vehicle.",
+  "products": [
+   {
+    "title": "Armor All Heavy Duty Cleaning Wipes, Interior & Exterior Car Cleaning Wipes – 75 Count",
+    "relevant": true
+   },
+   {
+    "title": "JUSTTOP Universal Cleaning Gel for Car, Car Cleaning Kit, Car Crevice Cleaner, Auto Air Vent Interior Detail Removal Putty Mud Slime Cleaner for Car Vents, PC, Laptops, Cameras(Pink)",
+    "relevant": true
+   },
+   {
+    "title": "Clay Bar Towel, Next Level Clay Towel Automotive Detailing Microfiber Towel Clay Bar Alternative for car Detailing Magic Clay Towel Scratch Free, Polishing Detailing 1 Pack 30x30 cm",
+    "relevant": true
+   },
+   {
+    "title": "LEGONGSO Cleaning Gel for Car, Auto Detailing Slime Mud, Putty Cleaner Dust Removal, Vehicle Interior Soft Glue Cleaning Tools Kit, Car Accessories for Cleaning Air Vents, Keyboard, PC, Laptops Blue",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "my back hurts when I sit all day",
+  "type": "intent",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   1,
+   2,
+   3
+  ],
+  "recommended_relevant": 3,
+  "made_up": [],
+  "refused": false,
+  "answer": "For someone experiencing back pain from sitting all day, I would recommend [2] Martha Stewart Medline Foam Lumbar Cushion Pillow. It offers targeted lower back support and improved comfort, which can help alleviate pain. Alternatively, [1] Potter's Love Lumbar Support Pillow is also a good option as it provides ergonomic support to maintain good posture and reduce strain on the spine.",
+  "products": [
+   {
+    "title": "POTTER'S LOVE Lumbar Support Pillow - Ergonomic Memory Foam Back Support Lower Back Pain Relief Cushion Adjustable Extension Strap Washable Improve Posture for Home, Car Seat, Office Chair, Nursing",
+    "relevant": true
+   },
+   {
+    "title": "MARTHA STEWART Medline Foam Lumbar Cushion Pillow, Lower Back Support & Relief, for Desk/Office Chair, Car & Seat – Gaming, Sofa or Plane",
+    "relevant": true
+   },
+   {
+    "title": "Lumbar Support Pillow Memory Foam Cushion for Back Pain Relief Lmprove Your Sitting Posture Suitable for Car Seat Office Chair Sofa Recliner Multifunctional Universal Lumbar Pillow (Brown Yellow-1)",
+    "relevant": true
+   },
+   {
+    "title": "Ergonomic Kneeling Desk Chair- Adjustable Stool for Home and Office-Angled Balancing Seat- Posture Support Kneeling Office Chair- Black",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "gift for a 6 year old",
+  "type": "intent",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [
+   "2"
+  ],
+  "refused": false,
+  "answer": "For a 6-year-old, I would recommend [2]. These mini fairy figurines are perfect as they come in a set of 6, making them ideal for a fairy garden or as a fun craft project. They are also great for decoration, such as on a terrarium or even as cake toppers.",
+  "products": [
+   {
+    "title": "BLLREMIPSUR 6 PCS Fairy Garden Fairies Figurine, Miniatures Garden Fairies Ornaments, Mini Fairy Cake Tooper",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "I want to learn music",
+  "type": "intent",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   1
+  ],
+  "recommended_relevant": 1,
+  "made_up": [
+   "2"
+  ],
+  "refused": false,
+  "answer": "For someone looking to start learning music, I would recommend [1] Yasisid Closed Hole C Flute. It's perfect for beginners with everything needed to get started, including a cleaning kit, stand, carrying case, and gloves. Another great option is [2], which also includes a comprehensive set of accessories to help beginners practice effectively.",
+  "products": [
+   {
+    "title": "Yasisid Closed Hole C Flute 16 Keys Instrument for Student Beginners with Cleaning Kit, Stand, Carrying Case, Gloves and Tuning Rod (Black)",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "my kitchen is too messy",
+  "type": "intent",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   2,
+   3
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a more organized kitchen, I would recommend the [2] mDesign Plastic Kitchen Storage Bin. It's perfect for sorting and storing snacks, helping you keep your pantry tidy. Alternatively, the [3] Lahome Thin Kitchen Mat Set of 2 can add a non-slip, stylish touch to your kitchen floor, which might help with spills and messes.",
+  "products": [
+   {
+    "title": "Under Sink Mat for Kitchen Waterproof, 34\" X 22\" Sink Mats for Bottom of Kitchen Sink, Silicone Under Sink Liner, Kitchen Bathroom Cabinet Mat and Protector for Drips Leaks Spills",
+    "relevant": false
+   },
+   {
+    "title": "mDesign Plastic Kitchen Storage Bin - Stackable Fridge, Pantry Cabinet, Freezer Organizer - Food Storage Bin Box w/Handles, Steel Lid - 15\" Long - Ligne Collection - 2 Pack - Clear/Matte Black",
+    "relevant": true
+   },
+   {
+    "title": "Lahome Thin Kitchen Mat Set of 2, Distressed Kitchen Rugs and Mats Non Skid Washable Rugs for Kitchen Floor Mat, Waterproof Tribal Rug for Sink Laundry, 20x30+20x59",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "running shoes",
+  "type": "simple",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "rain jacket",
+  "type": "simple",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   2,
+   4
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a rain jacket, I would recommend [2] Ouray Sportswear Men's Invert Jacket. It offers durable water resistance with Storm Dfend™ Technology, keeping you dry in various weather conditions. If you're looking for something more lightweight, [4] FROGG TOGGS Men's Ultra-lite2 Waterproof Breathable Protective Rain Suit is also a great choice, providing excellent protection against rain with its ultra-lightweight design.",
+  "products": [
+   {
+    "title": "Makonus Raincoat for Adults, Portable EVA Rain Jacket Reusable Rain Ponchos for Women with Hood and Elastic Cuff Sleeves",
+    "relevant": true
+   },
+   {
+    "title": "Ouray Sportswear Men's Invert Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Jack Wolfskin Unisex-Youth Tucan Jacket",
+    "relevant": true
+   },
+   {
+    "title": "FROGG TOGGS Men's Ultra-lite2 Waterproof Breathable Protective Rain Suit",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "yoga mat",
+  "type": "simple",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a yoga mat suitable for all types of yoga and exercise, I recommend [1]. It's extra thick and non-slip, perfect for your practice. If you prefer something more portable, [2] is a great choice. It's lightweight and reversible, making it easy to carry around.",
+  "products": [
+   {
+    "title": "Yoga Mat - Premium 15 Mm Extra Thick Non Slip Exercise & Fitness Mat,Anti-Skid Sports Fitness Mat for All Types of Yoga, Pilates & Floor Workouts (23.6 x 9.8 x 0.6inch Thick)",
+    "relevant": true
+   },
+   {
+    "title": "Marjar Yoga Mat for Women/Men, 1/4-Inch Print Reversible Exercise & Fitness Mat for All BareFoot Workouts, Non-Slip Yoga Mat with Carrying Strap & Storage Bag (68\" x 24\" x 6mm Thick)",
+    "relevant": true
+   },
+   {
+    "title": "Goplus 8' x 4' Folding Gymnastics Mat, 2’’ Thick 4 Fold Exercise Tumbling Mat with Carrying Handles for Home Gym Fitness, Portable Anti Tear Panel Mat for Kids, MMA, Aerobics Workout, Yoga",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "office chair",
+  "type": "simple",
+  "relevant_in_prompt": 5,
+  "recommended": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "recommended_relevant": 4,
+  "made_up": [],
+  "refused": false,
+  "answer": "For an office chair, I would recommend [2] and [3]. [2] offers more adjustable features and a soft, breathable cushion, making it comfortable for extended use. [3] provides a better ergonomic design with 3 supporting points for the neck, back, and waist, ensuring proper posture throughout the day. [1] and [4] are less suitable as they offer fewer adjustments and may not be as supportive.",
+  "products": [
+   {
+    "title": "Height-Adjustable Office Chair Ergonomic Office Chair High Back Mesh Computer Chair with Lumbar Support Swivel Rolling Chair with Adjustable Headrest for Home and Office",
+    "relevant": true
+   },
+   {
+    "title": "Misolant Ergonomic Office Chair, Desk Chair with Lumbar Support, Mesh Office Chair, Ergonomic Chair with Adjustable Headrest and Armrest, Recline Office Chair, Comfortable Office Chair for Home（Pink）",
+    "relevant": true
+   },
+   {
+    "title": "Ergonomic Mesh Office Chair, Breathable Home Desk Chair with Adjustable Armrest and Lumbar Support,High Back Desk Computer Chair with Wheels(Black)",
+    "relevant": true
+   },
+   {
+    "title": "Sweetcrispy Ergonomic Mesh Home Office, Light Gray",
+    "relevant": true
+   },
+   {
+    "title": "Office Chair, Ergonomic Desk Chair, Home Office Desk Chair, Mid Back Mesh Computer Chair, Swivel Rolling Task Chair with Lumbar Support and Armrests",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "dog toy",
+  "type": "simple",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "coffee mug",
+  "type": "simple",
+  "relevant_in_prompt": 3,
+  "recommended": [
+   2,
+   4
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a coffee mug, I would recommend [2] Vintage Glass Coffee Mugs. They offer a unique and elegant touch to any coffee lover's collection. If you're looking for something more affordable, consider [4] the Inspirational Gifts For Women Personalized Sunflower Mug, which brings a touch of happiness with its thoughtful design.",
+  "products": [
+   {
+    "title": "Harloon 24 Pcs Color Changing Coffee Mugs 11oz Black Sublimation Mugs Heat Sensitive Magic Mug Ceramic Coffee Mugs with 6 Pcs Heat Transfer Tape for Coffee Tea or DIY Gifts",
+    "relevant": true
+   },
+   {
+    "title": "Vintage Glass Coffee Mugs - Vintage Glass Mugs |14 Oz Set of 2 Embossed Tea Cups with Two Stirring Spoon, Perfect for Cappuccino, Latte, Cereal, Yogurt, Beverage Hot/Cold (Clear)",
+    "relevant": true
+   },
+   {
+    "title": "OWUYUXI Coffee Mug,Ceramic Coffee Cup with Lid and Spoon,Gift Box,Perfect for Coffee,Tea,Espresso, Hot Cocoa,Microwave and Dishwasher Safe",
+    "relevant": true
+   },
+   {
+    "title": "wowcugi Inspirational Gifts For Women Personalized Sunflower Mug Sometimes You Forget You're Awesome Stainless Steel Ceramic Coffee Mugs 11oz 15oz Cup Gift for Friends Coworkers Best Friend Women",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "garden tools",
+  "type": "simple",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a customer looking for garden tools, I would recommend [1] TTOCAR Garden Kneeling Bench Bag. It provides a durable tool storage solution for outdoor gardening tasks. Additionally, [2] Premium 5” Gardening Bypass Pruning Shears are ideal for precise cutting needs in the garden. Both items are essential for any gardener's toolkit.",
+  "products": [
+   {
+    "title": "TTOCAR Garden Kneeling Bench Bag, Garden Kneeler Seat Stool Tool Bag Foldable Garden Kneeler and seat Bags Outdoor Work Portable Storage Seat Bag",
+    "relevant": true
+   },
+   {
+    "title": "Premium 5” Gardening Bypass Pruning Shears, Heavy-Duty, Sharp and Ergonomic Soft Grip Handle",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "Columbia jacket",
+  "type": "exact",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   1,
+   2,
+   4
+  ],
+  "recommended_relevant": 3,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a Columbia jacket, I would recommend [2] Columbia Women's Powder Pass Hooded Jacket. It's designed for cold weather and includes insulation for added warmth. If you're looking for something more casual, [4] Columbia Women's Ali Peak Quarter Zip is also a great option, offering sun protection and a soft microfleece material.",
+  "products": [
+   {
+    "title": "Columbia Women's CLG Switchback Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Women's Powder Pass Hooded Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Men's Basin Trail Fleece Full Zip",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Women's Ali Peak Quarter Zip",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "stainless steel water bottle",
+  "type": "exact",
+  "relevant_in_prompt": 3,
+  "recommended": [
+   2,
+   3
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a stainless steel water bottle, I recommend [2] and [3]. [2] is perfect for those who want a compact and portable option, while [3] offers a larger capacity and classic design that might be more suitable for daily use.",
+  "products": [
+   {
+    "title": "JOOLA 40 oz Water Bottle Stainless Steel - Sweat Proof Insulated Water Bottle - Leak Proof Spout Lid - Protected by No Scratch Rubber Bottom - Easy Carry Handle - Pickleball Accessory & Gift, BPA Free",
+    "relevant": true
+   },
+   {
+    "title": "2 Pieces 5 Oz Mini Water Bottle Mini Insulated Stainless Steel Bottle Purse Water Bottle Cute Leak Proof Water Flask Keeps Drink Cold and Hot for Purse Kids Women Lunch Bag Coffee Tea, Pink, Green",
+    "relevant": true
+   },
+   {
+    "title": "Mayim Classic Vacuum-Insulated Stainless-Steel Water Bottle with Flip Straw Lid, 32 Ounces, Dark Grey",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "LED light",
+  "type": "exact",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a customer looking for LED lights, I would recommend [1] Super Bright LED Bike Light. It's perfect for cyclists who need a powerful and waterproof light for their bike. For those interested in vehicle lighting, [2] Doyinpay LED sign light is ideal, helping drivers stand out and attract attention easily.",
+  "products": [
+   {
+    "title": "Super Bright LED Bike Light 2023 Newest,Powerful USB Rechargeable Bicycle Headlight-5 Modes,Waterproof Bike Headlight Taillight,Daytime Running Light (Medium 1200 Lumen)",
+    "relevant": true
+   },
+   {
+    "title": "DOUYINPAY Led Light Sign for Car, Blue Taxi Sign Light Decal for Car Windshield with Suction Cups Flashing Hook on Car Window, LED Bright Lights USB Plug",
+    "relevant": false
+   },
+   {
+    "title": "CXCCOI 20PCS White 6500K LED Bulbs Interior Car Lights Kit(8*T10 6 * 31MM 6 * 42SMD),Automotive Replacement Lighting Products for Dome Map Reading Trunk Courtesy License Plate Lights (20Pcs-White)",
+    "relevant": true
+   },
+   {
+    "title": "iPower 15W LED Grow Light for Indoor Plant with Triple Head 360° Adjustable Gooseneck, Auto Cycle Time Function (3/9/12H), 11 Dimmable Levels, 3 Lighting Modes",
+    "relevant": true
+   },
+   {
+    "title": "ZhanGe H13 LED Light Bulbs High/Low Beam Headlight Bulbs, 24000 Lumens Bright LED Headlights All-in-One Conversion Kit, 6500K Cool White Replacement LED Bulb, IP68 Waterproof, Plug & Play, Pack of 2",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "phone charger",
+  "type": "exact",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "shoes without laces",
+  "type": "tricky",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ }
+]

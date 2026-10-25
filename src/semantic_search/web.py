@@ -10,6 +10,9 @@ Run:  uv run web   then open http://127.0.0.1:8000
 """
 
 import argparse
+import json
+import subprocess
+import sys
 import threading
 import time
 from functools import cache
@@ -205,10 +208,49 @@ def index_search(engine, index, query_vecs, k: int, repeats: int = 5) -> dict:
     return {"kind": "semantic", "ms": min(times), "results": results}
 
 
+class RagClient:
+    """Level 7: talks to the RAG service (levels/level7/rag_service.py), which runs as its own process.
+
+    The LLM can't be loaded here: this server loaded FAISS first, and the LLM must come before FAISS.
+    The service is started on the first Level 7 question (that takes about a minute) and then reused.
+    """
+
+    def __init__(self):
+        self.process = None
+        self.lock = threading.Lock()  # one question at a time: the service answers in order
+
+    def _start(self):
+        self.process = subprocess.Popen(
+            [sys.executable, "-m", "semantic_search.levels.level7.rag_service"],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1,  # stderr: shown in this terminal
+        )
+        for line in self.process.stdout:  # wait until the models are loaded
+            if line.strip() == "READY":
+                return
+        raise HTTPException(500, "The RAG service stopped while loading (see the server terminal)")
+
+    def ask(self, question: str) -> dict:
+        with self.lock:
+            if self.process is None or self.process.poll() is not None:  # not started yet, or it stopped
+                self._start()
+            self.process.stdin.write(json.dumps({"question": question}) + "\n")
+            self.process.stdin.flush()
+            for line in self.process.stdout:
+                if line.startswith("RESULT "):
+                    reply = json.loads(line[len("RESULT "):])
+                    if "error" in reply:
+                        raise HTTPException(500, reply["error"])
+                    return reply
+            raise HTTPException(500, "The RAG service stopped (see the server terminal)")
+
+
+rag_client = RagClient()
+
+
 @app.get("/api/search")  # URL: /api/search?q=...&level=1&k=5&ef_search=64
 def search(
     q: str,
-    level: int = Query(1, ge=1, le=6),
+    level: int = Query(1, ge=1, le=7),
     k: int = Query(5, ge=1, le=50),
     ef_search: int = Query(64, ge=1, le=1024),
 ):
@@ -217,6 +259,22 @@ def search(
         raise HTTPException(400, "Empty query")
 
     embed_ms = None
+    if level == 7:
+        require_amazon_data()
+        reply = rag_client.ask(query)
+        results = [{**{key: p[key] for key in ("id", "title", "description", "category", "price", "rating")},
+                    "score": 0, "matched": None, "kept": p["kept"], "number": p["number"]}
+                   for p in reply["products"]]
+        return {
+            "level": level,
+            "query": query,
+            "num_products": 5000,
+            "embed_ms": None,
+            "answer": reply["answer"],
+            "llm_s": reply["llm_s"],
+            "columns": [{"name": "Search results, checked by the LLM", "kind": "rag",
+                         "ms": reply["search_ms"], "note": "search only", "results": results}],
+        }
     if level == 1:
         engine = level1_engine()
         columns = keyword_vs_semantic(level1, engine, query, k, level1_tokenize)

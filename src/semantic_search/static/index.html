@@ -47,7 +47,7 @@
   .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; overflow-x: auto; }
   .tab {
     border: 0; background: none; color: var(--muted); font: inherit; font-weight: 600;
-    padding: 10px 14px; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
+    padding: 10px 10px; font-size: 14px; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
   }
   .tab:hover { color: var(--text); }
   .tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
@@ -92,6 +92,9 @@
   .status { color: var(--muted); font-size: 14px; margin: 18px 0 10px; min-height: 21px; }
   .error { color: #c0392b; }
 
+  .answer { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; white-space: pre-wrap; }
+  .answer h3 { margin: 0 0 6px; font-size: 15px; }
+  .answer .cite { color: var(--accent); font-weight: 700; }
   .columns { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 16px; }
   @media (max-width: 900px) { .columns { grid-template-columns: 1fr; } }
   .column { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
@@ -143,7 +146,7 @@
   <div class="examples" id="examples"></div>
 
   <div class="controls">
-    <label>Results <select id="k">
+    <label id="k-control">Results <select id="k">
       <option>3</option><option selected>5</option><option>10</option>
     </select></label>
     <span id="ef-control" hidden>
@@ -159,6 +162,7 @@
   </p>
 
   <div class="status" id="status"></div>
+  <div class="answer" id="answer" hidden></div>
   <div class="columns" id="columns"></div>
 </main>
 
@@ -309,6 +313,37 @@ const LEVELS = {
     ],
     examples: ["coffee mug", "phone charger", "shoes without laces", "i have cold keep me warm"],
   },
+  7: {
+    tab: "Level 7 · RAG",
+    title: "Level 7: an LLM answers questions with products from the shop",
+    intro: "RAG = Retrieval-Augmented Generation: our search finds products, and an LLM writes the answer using only those products.",
+    steps: [
+      "Search: gte-small (Level 6) finds the top 5 products for your question.",
+      "Check: the LLM is asked for each product \"could this be useful for what the customer wants? yes or no\". Removed products are not used.",
+      "Answer: the LLM gets the kept products, numbered [1], [2], ..., and writes a short answer that cites them. If the check removed everything, the answer is \"the shop doesn't have anything that fits\".",
+      "On this laptop the LLM is Qwen2.5-1.5B-Instruct, about 3 GB. Bigger models were tested on a free Colab GPU.",
+      "Measured on the 20 labeled test queries: no version ever invented a product, but the small model often picks wrong products and almost never refuses.",
+    ],
+    tryThis: "Try \"I need a toy for my dog\" (the shop has no dog toys) and \"I'm going camping with my kids, what should I buy?\".",
+    table: {
+      caption: "Recommended products that are relevant (precision), 20 labeled test queries",
+      head: ["LLM", "Product check", "Precision", "Refused when nothing fits", "Refused although good products were found"],
+      rows: [
+        ["Qwen 1.5B", "none", "58%", "0 of 2", "0"],
+        ["Qwen 1.5B", "yes (this tab)", "65%", "1 of 2", "0"],
+        ["Qwen 3B (Colab)", "none", "66%", "0 of 2", "0"],
+        ["Qwen 3B (Colab)", "strict question", "94%", "2 of 2", "7"],
+        ["Qwen 3B (Colab)", "\"could it be useful\"", "91%", "2 of 2", "3"],
+      ],
+    },
+    problems: [
+      ["The LLM trusts the search: if the search finds bad products, the answer makes them sound good (a dog statue as a dog toy)."],
+      ["A score threshold can't decide when to refuse: \"dog toy\" gets higher search scores than perfect results for \"going camping\"."],
+      ["The 1.5B model says yes to almost every product in the check. The 3B model is much better, but does not fit in 8 GB."],
+      ["Each answer takes 15 to 30 seconds on the laptop, and the first question loads the LLM (about a minute)."],
+    ],
+    examples: ["I need a toy for my dog", "I'm going camping with my kids, what should I buy?", "i have cold keep me warm", "what do I need for a picnic?"],
+  },
 };
 const EF_VALUES = [1, 4, 16, 64, 128, 256, 512, 1024];
 
@@ -371,6 +406,8 @@ function selectLevel(n) {
   }));
   $("ef-control").hidden = n !== 3;
   $("ef-help").hidden = n !== 3;
+  $("k-control").hidden = n === 7;  // RAG always uses the top 5
+  $("answer").hidden = true;
   const examples = $("examples");
   examples.replaceChildren();
   for (const q of info.examples) {
@@ -406,7 +443,8 @@ function renderResult(r, rank, mark, kind) {
   // Keyword score = number of matching words; semantic score = cosine similarity (0..1).
   // Keyword: number of matching words. BM25: sum of word weights (no fixed max). Semantic: cosine similarity 0..1.
   const score = kind === "keyword" ? `${r.score} word${r.score === 1 ? "" : "s"}`
-    : kind === "bm25" ? r.score.toFixed(2) : kind === "hybrid" ? r.score.toFixed(4) : r.score.toFixed(3);
+    : kind === "bm25" ? r.score.toFixed(2) : kind === "hybrid" ? r.score.toFixed(4)
+    : kind === "rag" ? "" : r.score.toFixed(3);
   top.append(title, el("span", "score", score));
   item.append(top);
 
@@ -440,7 +478,19 @@ function renderResult(r, rank, mark, kind) {
   return item;
 }
 
+function renderAnswer(text) {
+  // Show the LLM's answer, with citations like [2] highlighted
+  const box = $("answer");
+  box.replaceChildren(el("h3", "", "Answer"));
+  for (const part of text.split(/(\[[\d,\s]+\])/)) {
+    box.append(/^\[[\d,\s]+\]$/.test(part) ? el("span", "cite", part) : document.createTextNode(part));
+  }
+  box.hidden = false;
+}
+
 function render(data) {
+  $("answer").hidden = true;
+  if (data.answer != null) renderAnswer(data.answer);
   const columns = $("columns");
   columns.replaceChildren();
   columns.style.setProperty("--cols", data.columns.length);
@@ -457,6 +507,9 @@ function render(data) {
       if (level === 3 && i === 1) {
         mark = flatIds.has(r.id) ? { cls: "same", text: "same as Flat" } : { cls: "missed", text: "different" };
       }
+      if (col.kind === "rag") {
+        mark = r.kept ? { cls: "same", text: `kept as [${r.number}]` } : { cls: "missed", text: "removed by the check" };
+      }
       box.append(renderResult(r, j + 1, mark, col.kind));
     });
     columns.append(box);
@@ -464,6 +517,7 @@ function render(data) {
 
   let status = `${data.num_products.toLocaleString()} products`;
   if (data.embed_ms != null) status += ` · embedding the query took ${data.embed_ms} ms`;
+  if (data.llm_s != null) status += ` · the LLM (product check + answer) took ${data.llm_s} s`;
   if (level === 3) {
     const found = data.columns[1].results.filter((r) => flatIds.has(r.id)).length;
     status += ` · HNSW found ${found} of Flat's top ${data.columns[0].results.length}`;
@@ -477,7 +531,9 @@ async function search() {
   if (!q) return;
   const id = ++requestId;
   $("status").className = "status";
-  $("status").textContent = "Searching... (the first search of a level loads the model and data)";
+  $("status").textContent = level === 7
+    ? "Asking... the first question starts the LLM (about a minute), then each answer takes 15 to 30 seconds"
+    : "Searching... (the first search of a level loads the model and data)";
   const params = new URLSearchParams({ q, level, k: $("k").value, ef_search: EF_VALUES[$("ef").value] });
   try {
     const res = await fetch(`/api/search?${params}`);
