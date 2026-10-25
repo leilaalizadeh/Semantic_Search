@@ -34,7 +34,8 @@ user query ────► embedding model ──► query vector ──► cosi
 │       ├── level2/               # + prepare_data (download Amazon data)
 │       ├── level3/               # + cache, FAISS / HNSW, benchmark
 │       ├── level4/               # + BM25 and hybrid search
-│       └── level5/               # + evaluation: labels, metrics, experiments (latest)
+│       ├── level5/               # + evaluation: labels, metrics, experiments
+│       └── level6/               # + fine-tuning: synthetic training queries, training (latest)
 └── tests/
 ```
 
@@ -136,6 +137,48 @@ uv run python -m semantic_search.levels.level5.compare_models    # Experiment 2:
 uv run python -m semantic_search.levels.level5.pool --add-models # add new models' results to the pool
 ```
 
+## Level 6: fine-tuning
+
+Train BGE-small on our products, then measure it on the Level 5 labels.
+
+1. **Training data without hand labels** (`levels/level6/generate_queries.py`): a small T5 model
+   (`doc2query/msmarco-t5-small-v1`) writes 3 queries per product: 14,850 (query, product) pairs.
+2. **Training** (`train.py`): `MultipleNegativesRankingLoss`, batch 16, texts cut to 128 tokens,
+   1 epoch, about 10 minutes on an 8 GB Mac. Batch 32 with 256 tokens ran out of memory.
+3. **Shopping-style data** (`shopping_queries.py`): question words removed ("what is a hose nozzle" ->
+   "hose nozzle") and short queries from titles ("water bottle"), shared by many products.
+
+The 20 test queries are removed from all training data, also as plurals.
+
+| Model | Training | nDCG@10 |
+|---|---|---|
+| BGE-small | none | 0.674 |
+| BGE-small | T5 questions | 0.648 |
+| BGE-small | shopping-style queries | 0.657 |
+| bge-base-en-v1.5 (3x bigger) | none | 0.687 |
+| **thenlper/gte-small** | **none** | **0.734** |
+
+(Measured on 808 labeled pairs: every model's top results were labeled, so no model is judged unfairly.)
+
+The loss on unseen products went down a lot (0.31 -> 0.10), but the search on our labeled queries
+did not get better. The training task (find the one product a query was written from) was different
+from ours (find every product of a kind). Shopping-style data fixed simple searches
+(coffee mug 0.41 -> 0.86) but hurt others.
+
+Then two other models were tested without training. gte-small, the same size and speed as BGE-small,
+was better on 11 of the 18 queries and worse on 2, so Level 6 uses gte-small. Choosing a better
+existing model helped more than training our own.
+
+```bash
+uv run python -m semantic_search.levels.level6.generate_queries            # ~5 min
+uv run python -m semantic_search.levels.level6.shopping_queries
+uv run python -m semantic_search.levels.level6.train --batch-size 16 --data t5        # ~10 min
+uv run python -m semantic_search.levels.level6.train --batch-size 16 --data shopping  # ~10 min
+uv run python -m semantic_search.levels.level6.compare_models   # all models on the labeled queries
+```
+
+Generated data (`data/train/`) and trained models (`models/`) are not in git.
+
 ## Web app
 
 ```bash
@@ -144,7 +187,7 @@ uv run web          # then open http://127.0.0.1:8000
 
 One tab per level: Level 1 (30 products), Level 2 (Amazon data), Level 3 (Flat vs HNSW with
 search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid), Level 5 (results table, and
-BM25 vs semantic vs hybrid with BGE-small). Each tab runs that level's own code from
+BM25 vs semantic vs hybrid with BGE-small), Level 6 (BGE-small before and after fine-tuning, and gte-small). Each tab runs that level's own code from
 `src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
 `benchmark` commands run the latest level. Only the import paths and the data
 folder depth were changed, and `tests/test_levels.py` checks that against git.
@@ -161,7 +204,7 @@ A link like `http://127.0.0.1:8000/?q=running+shoes#level2` opens a search direc
 
 ## Next steps
 
-- Fine-tune the embedding model. Train on synthetic queries made by an LLM,
-  and test on the hand-labeled queries from Level 5 (never train on them).
 - Add more test queries, so close methods can be told apart.
+- Better training data for fine-tuning: queries written like real shoppers write them,
+  including needs ("my car is dirty"), for example made by a larger LLM.
 - RAG: let an LLM answer questions like "what should I buy for camping?" using the search results.

@@ -38,6 +38,9 @@ from semantic_search.levels.level4.hybrid import HybridSearch
 from semantic_search.levels.level5 import labels
 from semantic_search.levels.level5.bm25 import BM25Search as Level5BM25
 from semantic_search.levels.level5.hybrid import HybridSearch as Level5Hybrid
+from semantic_search.levels.level6 import load_products as level6_load_products
+from semantic_search.levels.level6.semantic import SemanticSearch as Level6Semantic
+from semantic_search.levels.level6.train import OUTPUT_DIR as T5_MODEL_DIR, QUERY_PREFIX, SHOPPING_OUTPUT_DIR
 
 PAGE = Path(__file__).parent / "static" / "index.html"
 LABEL_PAGE = Path(__file__).parent / "static" / "label.html"
@@ -105,6 +108,23 @@ def level5_bm25() -> Level5BM25:
 @cache
 def level5_hybrid() -> Level5Hybrid:
     return Level5Hybrid(level5_engine(), level5_bm25())  # k=60, equal weights: best with BGE-small
+
+
+# Level 6: BGE-small before and after fine-tuning, and gte-small (the best model, no training)
+LEVEL6_MODELS = {  # column name -> (model: a name on Hugging Face or a folder made by train.py, query prefix)
+    "BGE-small, no training": ("BAAI/bge-small-en-v1.5", QUERY_PREFIX),
+    "BGE-small, trained on T5 questions": (str(T5_MODEL_DIR), QUERY_PREFIX),
+    "BGE-small, trained on shopping data": (str(SHOPPING_OUTPUT_DIR), QUERY_PREFIX),
+    "gte-small, no training (best)": ("thenlper/gte-small", ""),
+}
+
+
+@cache
+def level6_engine(column: str) -> Level6Semantic:
+    model, prefix = LEVEL6_MODELS[column]
+    if "trained on" in column and not Path(model).exists():
+        raise HTTPException(404, f"Model not found: {model}. Train it with levels/level6/train.py first.")
+    return Level6Semantic(level6_load_products(AMAZON_PRODUCTS_PATH), model, query_prefix=prefix)
 
 
 def matched_words(query: str, p, tokenize) -> list[str]:
@@ -188,7 +208,7 @@ def index_search(engine, index, query_vecs, k: int, repeats: int = 5) -> dict:
 @app.get("/api/search")  # URL: /api/search?q=...&level=1&k=5&ef_search=64
 def search(
     q: str,
-    level: int = Query(1, ge=1, le=5),
+    level: int = Query(1, ge=1, le=6),
     k: int = Query(5, ge=1, le=50),
     ef_search: int = Query(64, ge=1, le=1024),
 ):
@@ -212,6 +232,16 @@ def search(
         require_amazon_data()
         engine = level5_engine()
         columns = bm25_semantic_hybrid(engine, level5_bm25(), level5_hybrid(), query, k, "Semantic (BGE-small)")
+    elif level == 6:
+        require_amazon_data()
+        columns = []
+        for name in LEVEL6_MODELS:
+            engine = level6_engine(name)  # build before timing
+            start = time.perf_counter()
+            results = engine.search(query, k)
+            columns.append({"name": name, "kind": "semantic", "ms": ms_since(start),
+                            "note": "includes embedding the query",
+                            "results": [to_dict(s, p) for s, p in results]})
     else:
         require_amazon_data()
         engine = level3_engine()

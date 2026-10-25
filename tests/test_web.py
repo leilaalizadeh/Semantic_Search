@@ -58,3 +58,15 @@ def test_level_5_uses_bge_small():
         pytest.skip("Amazon data not downloaded (run `uv run prepare-data`)")
     data = client.get("/api/search", params={"q": "yoga mat", "level": 5, "k": 3}).json()
     assert [c["name"] for c in data["columns"]] == ["BM25", "Semantic (BGE-small)", "Hybrid (RRF)"]
+
+
+def test_level_6_compares_three_versions():
+    from semantic_search.levels.level6.data import AMAZON_PRODUCTS_PATH
+    from semantic_search.web import LEVEL6_MODELS
+    from pathlib import Path
+
+    trained = [model for name, (model, _) in LEVEL6_MODELS.items() if "trained on" in name]
+    if not AMAZON_PRODUCTS_PATH.exists() or not all(Path(m).exists() for m in trained):
+        pytest.skip("Amazon data or fine-tuned models not available")
+    data = client.get("/api/search", params={"q": "coffee mug", "level": 6, "k": 3}).json()
+    assert [c["name"] for c in data["columns"]] == list(LEVEL6_MODELS)

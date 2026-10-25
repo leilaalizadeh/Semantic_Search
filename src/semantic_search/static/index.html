@@ -273,9 +273,41 @@ const LEVELS = {
       ["18 queries are too few to separate the best methods: 0.695 and 0.697 are the same within the noise (one query is worth about 0.056)."],
       ["Pooling: products that no method found were never labeled. The first model comparison was unfair until the new models' results were labeled too."],
       ["Experiment 1 tuned hybrid on the same queries it was tested on, so its result is a little too optimistic."],
-      ["The model was never trained on our products or labels. Fine-tuning needs much more training data than 684 labels.", "next: fine-tuning"],
+      ["The model was never trained on our products or labels. Fine-tuning needs much more training data than 684 labels.", "tried in Level 6"],
     ],
     examples: ["my car is dirty", "I want to learn music", "Columbia jacket", "phone charger"],
+  },
+  6: {
+    tab: "Level 6 · Fine-tuning",
+    title: "Level 6: training the embedding model on our products",
+    intro: "The first three columns are the same BGE-small model, before and after two trainings. The last column is gte-small, another model without any training.",
+    steps: [
+      "Training data without hand labels: a small T5 model read each product and wrote 3 search queries for it, 14,850 (query, product) pairs.",
+      "Fine-tuning: each batch has 16 pairs. For every query, its own product is the right answer and the other 15 are wrong. The model moves right pairs closer and wrong pairs apart. About 10 minutes on the laptop.",
+      "First training (T5 questions): the loss on unseen products went from 0.31 to 0.10, but the search on our labeled queries got worse (0.674 to 0.648). Almost half of the queries were questions like \"what is a hose nozzle\", and only one product was right for each.",
+      "Second training (shopping data): questions cleaned to \"hose nozzle\" and short queries from titles like \"water bottle\", shared by many products. Simple searches got much better (coffee mug 0.41 to 0.86), but other queries got worse.",
+      "Our 20 test queries were removed from all training data, also as plurals, so the test stays fair.",
+      "Then two other models were tested without training. gte-small, the same size as BGE-small, was better on 11 of 18 queries and worse on 2. It is now the default.",
+    ],
+    tryThis: "Try \"coffee mug\" and \"phone charger\": the trainings help one and hurt the other, while gte-small does well on both.",
+    table: {
+      caption: "nDCG@10 on our 18 labeled queries (semantic search)",
+      head: ["Model", "Training", "nDCG@10"],
+      rows: [
+        ["BGE-small", "none", "0.674"],
+        ["BGE-small", "T5 questions", "0.648"],
+        ["BGE-small", "shopping-style queries", "0.657"],
+        ["bge-base (3x bigger)", "none", "0.687"],
+        ["gte-small", "none", "0.734"],
+      ],
+    },
+    problems: [
+      ["Neither training beat the model without training. Choosing a better existing model (gte-small) helped more than our own training."],
+      ["A better training loss did not mean a better search for our queries: the training task and our task were different."],
+      ["The synthetic queries are noisy (wrong brand names, half questions), and only 18 test queries decide the result."],
+      ["Training needs much more memory than searching: on an 8 GB Mac it only worked with batches of 16 and texts cut to 128 tokens."],
+    ],
+    examples: ["coffee mug", "phone charger", "shoes without laces", "i have cold keep me warm"],
   },
 };
 const EF_VALUES = [1, 4, 16, 64, 128, 256, 512, 1024];
