@@ -1,35 +1,77 @@
-# Semantic Search
+# Semantic Product Search and RAG
 
-A beginner project that compares **traditional keyword search** with **semantic search** on a small product catalog, similar to searching on Amazon.
+A product search engine built step by step, from keyword matching to embeddings, vector search,
+hybrid search and an LLM that answers questions using the search results. Every version is
+measured on a hand-labeled test set, and a web app shows all of them side by side.
 
-| Keyword search | Semantic search |
+Data: 5,000 real Amazon products. Everything runs locally on an 8 GB laptop
+(bigger LLMs were tested on a free Colab GPU).
+
+![RAG tab: an LLM answers with products found by the search](docs/images/level7_rag.png)
+
+## Results
+
+**Search quality** on 18 labeled test queries (nDCG@10, higher is better; all measured on the same 808 labels):
+
+| Version | nDCG@10 |
 |---|---|
-| Matches the exact words in the query | Matches what the query *means* (intent, context) |
-| "gift for a 6 year old" → JBL Flip **6** Speaker | → LEGO Classic Bricks, Harry Potter Box Set |
+| Keyword search (count matching words) | 0.35 |
+| BM25 | 0.56 |
+| Embeddings, all-MiniLM-L6-v2 | 0.65 |
+| Embeddings, BGE-small | 0.67 |
+| BGE-small fine-tuned on 15k synthetic queries | 0.65 |
+| **Embeddings, gte-small** | **0.73** |
+
+**RAG answers** on 20 test questions (share of recommended products that are relevant):
+
+| LLM | Product check | Precision | Says "nothing fits" when the shop has nothing |
+|---|---|---|---|
+| Qwen2.5-1.5B (laptop) | none | 58% | 0 of 2 |
+| Qwen2.5-3B (Colab) | LLM checks each product first | **91%** | **2 of 2** |
+
+## What I learned
+
+- **Measuring changes the conclusions.** I labeled 808 query-product pairs (a second labeler, an AI model,
+  labeled them too: 91% agreement, Cohen's kappa 0.80). Several "obvious" improvements did not hold up.
+- **Fine-tuning did not help, and the reason was the data.** The training loss dropped from 0.31 to 0.10,
+  but the synthetic queries ("what is a hose nozzle") taught a different task than real searches ("coffee mug").
+  Picking a better existing model helped more.
+- **Bigger is not always better.** A 3x bigger embedding model scored lower than gte-small.
+- **An LLM can't fix bad search results, it makes them sound good.** Without a check it recommended a dog
+  statue for "dog toy". Score thresholds could not decide when to refuse; an LLM yes/no check per product could.
+- **Pool bias is real.** New models looked worse until the products only they found were labeled too.
 
 ## How it works
 
-```
-products.json ──► embedding model ──► product vectors (computed once)
-                                               │
-user query ────► embedding model ──► query vector ──► cosine similarity ──► top-k products
-```
+The project is split into levels. Each level adds one idea and keeps the code of the earlier ones
+in `src/semantic_search/levels/levelN/`, so every version can still be run and compared.
 
-1. Each product (`title + description`) is turned into a vector (an **embedding**) with the
-   free, local model [`all-MiniLM-L6-v2`](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2).
-2. The user query is embedded with the same model.
-3. Products are ranked by **cosine similarity** between the query vector and each product vector.
+| Level | Adds | Main result |
+|---|---|---|
+| 1 | Keyword search vs. embeddings (all-MiniLM-L6-v2) on 30 hand-written products | meaning beats exact words |
+| 2 | 5,000 real Amazon products, cleaning and sampling | real data is messy |
+| 3 | Embedding cache, FAISS index, HNSW approximate search | start-up 23 s -> 1 s, search up to 300x faster |
+| 4 | BM25 and hybrid search (Reciprocal Rank Fusion) | fixes the worst keyword mistakes |
+| 5 | Labeled test set, P@5 / R@10 / MRR / nDCG@10, experiments | numbers instead of opinions |
+| 6 | Fine-tuning with synthetic queries, comparing more models | gte-small wins, fine-tuning doesn't |
+| 7 | RAG with a local LLM and an LLM product check | grounded answers, 91% precision with 3B |
+
+![Hybrid search tab: BM25, semantic and hybrid results side by side](docs/images/level4_hybrid.png)
+
+**Stack:** Python, PyTorch, sentence-transformers, FAISS, Hugging Face transformers and datasets, FastAPI, uv, pytest.
 
 ## Project structure
 
 ```
 ├── data/
 │   ├── products.json             # tiny hand-made catalog (30 products)
-│   └── amazon_products.json      # real Amazon sample (created by `prepare-data`, not in git)
+│   ├── amazon_products.json      # real Amazon sample (created by `prepare-data`, not in git)
+│   └── eval/                     # test set: pool of query-product pairs, labels, RAG answers
+├── notebooks/level7_colab.ipynb  # RAG evaluation with a bigger LLM on a free Colab GPU
 ├── src/semantic_search/
 │   ├── web.py                    # web app (FastAPI), one tab per level
-│   ├── static/index.html         # search page
-│   └── levels/                   # each level's full code (from the git tags)
+│   ├── static/                   # search page and labeling page
+│   └── levels/                   # each level's full code
 │       ├── level1/               # data, keyword_search, semantic, cli
 │       ├── level2/               # + prepare_data (download Amazon data)
 │       ├── level3/               # + cache, FAISS / HNSW, benchmark
@@ -45,25 +87,28 @@ user query ────► embedding model ──► query vector ──► cosi
 Requires [uv](https://docs.astral.sh/uv/).
 
 ```bash
-uv sync                                           # install dependencies
-uv run semantic-search                            # interactive mode
-uv run semantic-search "gift for a 6 year old"    # one query
-uv run pytest                                     # run tests
+uv sync                                   # install dependencies
+uv run prepare-data                       # download and clean the Amazon products (~1 min)
+uv run web                                # web app with one tab per level: http://127.0.0.1:8000
+uv run semantic-search --amazon           # search in the terminal (keyword, BM25, semantic, hybrid)
+uv run ask --check "I need a toy for my dog"   # RAG answer in the terminal
+uv run pytest                             # run the tests
 ```
 
-The first run downloads the embedding model (~90 MB).
+The first run downloads the models (an embedding model of ~130 MB and, for RAG, an LLM of ~3 GB).
 
-Example:
+## Level 1: keyword vs. semantic search
 
 ```
-Search> gift for a 6 year old
-  Keyword:
-     1.000  JBL Flip 6 Bluetooth Speaker
-  Semantic:
-     0.340  LEGO Classic Creative Bricks
-     0.251  Harry Potter Box Set
-     0.250  Dog Chew Toy
+products.json ──► embedding model ──► product vectors (computed once)
+                                               │
+user query ────► embedding model ──► query vector ──► cosine similarity ──► top-k products
 ```
+
+| Keyword search | Semantic search |
+|---|---|
+| Matches the exact words in the query | Matches what the query *means* |
+| "gift for a 6 year old" → JBL Flip **6** Speaker | → LEGO Classic Bricks, Harry Potter Box Set |
 
 ## Level 2: real Amazon data
 
@@ -86,6 +131,15 @@ Search> keep me warm when it snows
      0.496  Tough Headwear Full Face Mask for Cold Weather for Men - Work Balaclava ...
      0.445  Columbia Men's Basin Trail Fleece Full Zip
 ```
+
+## Level 3: cache, FAISS and HNSW
+
+- The product vectors are saved to disk, named by a hash of the products and the model, so the app
+  starts in about 1 second instead of 23.
+- A FAISS index replaces the numpy search. `IndexFlatIP` is exact; `IndexHNSWFlat` searches a graph
+  of neighbours and checks only a small part of the products.
+- On 200,000 vectors HNSW was 34x to 299x faster than exact search, with 48% to 90% recall depending
+  on `efSearch` (`uv run python -m semantic_search.levels.level3.benchmark`).
 
 ## Level 4: BM25 and hybrid search
 
@@ -112,7 +166,8 @@ Measure every method on labeled queries instead of looking at a few examples.
 2. **Pooling** (`pool.py`): the top 10 of every method are merged into `data/eval/pool.json`
    (684 query-product pairs). Only these are labeled.
 3. **Labeling** (`/label` page in the web app): each pair is marked relevant or not, without seeing
-   which method found it. Two labelers labeled everything separately and agreed on 91% of the pairs
+   which method found it. Two labelers (the author and an AI model) labeled everything separately
+   and agreed on 91% of the pairs
    (Cohen's kappa 0.80).
 4. **Metrics** (`evaluate.py`): P@5, R@10, MRR and nDCG@10.
 5. **Experiments**: tuning hybrid (`tune.py`) and comparing embedding models (`compare_models.py`).
@@ -180,30 +235,6 @@ uv run python -m semantic_search.levels.level6.compare_models   # all models on 
 
 Generated data (`data/train/`) and trained models (`models/`) are not in git.
 
-## Web app
-
-```bash
-uv run web          # then open http://127.0.0.1:8000
-```
-
-One tab per level: Level 1 (30 products), Level 2 (Amazon data), Level 3 (Flat vs HNSW with
-search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid), Level 5 (results table, and
-BM25 vs semantic vs hybrid with BGE-small), Level 6 (BGE-small before and after fine-tuning, and gte-small),
-Level 7 (ask a question, get an LLM answer with the products it used). Each tab runs that level's own code from
-`src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
-`benchmark` commands run the latest level. Only the import paths and the data
-folder depth were changed, and `tests/test_levels.py` checks that against git.
-The first search on the Level 2 tab takes about 25 seconds, because Level 2 had no embedding cache.
-
-You can also run an old level's command-line app:
-
-```bash
-uv run python -m semantic_search.levels.level1.cli
-uv run python -m semantic_search.levels.level2.cli --amazon
-```
-
-A link like `http://127.0.0.1:8000/?q=running+shoes#level2` opens a search directly.
-
 ## Level 7: RAG (Retrieval-Augmented Generation)
 
 The search finds products, and an LLM writes an answer that uses only those products.
@@ -238,9 +269,33 @@ an LLM check works if the model is big enough and the question is right.
 The LLM can't be loaded in the web server (FAISS is loaded there first, and the LLM must come before
 FAISS), so the web app runs RAG in its own process (`levels/level7/rag_service.py`).
 
+## Web app
+
+```bash
+uv run web          # then open http://127.0.0.1:8000
+```
+
+One tab per level: Level 1 (30 products), Level 2 (Amazon data), Level 3 (Flat vs HNSW with
+search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid), Level 5 (results table, and
+BM25 vs semantic vs hybrid with BGE-small), Level 6 (BGE-small before and after fine-tuning, and gte-small),
+Level 7 (ask a question, get an LLM answer with the products it used). Each tab runs that level's own code from
+`src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
+`benchmark` commands run the latest level. Only the import paths and the data
+folder depth were changed, and `tests/test_levels.py` checks that against git.
+The first search on the Level 2 tab takes about 25 seconds, because Level 2 had no embedding cache.
+
+You can also run an old level's command-line app:
+
+```bash
+uv run python -m semantic_search.levels.level1.cli
+uv run python -m semantic_search.levels.level2.cli --amazon
+```
+
+A link like `http://127.0.0.1:8000/?q=running+shoes#level2` opens a search directly.
+
 ## Next steps
 
 - Add more test queries, so close methods can be told apart.
 - Better training data for fine-tuning: queries written like real shoppers write them,
   including needs ("my car is dirty"), for example made by a larger LLM.
-- RAG: let an LLM answer questions like "what should I buy for camping?" using the search results.
+- Run RAG with a bigger LLM in the web app (for example through an API), since 3B does not fit in 8 GB.
