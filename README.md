@@ -11,7 +11,7 @@ Data: 5,000 real Amazon products. Everything runs locally on an 8 GB laptop
 
 ## Results
 
-**Search quality** on 18 labeled test queries (nDCG@10, higher is better; all measured on the same 808 labels):
+Search quality on 18 labeled test queries (nDCG@10, higher is better, all measured on the same 808 labels):
 
 | Version | nDCG@10 |
 |---|---|
@@ -20,26 +20,29 @@ Data: 5,000 real Amazon products. Everything runs locally on an 8 GB laptop
 | Embeddings, all-MiniLM-L6-v2 | 0.65 |
 | Embeddings, BGE-small | 0.67 |
 | BGE-small fine-tuned on 15k synthetic queries | 0.65 |
-| **Embeddings, gte-small** | **0.73** |
+| Embeddings, gte-small | 0.73 |
 
-**RAG answers** on 20 test questions (share of recommended products that are relevant):
+RAG answers on 20 test questions (share of recommended products that are relevant):
 
 | LLM | Product check | Precision | Says "nothing fits" when the shop has nothing |
 |---|---|---|---|
 | Qwen2.5-1.5B (laptop) | none | 58% | 0 of 2 |
-| Qwen2.5-3B (Colab) | LLM checks each product first | **91%** | **2 of 2** |
+| Qwen2.5-3B (Colab) | LLM checks each product first | 91% | 2 of 2 |
 
 ## What I learned
 
-- **Measuring changes the conclusions.** I labeled 808 query-product pairs (a second labeler, an AI model,
-  labeled them too: 91% agreement, Cohen's kappa 0.80). Several "obvious" improvements did not hold up.
-- **Fine-tuning did not help, and the reason was the data.** The training loss dropped from 0.31 to 0.10,
-  but the synthetic queries ("what is a hose nozzle") taught a different task than real searches ("coffee mug").
-  Picking a better existing model helped more.
-- **Bigger is not always better.** A 3x bigger embedding model scored lower than gte-small.
-- **An LLM can't fix bad search results, it makes them sound good.** Without a check it recommended a dog
-  statue for "dog toy". Score thresholds could not decide when to refuse; an LLM yes/no check per product could.
-- **Pool bias is real.** New models looked worse until the products only they found were labeled too.
+- I labeled 808 query-product pairs by hand, and a second labeler (an AI model) labeled them too.
+  We agreed on 91% of them (Cohen's kappa 0.80). Some changes that looked better at first did not
+  hold up once I measured them.
+- Fine-tuning did not help. The training loss went from 0.31 to 0.10, but the generated training
+  queries were questions like "what is a hose nozzle", while real searches look like "coffee mug".
+  Switching to another existing model helped more than training.
+- A 3x bigger embedding model scored lower than gte-small.
+- Without a check, the LLM recommended whatever the search found, for example a dog statue for
+  "dog toy". A score threshold could not tell when to say "nothing fits", but asking the LLM yes or no
+  for each product worked.
+- New models looked worse at first, because the products only they found had never been labeled.
+  After labeling those too, the comparison was fair.
 
 ## How it works
 
@@ -58,7 +61,7 @@ in `src/semantic_search/levels/levelN/`, so every version can still be run and c
 
 ![Hybrid search tab: BM25, semantic and hybrid results side by side](docs/images/level4_hybrid.png)
 
-**Stack:** Python, PyTorch, sentence-transformers, FAISS, Hugging Face transformers and datasets, FastAPI, uv, pytest.
+Stack: Python, PyTorch, sentence-transformers, FAISS, Hugging Face transformers and datasets, FastAPI, uv, pytest.
 
 ## Project structure
 
@@ -107,8 +110,8 @@ user query ────► embedding model ──► query vector ──► cosi
 
 | Keyword search | Semantic search |
 |---|---|
-| Matches the exact words in the query | Matches what the query *means* |
-| "gift for a 6 year old" → JBL Flip **6** Speaker | → LEGO Classic Bricks, Harry Potter Box Set |
+| Matches the exact words in the query | Matches what the query means |
+| "gift for a 6 year old" finds the JBL Flip 6 speaker (because of the "6") | finds LEGO bricks and a Harry Potter box set |
 
 ## Level 2: real Amazon data
 
@@ -143,17 +146,17 @@ Search> keep me warm when it snows
 
 ## Level 4: BM25 and hybrid search
 
-- **BM25** (`levels/level4/bm25.py`): keyword ranking where rare words count more (IDF),
+- BM25 (`levels/level4/bm25.py`): keyword ranking where rare words count more (IDF),
   repeated words count less and less (k1), and long texts are normalized (b). An inverted
   index makes it about 1000x faster than the old keyword search (0.07 ms vs 75 ms).
-- **Hybrid** (`levels/level4/hybrid.py`): combines BM25 and semantic rankings with
+- Hybrid (`levels/level4/hybrid.py`): combines BM25 and semantic rankings with
   Reciprocal Rank Fusion, `1/(60 + rank)` summed over both lists.
 
 | Query | BM25 | Semantic | Hybrid |
 |---|---|---|---|
 | i have cold keep me warm | winter coat, mittens | face mask, fleece | mittens, face mask, coat |
-| something to fix a leaking sink | "I Fix Stuff" hat ❌ | kitchen mat | sink caddy (BM25 #2, semantic #2) |
-| going camping this weekend | sweater dress ❌ (rare word "weekend") | tent, sleeping bag | sleeping pad, sleeping bag (tent drops out) |
+| something to fix a leaking sink | an "I Fix Stuff" hat (wrong) | kitchen mat | sink caddy (BM25 #2, semantic #2) |
+| going camping this weekend | a sweater dress (wrong, "weekend" is a rare word) | tent, sleeping bag | sleeping pad, sleeping bag (the tent drops out) |
 
 Hybrid removes the worst mistakes of each method, but it is not better on every query.
 Measuring that properly is the next step (evaluation).
@@ -162,15 +165,15 @@ Measuring that properly is the next step (evaluation).
 
 Measure every method on labeled queries instead of looking at a few examples.
 
-1. **Test queries** (`levels/level5/queries.py`): 20 queries of 4 types: intent, simple, exact, tricky.
-2. **Pooling** (`pool.py`): the top 10 of every method are merged into `data/eval/pool.json`
+1. Test queries (`levels/level5/queries.py`): 20 queries of 4 types: intent, simple, exact, tricky.
+2. Pooling (`pool.py`): the top 10 of every method are merged into `data/eval/pool.json`
    (684 query-product pairs). Only these are labeled.
-3. **Labeling** (`/label` page in the web app): each pair is marked relevant or not, without seeing
+3. Labeling (`/label` page in the web app): each pair is marked relevant or not, without seeing
    which method found it. Two labelers (the author and an AI model) labeled everything separately
    and agreed on 91% of the pairs
    (Cohen's kappa 0.80).
-4. **Metrics** (`evaluate.py`): P@5, R@10, MRR and nDCG@10.
-5. **Experiments**: tuning hybrid (`tune.py`) and comparing embedding models (`compare_models.py`).
+4. Metrics (`evaluate.py`): P@5, R@10, MRR and nDCG@10.
+5. Experiments: tuning hybrid (`tune.py`) and comparing embedding models (`compare_models.py`).
 
 | Method | Model | nDCG@10 |
 |---|---|---|
@@ -180,7 +183,7 @@ Measure every method on labeled queries instead of looking at a few examples.
 | Semantic | all-mpnet-base-v2 (5x bigger) | 0.646 |
 | Semantic | BAAI/bge-small-en-v1.5 | 0.684 |
 | Hybrid | MiniLM, tuned (k=5, semantic weight 2) | 0.695 |
-| Hybrid | **BGE-small (k=60, equal weights)** | **0.697** |
+| Hybrid | BGE-small (k=60, equal weights) | 0.697 |
 
 Level 5 uses BGE-small with plain hybrid by default. The bigger model was not better, and the
 first model comparison looked wrong until the new models' results were labeled too (pool bias).
@@ -197,11 +200,11 @@ uv run python -m semantic_search.levels.level5.pool --add-models # add new model
 
 Train BGE-small on our products, then measure it on the Level 5 labels.
 
-1. **Training data without hand labels** (`levels/level6/generate_queries.py`): a small T5 model
+1. Training data without hand labels (`levels/level6/generate_queries.py`): a small T5 model
    (`doc2query/msmarco-t5-small-v1`) writes 3 queries per product: 14,850 (query, product) pairs.
-2. **Training** (`train.py`): `MultipleNegativesRankingLoss`, batch 16, texts cut to 128 tokens,
+2. Training (`train.py`): `MultipleNegativesRankingLoss`, batch 16, texts cut to 128 tokens,
    1 epoch, about 10 minutes on an 8 GB Mac. Batch 32 with 256 tokens ran out of memory.
-3. **Shopping-style data** (`shopping_queries.py`): question words removed ("what is a hose nozzle" ->
+3. Shopping-style data (`shopping_queries.py`): question words removed ("what is a hose nozzle" ->
    "hose nozzle") and short queries from titles ("water bottle"), shared by many products.
 
 The 20 test queries are removed from all training data, also as plurals.
@@ -212,7 +215,7 @@ The 20 test queries are removed from all training data, also as plurals.
 | BGE-small | T5 questions | 0.648 |
 | BGE-small | shopping-style queries | 0.657 |
 | bge-base-en-v1.5 (3x bigger) | none | 0.687 |
-| **thenlper/gte-small** | **none** | **0.734** |
+| thenlper/gte-small | none | 0.734 |
 
 (Measured on 808 labeled pairs: every model's top results were labeled, so no model is judged unfairly.)
 
@@ -239,9 +242,9 @@ Generated data (`data/train/`) and trained models (`models/`) are not in git.
 
 The search finds products, and an LLM writes an answer that uses only those products.
 
-1. **Search**: gte-small finds the top 5 products for the question.
-2. **Check**: the LLM answers yes/no for each product ("could it be useful for what the customer wants?").
-3. **Answer**: the LLM gets the kept products, numbered [1]..[5], and writes a short answer that cites them.
+1. Search: gte-small finds the top 5 products for the question.
+2. Check: the LLM answers yes/no for each product ("could it be useful for what the customer wants?").
+3. Answer: the LLM gets the kept products, numbered [1]..[5], and writes a short answer that cites them.
    If the check removed everything, the answer is "the shop doesn't have anything that fits".
 
 ```bash
@@ -259,7 +262,7 @@ The LLM is `Qwen/Qwen2.5-1.5B-Instruct` (about 3 GB, 15 to 30 seconds per answer
 | Qwen 1.5B | yes | 65% | 1 of 2 | 0 |
 | Qwen 3B | none | 66% | 0 of 2 | 0 |
 | Qwen 3B | strict question | 94% | 2 of 2 | 7 |
-| Qwen 3B | "could it be useful" | **91%** | **2 of 2** | 3 |
+| Qwen 3B | "could it be useful" | 91% | 2 of 2 | 3 |
 
 Precision = recommended products that are relevant (Level 5 labels). No version invented a product.
 Without the check, the LLM recommends whatever the search finds, even a dog statue for "dog toy".
