@@ -1,7 +1,7 @@
 """Level 5: compare two people's labels, then measure every search method with numbers.
 
 Run:  uv run python -m semantic_search.levels.level6.evaluate
-      uv run python -m semantic_search.levels.level6.evaluate --truth neda   (use the other labels as truth)
+      uv run python -m semantic_search.levels.level6.evaluate --truth ai_model   (use the other labels as truth)
 
 Metrics (all between 0 and 1, higher is better):
   P@5     precision: how many of the top 5 results are relevant
@@ -95,7 +95,7 @@ def print_agreement(pool: list[dict], truth: dict, other: dict, truth_name: str,
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--truth", default="leila", help="Whose labels are the correct answers")
-    parser.add_argument("--other", default="neda", help="Labels to compare with")
+    parser.add_argument("--other", default="ai_model", help="Labels to compare with")
     args = parser.parse_args()
 
     pool = load_pool()

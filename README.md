@@ -32,7 +32,7 @@ RAG answers on 20 test questions (share of recommended products that are relevan
 ## What I learned
 
 - I labeled 808 query-product pairs by hand, and a second labeler (an AI model) labeled them too.
-  We agreed on 91% of them (Cohen's kappa 0.80). Some changes that looked better at first did not
+  We agreed on 91% of them (Cohen's kappa 0.78). Some changes that looked better at first did not
   hold up once I measured them.
 - Fine-tuning did not help. The training loss went from 0.31 to 0.10, but the generated training
   queries were questions like "what is a hose nozzle", while real searches look like "coffee mug".
