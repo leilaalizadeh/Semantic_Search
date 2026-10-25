@@ -1,0 +1,351 @@
+[
+ {
+  "query": "going camping this weekend",
+  "type": "intent",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "i have cold keep me warm",
+  "type": "intent",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "something to fix a leaking sink",
+  "type": "intent",
+  "relevant_in_prompt": 0,
+  "recommended": [
+   1
+  ],
+  "recommended_relevant": 0,
+  "made_up": [
+   "3"
+  ],
+  "refused": false,
+  "answer": "Based on the customer's need to fix a leaking sink, I would recommend [1]. The waterproof sink mat can effectively prevent water damage and leaks by acting as a barrier under the sink. If you're looking for a more direct solution, consider [3], which is specifically designed to stop leaks at the faucet connection.",
+  "products": [
+   {
+    "title": "Under Sink Mat, Prevent Water Damage with Waterproof Sink Mat, 34\"x22\" Silicone Liner for Kitchen/Bathroom, Flexible Drip Tray with Lip, Non-Slip, Grey",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "my car is dirty",
+  "type": "intent",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   1
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a dirty car, I would recommend [1] Armor All Heavy Duty Cleaning Wipes. These wipes are perfect for tackling tough stains and grime on both interior and exterior surfaces. They're especially useful for stubborn spots like grease and beverage spills.",
+  "products": [
+   {
+    "title": "Armor All Heavy Duty Cleaning Wipes, Interior & Exterior Car Cleaning Wipes – 75 Count",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "my back hurts when I sit all day",
+  "type": "intent",
+  "relevant_in_prompt": 3,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For your back pain while sitting all day, I recommend [1] and [2]. The [1] ergonomic memory foam pillow is specifically designed to support your lower back and improve posture, which can help alleviate your discomfort. The [2] lumbar support pillow also provides excellent back support and is suitable for use in both car seats and office chairs, helping you maintain proper sitting posture throughout the day.",
+  "products": [
+   {
+    "title": "POTTER'S LOVE Lumbar Support Pillow - Ergonomic Memory Foam Back Support Lower Back Pain Relief Cushion Adjustable Extension Strap Washable Improve Posture for Home, Car Seat, Office Chair, Nursing",
+    "relevant": true
+   },
+   {
+    "title": "Lumbar Support Pillow Memory Foam Cushion for Back Pain Relief Lmprove Your Sitting Posture Suitable for Car Seat Office Chair Sofa Recliner Multifunctional Universal Lumbar Pillow (Brown Yellow-1)",
+    "relevant": true
+   },
+   {
+    "title": "Ergonomic Kneeling Desk Chair- Adjustable Stool for Home and Office-Angled Balancing Seat- Posture Support Kneeling Office Chair- Black",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "gift for a 6 year old",
+  "type": "intent",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "I want to learn music",
+  "type": "intent",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "my kitchen is too messy",
+  "type": "intent",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "running shoes",
+  "type": "simple",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "rain jacket",
+  "type": "simple",
+  "relevant_in_prompt": 3,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For rain protection, I would recommend [1] Makonus Raincoat for Adults. It's made of eco-friendly EVA material and is lightweight, perfect for women who want a reusable and waterproof rain poncho. If you're looking for something more specifically designed for outdoor activities, [2] Ouray Sportswear Men's Invert Jacket offers durable water resistance and a softshell fabric, ideal for men who enjoy sports and outdoor adventures.",
+  "products": [
+   {
+    "title": "Makonus Raincoat for Adults, Portable EVA Rain Jacket Reusable Rain Ponchos for Women with Hood and Elastic Cuff Sleeves",
+    "relevant": true
+   },
+   {
+    "title": "Ouray Sportswear Men's Invert Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Jack Wolfskin Unisex-Youth Tucan Jacket",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "yoga mat",
+  "type": "simple",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a yoga mat, I would recommend [1] and [2]. The [1] mat is extra thick and suitable for various types of yoga, gym use, and everyday exercise. It's made of 100% NBR foam and is anti-slip. The [2] mat offers a good balance between thickness for comfort and portability, being only 1/4 inch thick and weighing just 3.1 pounds, making it easy to carry around.",
+  "products": [
+   {
+    "title": "Yoga Mat - Premium 15 Mm Extra Thick Non Slip Exercise & Fitness Mat,Anti-Skid Sports Fitness Mat for All Types of Yoga, Pilates & Floor Workouts (23.6 x 9.8 x 0.6inch Thick)",
+    "relevant": true
+   },
+   {
+    "title": "Marjar Yoga Mat for Women/Men, 1/4-Inch Print Reversible Exercise & Fitness Mat for All BareFoot Workouts, Non-Slip Yoga Mat with Carrying Strap & Storage Bag (68\" x 24\" x 6mm Thick)",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "office chair",
+  "type": "simple",
+  "relevant_in_prompt": 3,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For an office chair, I would recommend [2] Misolant Ergonomic Office Chair. It offers soft and breathable padded seat cushions and a removable flexible headrest for neck support. If you prefer a more adjustable option, [1] Height-Adjustable Office Chair would be a great choice as it allows full recline and swiveling, providing more comfort and flexibility throughout the day.",
+  "products": [
+   {
+    "title": "Height-Adjustable Office Chair Ergonomic Office Chair High Back Mesh Computer Chair with Lumbar Support Swivel Rolling Chair with Adjustable Headrest for Home and Office",
+    "relevant": true
+   },
+   {
+    "title": "Misolant Ergonomic Office Chair, Desk Chair with Lumbar Support, Mesh Office Chair, Ergonomic Chair with Adjustable Headrest and Armrest, Recline Office Chair, Comfortable Office Chair for Home（Pink）",
+    "relevant": true
+   },
+   {
+    "title": "Ergonomic Mesh Office Chair, Breathable Home Desk Chair with Adjustable Armrest and Lumbar Support,High Back Desk Computer Chair with Wheels(Black)",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "dog toy",
+  "type": "simple",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "coffee mug",
+  "type": "simple",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   2
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a coffee mug, I would recommend [2]. The OWUYUXI Coffee Mug is perfect for coffee lovers as it comes with a lid and spoon, making it convenient for on-the-go use or as a gift. It's microwave and dishwasher safe, ensuring easy cleaning and durability.",
+  "products": [
+   {
+    "title": "Vintage Glass Coffee Mugs - Vintage Glass Mugs |14 Oz Set of 2 Embossed Tea Cups with Two Stirring Spoon, Perfect for Cappuccino, Latte, Cereal, Yogurt, Beverage Hot/Cold (Clear)",
+    "relevant": true
+   },
+   {
+    "title": "OWUYUXI Coffee Mug,Ceramic Coffee Cup with Lid and Spoon,Gift Box,Perfect for Coffee,Tea,Espresso, Hot Cocoa,Microwave and Dishwasher Safe",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "garden tools",
+  "type": "simple",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   1
+  ],
+  "recommended_relevant": 1,
+  "made_up": [
+   "2"
+  ],
+  "refused": false,
+  "answer": "For a garden tool, I would recommend [1], our premium 5\" Gardening Bypass Pruning Shears. They are perfect for your gardening needs with their high-quality, rust-resistant materials and ergonomic design. If you're looking for something more versatile, consider also checking out [2], which offers a variety of other essential garden tools.",
+  "products": [
+   {
+    "title": "Premium 5” Gardening Bypass Pruning Shears, Heavy-Duty, Sharp and Ergonomic Soft Grip Handle",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "Columbia jacket",
+  "type": "exact",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "I recommend [2] Columbia Women's Ali Peak Quarter Zip. It's a great option for women looking for a stylish and functional jacket that offers sun protection. While it doesn't specifically mention a Columbia brand, it's a Columbia product that could fit the customer's needs.",
+  "products": [
+   {
+    "title": "Columbia Women's CLG Switchback Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Women's Ali Peak Quarter Zip",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "stainless steel water bottle",
+  "type": "exact",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a stainless steel water bottle, I recommend [2]. It's perfect for keeping your drinks cold or hot all day long with its vacuum-insulated design. If you're looking for something slightly more affordable, the JOOLA Water Bottle [1] is also a great option, offering similar features at a lower price point.",
+  "products": [
+   {
+    "title": "JOOLA 40 oz Water Bottle Stainless Steel - Sweat Proof Insulated Water Bottle - Leak Proof Spout Lid - Protected by No Scratch Rubber Bottom - Easy Carry Handle - Pickleball Accessory & Gift, BPA Free",
+    "relevant": true
+   },
+   {
+    "title": "Mayim Classic Vacuum-Insulated Stainless-Steel Water Bottle with Flip Straw Lid, 32 Ounces, Dark Grey",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "LED light",
+  "type": "exact",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   1
+  ],
+  "recommended_relevant": 1,
+  "made_up": [
+   "2"
+  ],
+  "refused": false,
+  "answer": "For a LED light, both [1] Super Bright LED Bike Light and [2] Super Bright LED Bike Light Tailight are excellent choices. The bike light is perfect for front visibility, while the tailight is ideal for safety when riding behind other vehicles. Both are powerful and waterproof, making them suitable for various outdoor activities.",
+  "products": [
+   {
+    "title": "Super Bright LED Bike Light 2023 Newest,Powerful USB Rechargeable Bicycle Headlight-5 Modes,Waterproof Bike Headlight Taillight,Daytime Running Light (Medium 1200 Lumen)",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "phone charger",
+  "type": "exact",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ },
+ {
+  "query": "shoes without laces",
+  "type": "tricky",
+  "relevant_in_prompt": 0,
+  "recommended": [],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": true,
+  "answer": "Sorry, the shop doesn't have anything that fits your question.",
+  "products": []
+ }
+]

@@ -40,9 +40,13 @@ def build_messages(question: str, products: list[Product]) -> list[dict]:
     ]
 
 
+# First version: "would a customer who typed this search be happy to see this product?"
+# The 3B model read that too strictly: a sleeping bag alone doesn't "complete" a camping trip,
+# so it said no to 40 of 59 relevant products. This version asks if the product is useful.
 CHECK_PROMPT = """You check search results for an online shop.
-You get a customer's search and one product. Answer only "yes" or "no":
-would a customer who typed this search be happy to see this product?"""
+You get a customer's search or question and one product. Answer only "yes" or "no".
+Say "yes" if the product could be useful for what the customer wants, even if it is only
+one of several things they need. Say "no" only if the product does not fit what they want."""
 
 NOTHING_FOUND = "Sorry, the shop doesn't have anything that fits your question."
 
@@ -52,7 +56,7 @@ def check_messages(question: str, p: Product) -> list[dict]:
     return [
         {"role": "system", "content": CHECK_PROMPT},
         {"role": "user", "content": f"Search: {question}\nProduct: {p.title[:150]}{category}\n"
-                                    f"{p.description[:200]}\n\nGood result for this search? Answer yes or no."},
+                                    f"{p.description[:200]}\n\nCould this product be useful for what the customer wants? Answer yes or no."},
     ]
 
 
