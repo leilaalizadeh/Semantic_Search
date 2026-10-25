@@ -1,0 +1,714 @@
+[
+ {
+  "query": "going camping this weekend",
+  "type": "intent",
+  "relevant_in_prompt": 5,
+  "recommended": [
+   1,
+   3,
+   4
+  ],
+  "recommended_relevant": 3,
+  "made_up": [],
+  "refused": false,
+  "answer": "For your camping trip this weekend, I would recommend the [1] Coleman Camp Burst 4-Person Camping Tent as it's perfect for enjoying outdoor adventures quickly and easily. Additionally, you might consider the [3] CORE Hybrid Sleeping Bag for its versatility and comfort when setting up camp. Lastly, the [4] Sighdorm Happy Camping Gift could make your memories even more special during your stay.",
+  "products": [
+   {
+    "title": "Coleman Camp Burst 4-Person Camping Tent, Umbrella-Style Pop-Up Tent with 45s Easy Setup, Dark Room Option Available, Tub Floor and Taped Seams Keep You Dry, 360° Views",
+    "relevant": true
+   },
+   {
+    "title": "MRE REM Camping Trip Wire and Property Safety Pull - Ourdoor Camping",
+    "relevant": true
+   },
+   {
+    "title": "CORE Sleeping Bags for Adults | 40 Degree & 20 Degree Sleeping Bag Options for Outdoor and Travel | Convenient Storage Pocket for Camping Accessories | Built-in Straps for Sleeping Pad Compatibility",
+    "relevant": true
+   },
+   {
+    "title": "Sighdorm Happy Camping Gifts for Men Women,Making Memories One Campsite at a Time Stainless Steel 30 oz Camper Tumbler,Gifts For Camper Lover",
+    "relevant": true
+   },
+   {
+    "title": "Outdoor Round BBQ Stainless Steel Barbecue Campfire Grill Grid Cooking Grill Grate Camping Picnic Cookware (20 * 9 * 9 CM)",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "i have cold keep me warm",
+  "type": "intent",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   2,
+   3,
+   4
+  ],
+  "recommended_relevant": 3,
+  "made_up": [],
+  "refused": false,
+  "answer": "For keeping you warm during colder months, I would recommend the [KLIM Women's Allure Insulated Gore-Tex Mittens]. These mittens help prevent fingers from getting cold and could potentially reduce the risk of frostbite in extreme conditions. Additionally, the [Hooded Double Pocket Polar Fleece Sherpa Lined Winter Pea Coat Black Large] provides warmth and comfort, making it perfect for long winter days. Lastly, the [NARBOR Heated Gloves for Men Women] offer electric rechargeable battery-powered heated gloves, which can provide additional warmth when needed.",
+  "products": [
+   {
+    "title": "SANDJEST Nurse Tumbler Nurse Gifts 20oz Tumblers with Lid Gift for Nurses Student New Nurse Woman Christmas Birthday Graduation",
+    "relevant": false
+   },
+   {
+    "title": "KLIM Women's Allure Insulated Gore-Tex Mittens",
+    "relevant": true
+   },
+   {
+    "title": "Hooded Double Pocket Polar Fleece Sherpa Lined Winter Pea Coat Black Large",
+    "relevant": true
+   },
+   {
+    "title": "NARBOR Heated Gloves for Men Women, Battery Heating Gloves, Winter Thermal Warm Touchscreen Gloves for Outdoor Climbing Hiking Cycling, Winter Must Have Thermal Heated Gloves (B),pink",
+    "relevant": true
+   },
+   {
+    "title": "Tough Headwear Full Face Mask for Cold Weather for Men - Work Balaclava Winter Head Cover, Face Mask for Construction Workers - Motorcycle & Construction Head Gear",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "something to fix a leaking sink",
+  "type": "intent",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "The Under Sink Mat for Kitchen Waterproof, 34\" X 22\" Silicone Under Sink Liner, Kitche [2] is perfect for fixing a leaking sink. This mat prevents water damage and protects your sink cabinet base from stains and damage caused by leaked soaps, water, and spills.\n\nThe ADDFIT HOUSE Kitchen Sink Caddy Sponge Holder for Kitchen Sink - 100% Quick Draining, Rust-proof 304 Stainless Steel Spoon [3] also serves as a solution for managing excess water. Its unique design allows you to store your kitchen sink accessories while keeping them dry and organized.\n\nFor those who prefer a more immediate drying solution, the ISEN Instant Dry Kitchen Sink Organizer, Kitchen Sink Organizer Sponges Holder, Fast Dry Stone Sink Tray, Absorbent Stone [4] is highly recommended. This versatile organizer quickly dries out your sink after use, making it ideal for both kitchen and bathroom sinks alike.",
+  "products": [
+   {
+    "title": "Under Sink Mat, Prevent Water Damage with Waterproof Sink Mat, 34\"x22\" Silicone Liner for Kitchen/Bathroom, Flexible Drip Tray with Lip, Non-Slip, Grey",
+    "relevant": false
+   },
+   {
+    "title": "Under Sink Mat for Kitchen Waterproof, 34\" X 22\" Sink Mats for Bottom of Kitchen Sink, Silicone Under Sink Liner, Kitchen Bathroom Cabinet Mat and Protector for Drips Leaks Spills",
+    "relevant": true
+   },
+   {
+    "title": "ADDFIT HOUSE Kitchen Sink Caddy Sponge Holder for Kitchen Sink - 100% Quick Draining, Rust-proof 304 Stainless Steel Sponge Organizer - Sink Organizers - Soap Holder, Sponge Holder, Auto Drain Tray",
+    "relevant": false
+   },
+   {
+    "title": "ISEN Instant Dry Kitchen Sink Organizer, Kitchen Sink Organizer Sponges Holder, Fast Dry Stone Sink Tray, Absorbing Stone Tray For Sink,Suitable for Modern Kitchens Bathrooms",
+    "relevant": false
+   },
+   {
+    "title": "Sink Caddy Instant Dry, Bathroom Sink Organizer Kitchen Sponge Holder Dries Instantly, Diatomaceous Pedestal Stand Rack Soap Holder Provides Better Protection for Bathroom Kitchen Sink, White, 1PC",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "my car is dirty",
+  "type": "intent",
+  "relevant_in_prompt": 5,
+  "recommended": [
+   1,
+   2,
+   4
+  ],
+  "recommended_relevant": 3,
+  "made_up": [],
+  "refused": false,
+  "answer": "For your car being dirty, I would recommend [1], which features powerful scrubbing textures to tackle tough dirt and grime on both interior and exterior surfaces. Additionally, [2] is ideal as it provides a gentle yet effective way to remove sticky residue and odors from your vehicle, making it great for deep-cleaning tasks. Lastly, [4] offers a convenient alternative to traditional clay bars, saving you valuable time while still providing excellent results for detailing your car.",
+  "products": [
+   {
+    "title": "Armor All Heavy Duty Cleaning Wipes, Interior & Exterior Car Cleaning Wipes – 75 Count",
+    "relevant": true
+   },
+   {
+    "title": "JUSTTOP Universal Cleaning Gel for Car, Car Cleaning Kit, Car Crevice Cleaner, Auto Air Vent Interior Detail Removal Putty Mud Slime Cleaner for Car Vents, PC, Laptops, Cameras(Pink)",
+    "relevant": true
+   },
+   {
+    "title": "MAD Iron Eraser - Remove Iron Particles in Vehicle Paint - Wheel Cleaner - Rust Remover for Metal - Rust Remover for Car Detailing - Use Before Clay Bar and Car Wax - Great Auto Detailing Supplies",
+    "relevant": true
+   },
+   {
+    "title": "Clay Bar Towel, Next Level Clay Towel Automotive Detailing Microfiber Towel Clay Bar Alternative for car Detailing Magic Clay Towel Scratch Free, Polishing Detailing 1 Pack 30x30 cm",
+    "relevant": true
+   },
+   {
+    "title": "LEGONGSO Cleaning Gel for Car, Auto Detailing Slime Mud, Putty Cleaner Dust Removal, Vehicle Interior Soft Glue Cleaning Tools Kit, Car Accessories for Cleaning Air Vents, Keyboard, PC, Laptops Blue",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "my back hurts when I sit all day",
+  "type": "intent",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   2,
+   3
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For someone experiencing back pain while sitting all day, I would recommend the [2] Martha Stewart Medline Foam Lumbar Cushion Pillow. It offers excellent lower back support and comfort, perfect for alleviating discomfort during prolonged periods of sitting at a desk or chair. Additionally, the [3] Atiasrama Backrest Reading Pillow with Arms is another great option as it provides both back support and arm rest, making it ideal for those who need additional support while reading or using their computer. Both products are specifically designed to help relieve back pain and improve posture, which can significantly reduce discomfort over time.",
+  "products": [
+   {
+    "title": "POTTER'S LOVE Lumbar Support Pillow - Ergonomic Memory Foam Back Support Lower Back Pain Relief Cushion Adjustable Extension Strap Washable Improve Posture for Home, Car Seat, Office Chair, Nursing",
+    "relevant": true
+   },
+   {
+    "title": "MARTHA STEWART Medline Foam Lumbar Cushion Pillow, Lower Back Support & Relief, for Desk/Office Chair, Car & Seat – Gaming, Sofa or Plane",
+    "relevant": true
+   },
+   {
+    "title": "ATIASRAMA Backrest Reading Pillow with Arms, Large Adult Bed Rest Pillows Back Support for Sitting Up in Bed Couch, Plush Reading Lumbar Cushion with Removable Crystal Velvet Cover (Navy Blue)",
+    "relevant": false
+   },
+   {
+    "title": "Lumbar Support Pillow Memory Foam Cushion for Back Pain Relief Lmprove Your Sitting Posture Suitable for Car Seat Office Chair Sofa Recliner Multifunctional Universal Lumbar Pillow (Brown Yellow-1)",
+    "relevant": true
+   },
+   {
+    "title": "Ergonomic Kneeling Desk Chair- Adjustable Stool for Home and Office-Angled Balancing Seat- Posture Support Kneeling Office Chair- Black",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "gift for a 6 year old",
+  "type": "intent",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   2,
+   3,
+   4
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a 6-year-old, I would recommend the [2] Tatuo Diamond Painting Suncatcher as it's perfect for their age group. It features double-sided designs and comes with wind chimes, making it both decorative and educational. Additionally, the FUNSACHY 21st Birthday Sash & Rhinestone Tiara Set could be a fun birthday gift idea, especially since they're designed for adults but can also appeal to children who enjoy adult-themed gifts. Lastly, the Wild Bobby Cute Ribbon Bow Softball Gift Sports Girls Youth T-Shirt offers a playful and trendy option for young girls.",
+  "products": [
+   {
+    "title": "BLLREMIPSUR 6 PCS Fairy Garden Fairies Figurine, Miniatures Garden Fairies Ornaments, Mini Fairy Cake Tooper",
+    "relevant": false
+   },
+   {
+    "title": "Tatuo 6 Pcs Diamond Painting Suncatcher Double Sided 3D Wind Chime Diamond Painting Kits for Adults Kids Diamond Art Suncatchers Diamond Painting Hanging Ornaments for Garden Home, 6 Styles (Spring)",
+    "relevant": true
+   },
+   {
+    "title": "FUNSACHY 21st Birthday Sash & Rhinestone Tiara Set, 21st Year Old Birthday Gifts for Her Party Supplies Decorations for Women",
+    "relevant": false
+   },
+   {
+    "title": "Wild Bobby Cute Ribbon Bow Softball Gift Sports Girls Youth T-Shirt",
+    "relevant": false
+   },
+   {
+    "title": "Double Dan Creatin DIY Soap Making Kit for Kid, Make Your Own SOA Kit with Dino Molds-Fun Science Kits for Age 6-12 & Best Educational STEM Activity Craft Gift & Best Gift for Kids",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "I want to learn music",
+  "type": "intent",
+  "relevant_in_prompt": 3,
+  "recommended": [
+   2,
+   3,
+   4
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For someone looking to learn music, I would recommend the [2] GYHZKA 2023 New Smart Music Boxing Machine, which offers 9 training modes and can play music through Bluetooth connectivity. Additionally, the [3] Oscar Schmidt OE20WH LP Style Electric Guitar Cali Bundle provides high-quality materials and includes a gig bag and polishing cloth, making it an excellent choice for beginners. Lastly, the [4] Yasisid Closed Hole C Flute 16 Keys Instrument for Student Beginners comes with a cleaning kit, stand, carrying case, gloves, and tuning tools, providing all necessary components for learning to play the flute.",
+  "products": [
+   {
+    "title": "Personalized Music Metal Wall Art and Decor, Custom Music Notes Gift, Gift for Musician, Music Teacher Gift, Metal Home Decor for Music Lovers for Living Room, Entrway or Bedroom, Metal Wall Sculpture (Love Notes)",
+    "relevant": false
+   },
+   {
+    "title": "GYHZKA 2023 New Smart Music Boxing Machine,9 Training Modes Led Boxing Machine,Can Play Music and Connect to Bluetooth Music Boxing Machine Wall for Home Exercise",
+    "relevant": false
+   },
+   {
+    "title": "Oscar Schmidt OE20WH LP Style Electric Guitar Cali Bundle - Alpine White",
+    "relevant": true
+   },
+   {
+    "title": "Yasisid Closed Hole C Flute 16 Keys Instrument for Student Beginners with Cleaning Kit, Stand, Carrying Case, Gloves and Tuning Rod (Black)",
+    "relevant": true
+   },
+   {
+    "title": "Oscar Schmidt OU28TE Tenor 8 String Electric Ukulele w/Padded Gigbag & PC",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "my kitchen is too messy",
+  "type": "intent",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   2,
+   4
+  ],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a messier kitchen, I would recommend the Under Sink Mat for Kitchen Waterproof, which is specially designed to protect your sink cabinet base from damage caused by leaks, and the Dish Drying Mats for Kitchen Counter Heat Resistant Mat. These two options can help keep your kitchen clean and organized by preventing water from dripping onto the floor and drying dishes effectively after use.",
+  "products": [
+   {
+    "title": "LIMNUO Coffee Mat Hide Stain Rubber, Coffee Maker Mat for Countertops, Backed Absorbent Dish Drying Mat for Kitchen Counter (12\"x16\", Gray)",
+    "relevant": false
+   },
+   {
+    "title": "Under Sink Mat for Kitchen Waterproof, 34\" X 22\" Sink Mats for Bottom of Kitchen Sink, Silicone Under Sink Liner, Kitchen Bathroom Cabinet Mat and Protector for Drips Leaks Spills",
+    "relevant": false
+   },
+   {
+    "title": "mDesign Plastic Kitchen Storage Bin - Stackable Fridge, Pantry Cabinet, Freezer Organizer - Food Storage Bin Box w/Handles, Steel Lid - 15\" Long - Ligne Collection - 2 Pack - Clear/Matte Black",
+    "relevant": true
+   },
+   {
+    "title": "Dish Drying Mats for Kitchen Counter Heat Resistant Mat (Box Navy Blue, 12\" x 16\")",
+    "relevant": false
+   },
+   {
+    "title": "Lahome Thin Kitchen Mat Set of 2, Distressed Kitchen Rugs and Mats Non Skid Washable Rugs for Kitchen Floor Mat, Waterproof Tribal Rug for Sink Laundry, 20x30+20x59",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "running shoes",
+  "type": "simple",
+  "relevant_in_prompt": 0,
+  "recommended": [
+   5
+  ],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": false,
+  "answer": "For running shoes, I would recommend [5] FEIYUE X Bruce Lee 1920 Martial Arts Shoes, Unisex Mid and Low Top Sneakers for Martial Arts, Parkour, Lifting, and Great. These sneakers pay homage to the legendary Bruce Lee while providing excellent support and comfort for various activities including martial arts, parkour, lifting, and general fitness. They also come in a unique design inspired by Bruce Lee's philosophy, making them both functional and fashionable.",
+  "products": [
+   {
+    "title": "adidas Men's Own The Run Singlet Personal Best 3-Stripes",
+    "relevant": false
+   },
+   {
+    "title": "Orinar Under Desk Treadmill, Walking Pad with Remote Control, 2.5 HP Portable Walking Jogging Running Machine for Home Office, LED Display, Sliver",
+    "relevant": false
+   },
+   {
+    "title": "Runleaps Basketball, Outdoor Indoor Colorful Rose Basketballs Composite Leather Basketball Ball for Men Women Teenagers (deflated, Size 7)",
+    "relevant": false
+   },
+   {
+    "title": "Bloom Rugs 2x10 Runner - Blue/Dark Gray Modern Abstract Runner for Entryway, Hallway, Bathroom, and Kitchen - Exact Size: 2'6\" x 10'",
+    "relevant": false
+   },
+   {
+    "title": "FEIYUE X Bruce Lee 1920 Martial Arts Shoes, Unisex Mid and Low Top Sneakers for Martial Arts, Parkour, Lifting, and Great for Every Day Casual Wear",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "rain jacket",
+  "type": "simple",
+  "relevant_in_prompt": 5,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "The Roadhog Reflective Waterproof Breathable Rain Jacket with RainTek microporous technology ([1]) and the Makonus Raincoat for Adults ([2]) both offer excellent protection against rain. The Roadhog features reflective piping for visibility during low light conditions, making it ideal for outdoor activities. The Makonus is made of high-quality EVA material, ensuring durability and breathability, perfect for various weather conditions.\n\nBoth jackets provide comfort and functionality, making them suitable choices for rainy days.",
+  "products": [
+   {
+    "title": "Compass 360 Men's Modern",
+    "relevant": true
+   },
+   {
+    "title": "Makonus Raincoat for Adults, Portable EVA Rain Jacket Reusable Rain Ponchos for Women with Hood and Elastic Cuff Sleeves",
+    "relevant": true
+   },
+   {
+    "title": "Ouray Sportswear Men's Invert Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Jack Wolfskin Unisex-Youth Tucan Jacket",
+    "relevant": true
+   },
+   {
+    "title": "FROGG TOGGS Men's Ultra-lite2 Waterproof Breathable Protective Rain Suit",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "yoga mat",
+  "type": "simple",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   2,
+   3
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "I recommend the Marjar Yoga Mat for Women/Men ([2]) as it offers a balance between thickness for comfort and portability, making it ideal for both barefoot workouts and carrying around. Additionally, the Goplus 8' x 4' Folding Gymnastics Mat ([3]), though primarily designed for home gym fitness, also provides a sturdy surface for various exercises. Both mats are excellent choices for yoga enthusiasts looking for versatile options.",
+  "products": [
+   {
+    "title": "Yoga Mat - Premium 15 Mm Extra Thick Non Slip Exercise & Fitness Mat,Anti-Skid Sports Fitness Mat for All Types of Yoga, Pilates & Floor Workouts (23.6 x 9.8 x 0.6inch Thick)",
+    "relevant": true
+   },
+   {
+    "title": "Marjar Yoga Mat for Women/Men, 1/4-Inch Print Reversible Exercise & Fitness Mat for All BareFoot Workouts, Non-Slip Yoga Mat with Carrying Strap & Storage Bag (68\" x 24\" x 6mm Thick)",
+    "relevant": true
+   },
+   {
+    "title": "Goplus 8' x 4' Folding Gymnastics Mat, 2’’ Thick 4 Fold Exercise Tumbling Mat with Carrying Handles for Home Gym Fitness, Portable Anti Tear Panel Mat for Kids, MMA, Aerobics Workout, Yoga",
+    "relevant": false
+   },
+   {
+    "title": "YOGIS Game Integrated Yoga Deck - 54 Educational Yoga Cards - Beginner Friendly - Teachers Tool - Creative Healthy Lifestyle Game - Yoga Instructions - Learn and Yoga Anywhere - Portable Yoga Gift",
+    "relevant": false
+   },
+   {
+    "title": "TUNKENCE Coco Coir Door Mat Cute Solid Color Pattern Rug Creative Holiday Fun Pattern Printed Super Soft Flannel Rug Decorative Party Supplies Welcome Mat for Outdoor & Indoor Use 16x24Inch",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "office chair",
+  "type": "simple",
+  "relevant_in_prompt": 5,
+  "recommended": [
+   3
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "The ergonomic mesh office chair from Product Number 2 offers excellent lumbar support and adjustable features, making it ideal for providing comfort during long work hours. Additionally, the height-adjustable option allows users to customize their seating position according to their needs. Both these features make it a great choice for maintaining proper posture and reducing strain on the body.",
+  "products": [
+   {
+    "title": "Height-Adjustable Office Chair Ergonomic Office Chair High Back Mesh Computer Chair with Lumbar Support Swivel Rolling Chair with Adjustable Headrest for Home and Office",
+    "relevant": true
+   },
+   {
+    "title": "Misolant Ergonomic Office Chair, Desk Chair with Lumbar Support, Mesh Office Chair, Ergonomic Chair with Adjustable Headrest and Armrest, Recline Office Chair, Comfortable Office Chair for Home（Pink）",
+    "relevant": true
+   },
+   {
+    "title": "Ergonomic Mesh Office Chair, Breathable Home Desk Chair with Adjustable Armrest and Lumbar Support,High Back Desk Computer Chair with Wheels(Black)",
+    "relevant": true
+   },
+   {
+    "title": "Sweetcrispy Ergonomic Mesh Home Office, Light Gray",
+    "relevant": true
+   },
+   {
+    "title": "Office Chair, Ergonomic Desk Chair, Home Office Desk Chair, Mid Back Mesh Computer Chair, Swivel Rolling Task Chair with Lumbar Support and Armrests",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "dog toy",
+  "type": "simple",
+  "relevant_in_prompt": 0,
+  "recommended": [
+   1,
+   2
+  ],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": false,
+  "answer": "I recommend the [2] Qistubay Silver Dog Statue and the [1] Askfairy 6PCS Sausage Dog Wooden Layered Tray Decoration. The Qistubay Silver Dog Statue is perfect for small spaces and adds a touch of elegance to any room. The Askfairy tray decoration is ideal for those looking for a unique gift idea featuring sausage-shaped wooden pieces, which can add a fun twist to their table decor. Both items are great choices for pet owners who want something more than just toys.",
+  "products": [
+   {
+    "title": "Askfairy 6PCS Sausage Dog Wooden Layered Tray Decoration, Country Farm Table Decoration, Dog Love Gift Idea",
+    "relevant": false
+   },
+   {
+    "title": "Qistubay Sliver Dog Statue, Metal Sitting Dog Craft, Small Size Doberman Dog Sculpture, Art Animal Figurine for Room Office Home Decor…",
+    "relevant": false
+   },
+   {
+    "title": "Concrete Sitting Chihuahua Statue Sitting Real Size Figurine Outdoor Dog Memorial Handmade Yard Art",
+    "relevant": false
+   },
+   {
+    "title": "JOTFA St. Patrick’s Day Dog Bandanas, Plaid Dog Puppy St. Patrick’s Day Bandana Scarf for Small Medium Large Dogs Pets (Mom’s Lucky Charm & Kiss Me I’m Irish)",
+    "relevant": false
+   },
+   {
+    "title": "Deailed Siberian Husky Puppy Statue Laying Puppy Siberian Husky Figure Concrete Outdoor Decoration",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "coffee mug",
+  "type": "simple",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   2,
+   3,
+   4
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "For a simple yet stylish coffee mug, I recommend the Vintage Glass Coffee Mugs [2]. They add a unique touch to any coffee lover's collection and are perfect for both everyday use and as a thoughtful gift.\n\nIf you prefer something more modern and versatile, consider the OWUYUXI Coffee Mug, which comes with a lid and spoon and is great for hot beverages like espresso and cocoa. It also works well in the microwave and dishwasher, making it convenient for busy mornings.\n\nLastly, if you're looking for a personalized gift, the wowcugi Inspirational Gifts For Women Personalized Sunflower Mug [4] would be a wonderful choice. The customizable design ensures that every recipient gets a unique piece of art that reflects their personality.",
+  "products": [
+   {
+    "title": "Harloon 24 Pcs Color Changing Coffee Mugs 11oz Black Sublimation Mugs Heat Sensitive Magic Mug Ceramic Coffee Mugs with 6 Pcs Heat Transfer Tape for Coffee Tea or DIY Gifts",
+    "relevant": true
+   },
+   {
+    "title": "Vintage Glass Coffee Mugs - Vintage Glass Mugs |14 Oz Set of 2 Embossed Tea Cups with Two Stirring Spoon, Perfect for Cappuccino, Latte, Cereal, Yogurt, Beverage Hot/Cold (Clear)",
+    "relevant": true
+   },
+   {
+    "title": "OWUYUXI Coffee Mug,Ceramic Coffee Cup with Lid and Spoon,Gift Box,Perfect for Coffee,Tea,Espresso, Hot Cocoa,Microwave and Dishwasher Safe",
+    "relevant": true
+   },
+   {
+    "title": "wowcugi Inspirational Gifts For Women Personalized Sunflower Mug Sometimes You Forget You're Awesome Stainless Steel Ceramic Coffee Mugs 11oz 15oz Cup Gift for Friends Coworkers Best Friend Women",
+    "relevant": false
+   },
+   {
+    "title": "Bubble Hugs Announcer Coffee Mug 15oz White - my announcer voice - Podcaster Radio Broadcaster er Host Anchorman Microphone Reporter Narrator On Air Commentator",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "garden tools",
+  "type": "simple",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   1,
+   4
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "The Southern Patio Porter 15 Inch Round Resin Indoor or Outdoor Garden Pot Planter for Flowers, Small Trees, and Plants ([1]) and the Premium 5\" Gardening Bypass Pruning Shears ([4]), both listed above, would be great choices for garden tools. The planter provides a stylish way to display flowers, small trees, and plants while adding color to your outdoor space, whereas the pruning shears offer sharp and reliable cutting capabilities for various gardening tasks. Both items are designed to enhance your gardening experience.",
+  "products": [
+   {
+    "title": "Southern Patio Porter 15 Inch Round Resin Indoor or Outdoor Garden Pot Planter for Flowers, Small Trees, and Plants, Ivory White (2 Pack)",
+    "relevant": false
+   },
+   {
+    "title": "TTOCAR Garden Kneeling Bench Bag, Garden Kneeler Seat Stool Tool Bag Foldable Garden Kneeler and seat Bags Outdoor Work Portable Storage Seat Bag",
+    "relevant": true
+   },
+   {
+    "title": "Qiilu Grafted Film, Grafting Tape Nursery Sealing PVC Stretchable Resilient 29mm Width Garden Hand Tools for Floral Fruit Tree and Poly Budding Tape Qiilugy706fhd1w",
+    "relevant": true
+   },
+   {
+    "title": "Premium 5” Gardening Bypass Pruning Shears, Heavy-Duty, Sharp and Ergonomic Soft Grip Handle",
+    "relevant": true
+   },
+   {
+    "title": "10-in Utility Garden Carts Wagon with Rotating Handle, Heavy Duty Poly Utility Trolley Cart with Wheels Folding Utility Garden Wagon Utility Wagon Trolley Cart for Lawns, Yards, Farms, and Ranches",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "Columbia jacket",
+  "type": "exact",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "recommended_relevant": 3,
+  "made_up": [],
+  "refused": false,
+  "answer": "The Columbia Women's Powder Pass Hooded Jacket [2] and the Columbia Women's Ali Peak Quarter Zip [4] would be great options for a Columbia-style jacket. Both feature Columbia's signature quality and comfort, making them perfect choices for those looking for a reliable and stylish option.",
+  "products": [
+   {
+    "title": "Columbia Women's CLG Switchback Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Women's Powder Pass Hooded Jacket",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Men's Basin Trail Fleece Full Zip",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Women's Ali Peak Quarter Zip",
+    "relevant": true
+   },
+   {
+    "title": "Columbia Women's Bryce Peak Pant",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "stainless steel water bottle",
+  "type": "exact",
+  "relevant_in_prompt": 3,
+  "recommended": [
+   2,
+   3,
+   5
+  ],
+  "recommended_relevant": 2,
+  "made_up": [],
+  "refused": false,
+  "answer": "The JOOLA 40 oz Water Bottle Stainless Steel - Sweat Proof Insulated Water Bottle - Leak Proof Spout Lid - Protected by No S is perfect for staying hydrated as it provides ideal insulation for keeping your beverages cold or hot. Additionally, the Vera Bradley Stainless Steel Insulated Water Bottle, 17 Ounce Travel Tumbler with Lid for Sports, Gym, or School offers a sustainable option while keeping drinks cool for longer periods. Lastly, the Sihuuu 32 oz Fruit Infuser Water Bottle, Sports Bottle, LeakProof, BPA Free, Drinking Water Bottle for Home, travel, office is excellent for both hydration and adding a touch of flavor to your water.",
+  "products": [
+   {
+    "title": "22 oz Clear and Silver Plastic Water Bottles with Screw top",
+    "relevant": false
+   },
+   {
+    "title": "JOOLA 40 oz Water Bottle Stainless Steel - Sweat Proof Insulated Water Bottle - Leak Proof Spout Lid - Protected by No Scratch Rubber Bottom - Easy Carry Handle - Pickleball Accessory & Gift, BPA Free",
+    "relevant": true
+   },
+   {
+    "title": "Vera Bradley Stainless Steel Insulated Water Bottle, 17 Ounce Travel Tumbler with Lid for Sports, Gym, or School (Dreamer Paisley)",
+    "relevant": true
+   },
+   {
+    "title": "2 Pieces 5 Oz Mini Water Bottle Mini Insulated Stainless Steel Bottle Purse Water Bottle Cute Leak Proof Water Flask Keeps Drink Cold and Hot for Purse Kids Women Lunch Bag Coffee Tea, Pink, Green",
+    "relevant": true
+   },
+   {
+    "title": "Sihuuu 32 oz Fruit Infuser Water Bottle,Sports Bottle, LeakProof,BPA Free,Drinking Water Bottle for Home, travel,office(960 ML) (Blue)",
+    "relevant": false
+   }
+  ]
+ },
+ {
+  "query": "LED light",
+  "type": "exact",
+  "relevant_in_prompt": 4,
+  "recommended": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "recommended_relevant": 3,
+  "made_up": [],
+  "refused": false,
+  "answer": "I recommend the [1] Super Bright LED Bike Light 2023 Newest as it's perfect for cyclists looking to stay visible during low-light conditions. Additionally, the [2] DOUYINPAY Led Light Sign for Car would be great for drivers who want to stand out on the road and attract attention when needed.\n\nThe [3] CXCCOI 20PCS White 6500K LED Bulbs Interior Car Lights Kit offers excellent value for money with high-quality LED bulbs that can upgrade standard halogen bulbs without any hassle. Lastly, the [4] iPower 15W LED Grow Light for Indoor Plant provides a practical solution for indoor gardening enthusiasts seeking efficient lighting options.",
+  "products": [
+   {
+    "title": "Super Bright LED Bike Light 2023 Newest,Powerful USB Rechargeable Bicycle Headlight-5 Modes,Waterproof Bike Headlight Taillight,Daytime Running Light (Medium 1200 Lumen)",
+    "relevant": true
+   },
+   {
+    "title": "DOUYINPAY Led Light Sign for Car, Blue Taxi Sign Light Decal for Car Windshield with Suction Cups Flashing Hook on Car Window, LED Bright Lights USB Plug",
+    "relevant": false
+   },
+   {
+    "title": "CXCCOI 20PCS White 6500K LED Bulbs Interior Car Lights Kit(8*T10 6 * 31MM 6 * 42SMD),Automotive Replacement Lighting Products for Dome Map Reading Trunk Courtesy License Plate Lights (20Pcs-White)",
+    "relevant": true
+   },
+   {
+    "title": "iPower 15W LED Grow Light for Indoor Plant with Triple Head 360° Adjustable Gooseneck, Auto Cycle Time Function (3/9/12H), 11 Dimmable Levels, 3 Lighting Modes",
+    "relevant": true
+   },
+   {
+    "title": "ZhanGe H13 LED Light Bulbs High/Low Beam Headlight Bulbs, 24000 Lumens Bright LED Headlights All-in-One Conversion Kit, 6500K Cool White Replacement LED Bulb, IP68 Waterproof, Plug & Play, Pack of 2",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "phone charger",
+  "type": "exact",
+  "relevant_in_prompt": 2,
+  "recommended": [
+   2,
+   4
+  ],
+  "recommended_relevant": 1,
+  "made_up": [],
+  "refused": false,
+  "answer": "The J+ BOOSTER 2 NEMA Outlet Adapters ([2]) and the Webasto Go Dual Voltage Portable EV Charger - Level 1-2, NEMA 14-50/5-15, UL Approved, IP67 ([4]) would be the best options for a phone charger. The J+ BOOSTER 2 allows you to charge multiple devices easily with various NEMA outlets, making it versatile for different situations. The Webasto Go is specifically designed for EV chargers but also works well as a general-purpose charger, offering both level 1 and level 2 charging capabilities. Both solutions ensure convenient and efficient charging for your mobile device.",
+  "products": [
+   {
+    "title": "NEMA 5-15 Charger Adapter Plug for J+ Booster 2 | Portable Level 2 EV Charger for All Electric Vehicles (12 amps, 240V, 2.88kw)",
+    "relevant": false
+   },
+   {
+    "title": "SOAR NCAA Unisex Wireless Charging Stand V4",
+    "relevant": true
+   },
+   {
+    "title": "CLEVER BRIGHT 5-in-1 Electric Razors for Women, Wet/Dry 5D Razor & Hair Trimmer with USB Adapter & Charging Cable,5D Rechargeable Rotary Shaver with Lithium-Ion Battery",
+    "relevant": false
+   },
+   {
+    "title": "Webasto Go Dual Voltage Portable EV Charger - Level 1-2, NEMA 14-50/5-15, UL Approved, IP67",
+    "relevant": false
+   },
+   {
+    "title": "SOAR NFL Wireless Charging Mouse Pad",
+    "relevant": true
+   }
+  ]
+ },
+ {
+  "query": "shoes without laces",
+  "type": "tricky",
+  "relevant_in_prompt": 1,
+  "recommended": [
+   2,
+   4,
+   5
+  ],
+  "recommended_relevant": 0,
+  "made_up": [],
+  "refused": false,
+  "answer": "For customers looking for shoes without laces, I would recommend [2], which is a casual dress for women made of high-quality materials that are durable enough for daily wear. It also provides comfort and makes pregnant women more comfortable. Additionally, [4] Orthopedic Sandals for Women offer close-toe platform & wedge sandals with lace-up closures, but they can be worn without laces when needed. Lastly, [5] Donegal Bay NCAA unisex-adult Flip Flop Footies provide support for both wearing shoes on and off.",
+  "products": [
+   {
+    "title": "DOYIMBO Booties for Women with Heel Chelsea Boots Dressy Plat Ankle Shoes Non-Slip Work Boot Summer Western Style Wedge Boots",
+    "relevant": true
+   },
+   {
+    "title": "Casual Dresses for Women, Summer Dress for Women Crew Neck Sleeveless Split One Color Dress",
+    "relevant": false
+   },
+   {
+    "title": "Dayani Combat Boots BLACK FAUX / 6",
+    "relevant": false
+   },
+   {
+    "title": "Orthopedic Sandals for Women Close Toe Platform & Wedge Sandals Lace-Up Shoes Leather Outdoor Ankle Ladies Flip Flops",
+    "relevant": false
+   },
+   {
+    "title": "Donegal Bay NCAA unisex-adult Flip Flop Footie",
+    "relevant": false
+   }
+  ]
+ }
+]
