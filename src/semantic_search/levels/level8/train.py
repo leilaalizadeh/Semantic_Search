@@ -16,6 +16,8 @@ import argparse
 import json
 import random
 
+import torch
+
 from datasets import Dataset
 from sentence_transformers import SentenceTransformer, SentenceTransformerTrainer, SentenceTransformerTrainingArguments
 from sentence_transformers.losses import MultipleNegativesRankingLoss
@@ -77,7 +79,9 @@ def main() -> None:
     train, validation = load_pairs(data_path, query_prefix)
     print(f"training pairs: {len(train)}, validation pairs: {len(validation)}")
 
-    model = SentenceTransformer(base_model)
+    # Always train in float32. gte-small is stored in float16 (half precision), and training it like that
+    # made the numbers overflow: the loss went up and every weight became NaN (first Level 8 run on Colab).
+    model = SentenceTransformer(base_model, model_kwargs={"dtype": torch.float32})
     # Product texts are cut after this many tokens. Training needs much more memory than searching
     # (it also stores gradients), and 256 tokens filled an 8 GB Mac.
     model.max_seq_length = args.max_length
@@ -112,6 +116,9 @@ def main() -> None:
     trainer.train()
 
     if args.max_steps == -1:
+        broken = [name for name, w in model.named_parameters() if not torch.isfinite(w).all()]
+        if broken:  # never save a broken model
+            raise SystemExit(f"Training failed: {len(broken)} weight tensors contain NaN or inf. Model not saved.")
         model.save(str(output_dir))
         print(f"Saved the fine-tuned model to {output_dir}")
 
