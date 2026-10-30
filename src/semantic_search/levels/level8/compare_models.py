@@ -37,7 +37,8 @@ MODELS = {  # name -> (query prefix, batch size)
     "thenlper/gte-small": ("", 64),                  # same size as BGE-small, no query instruction
     "BAAI/bge-base-en-v1.5": (BGE_PREFIX, 16),       # 3x bigger BGE; small batches to fit in 8 GB
     # Level 8: gte-small trained on LLM-written queries (only if it has been trained)
-    **({str(LLM_OUTPUT_DIR): ("", 64)} if LLM_OUTPUT_DIR.exists() else {}),
+    # (every learning rate that was tried: gte-small-llm, gte-small-llm-lr5e-06, ...)
+    **{str(path): ("", 64) for path in sorted(LLM_OUTPUT_DIR.parent.glob(LLM_OUTPUT_DIR.name + "*")) if path.is_dir()},
 }
 CANDIDATES = 50
 

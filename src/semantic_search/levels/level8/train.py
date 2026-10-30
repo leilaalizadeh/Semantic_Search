@@ -73,9 +73,13 @@ def main() -> None:
     parser.add_argument("--max-length", type=int, default=128, help="Cut texts after this many tokens (less = less memory)")
     parser.add_argument("--cpu", action="store_true", help="Train on the CPU instead of the Mac's GPU (MPS)")
     parser.add_argument("--data", choices=DATASETS, default="t5", help="Which training queries to use")
+    parser.add_argument("--learning-rate", type=float, default=2e-5,
+                        help="Size of each weight update. Smaller = the model changes less and forgets less")
     args = parser.parse_args()
 
     data_path, output_dir, base_model, query_prefix = DATASETS[args.data]
+    if args.learning_rate != 2e-5:  # keep models trained with another learning rate in their own folder
+        output_dir = output_dir.with_name(f"{output_dir.name}-lr{args.learning_rate:g}")
     train, validation = load_pairs(data_path, query_prefix)
     print(f"training pairs: {len(train)}, validation pairs: {len(validation)}")
 
@@ -93,7 +97,7 @@ def main() -> None:
         max_steps=args.max_steps,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
-        learning_rate=2e-5,  # small steps: we only adjust a model that already works
+        learning_rate=args.learning_rate,  # small steps: we only adjust a model that already works
         warmup_ratio=0.1,    # start with even smaller steps for the first 10% of training
         # A product with 3 queries could land 2 times in one batch; then its own other query
         # would count as a "wrong answer". This sampler keeps each product once per batch.

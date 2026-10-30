@@ -27,7 +27,13 @@ def cache_path(texts: list[str], model_name: str, cache_dir: Path = CACHE_DIR) -
     If the products or the model change, the fingerprint changes,
     so we never load embeddings that don't match the data.
     """
-    fingerprint = hashlib.sha256((model_name + "\n" + "\n".join(texts)).encode()).hexdigest()[:16]
+    model_id = model_name
+    weights = Path(model_name) / "model.safetensors"
+    if weights.exists():
+        # A model trained by us keeps its folder name when it is trained again (Level 8: the first,
+        # broken run and the fixed run had the same name), so also use the time the weights were saved.
+        model_id += f"@{weights.stat().st_mtime_ns}"
+    fingerprint = hashlib.sha256((model_id + "\n" + "\n".join(texts)).encode()).hexdigest()[:16]
     return cache_dir / f"embeddings_{fingerprint}.npy"
 
 
