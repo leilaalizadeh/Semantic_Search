@@ -11,7 +11,7 @@ Data: 5,000 real Amazon products. Everything runs locally on an 8 GB laptop
 
 ## Results
 
-Search quality on 18 labeled test queries (nDCG@10, higher is better, all measured on the same 808 labels):
+Search quality on 18 labeled test queries (nDCG@10, higher is better, all measured on the same 870 labels):
 
 | Version | nDCG@10 |
 |---|---|
@@ -32,8 +32,8 @@ RAG answers on 20 test questions (share of recommended products that are relevan
 
 ## What I learned
 
-- I labeled 808 query-product pairs by hand, and a second labeler (an AI model) labeled them too.
-  We agreed on 91% of them (Cohen's kappa 0.78). Some changes that looked better at first did not
+- I labeled 870 query-product pairs by hand, and a second labeler (an AI model) labeled them too.
+  We agreed on 91% of them (Cohen's kappa 0.79). Some changes that looked better at first did not
   hold up once I measured them.
 - Fine-tuning did not help. I tried it 4 times, with 3 kinds of generated training queries and 2
   learning rates. The training loss always went down, but every trained model scored lower on my
