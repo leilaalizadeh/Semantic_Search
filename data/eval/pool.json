@@ -59,7 +59,8 @@
      "hybrid": 3,
      "bge-small-shopping semantic": 6,
      "bge-small-shopping hybrid k=60 w=1.0": 10,
-     "bge-small-shopping hybrid k=5 w=2.0": 8
+     "bge-small-shopping hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    },
    {
@@ -90,7 +91,9 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -137,7 +140,9 @@
      "gte-small hybrid k=5 w=2.0": 10,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -188,7 +193,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -209,7 +217,8 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 6,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -247,7 +256,8 @@
      "bge-base-en-v1.5 semantic": 6,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
-     "gte-small-llm hybrid k=60 w=1.0": 9
+     "gte-small-llm hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4
     }
    },
    {
@@ -266,7 +276,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 8,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -287,7 +300,9 @@
      "gte-small hybrid k=5 w=2.0": 2,
      "bge-base-en-v1.5 semantic": 2,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
-     "gte-small-llm semantic": 7
+     "gte-small-llm semantic": 7,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -382,7 +397,10 @@
      "bge-base-en-v1.5 semantic": 4,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 2,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
-     "gte-small-llm hybrid k=60 w=1.0": 8
+     "gte-small-llm hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -400,7 +418,8 @@
      "bge-small-shopping hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 semantic": 9,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 9
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    },
    {
@@ -425,7 +444,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -465,7 +487,9 @@
      "gte-small semantic": 4,
      "gte-small hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -513,7 +537,10 @@
      "bge-base-en-v1.5 semantic": 10,
      "gte-small-llm semantic": 10,
      "gte-small-llm hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -589,7 +616,8 @@
     "category": "",
     "description": "The leakproof MOLLE cooler backpack is made of high-quality 1000D Oxford fabric and features a MOLLE system. The heavy-duty tactical gear has a large main compartment that can hold up to 8.7 gallons of ice or other cold items, as well as side pockets and a top double layer for storing accessories. T",
     "found_by": {
-     "all-mpnet-base-v2 semantic": 10
+     "all-mpnet-base-v2 semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 8
     }
    },
    {
@@ -618,7 +646,9 @@
     "found_by": {
      "bge-base-en-v1.5 semantic": 7,
      "gte-small-llm semantic": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    }
   ]
@@ -701,7 +731,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -750,7 +783,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -775,7 +811,8 @@
      "bge-small-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small hybrid k=60 w=1.0": 7,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -817,7 +854,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 6,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -828,7 +868,8 @@
     "found_by": {
      "semantic": 2,
      "hybrid": 4,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -849,7 +890,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -874,7 +918,9 @@
      "all-mpnet-base-v2 semantic": 6,
      "all-mpnet-base-v2 hybrid k=5 w=2.0": 7,
      "bge-small-finetuned semantic": 7,
-     "bge-small-finetuned hybrid k=5 w=2.0": 10
+     "bge-small-finetuned hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -939,7 +985,8 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7
     }
    },
    {
@@ -975,7 +1022,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -997,7 +1047,9 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm semantic": 6,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -1015,7 +1067,9 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 4,
      "bge-small-shopping semantic": 3,
      "bge-small-shopping hybrid k=5 w=2.0": 3,
-     "gte-small semantic": 10
+     "gte-small semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -1045,7 +1099,9 @@
      "gte-small semantic": 4,
      "gte-small hybrid k=5 w=2.0": 5,
      "bge-base-en-v1.5 semantic": 10,
-     "gte-small-llm semantic": 8
+     "gte-small-llm semantic": 8,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -1063,7 +1119,8 @@
     "category": "Amazon Home",
     "description": "Absolutely love your order or contact us and we'll make it right. Your satisfaction is 100% guaranteed.",
     "found_by": {
-     "bge-small-en-v1.5 semantic": 10
+     "bge-small-en-v1.5 semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    },
    {
@@ -1078,7 +1135,8 @@
      "gte-small semantic": 9,
      "gte-small hybrid k=60 w=1.0": 8,
      "gte-small hybrid k=5 w=2.0": 8,
-     "bge-base-en-v1.5 hybrid k=60 w=1.0": 8
+     "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    },
    {
@@ -1161,7 +1219,9 @@
      "bge-small-shopping hybrid k=60 w=1.0": 10,
      "bge-small-shopping hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -1363,7 +1423,8 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 9,
      "bge-small-shopping hybrid k=5 w=2.0": 9,
      "gte-small hybrid k=5 w=2.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -1394,7 +1455,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -1426,7 +1490,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -1457,7 +1524,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm semantic": 10,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -1519,7 +1589,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -1550,7 +1623,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -1575,7 +1651,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -1595,7 +1673,8 @@
      "gte-small hybrid k=5 w=2.0": 8,
      "bge-base-en-v1.5 semantic": 5,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
-     "gte-small-llm semantic": 8
+     "gte-small-llm semantic": 8,
+     "gte-small-llm-lr5e-06 semantic": 8
     }
    },
    {
@@ -1646,7 +1725,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -1671,7 +1753,8 @@
      "gte-small hybrid k=60 w=1.0": 8,
      "gte-small hybrid k=5 w=2.0": 10,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -1699,7 +1782,9 @@
      "bge-base-en-v1.5 semantic": 3,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -1738,7 +1823,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -1794,7 +1882,17 @@
     "category": "",
     "description": "The Elegant Golden pump Is Made By Premium 304 Rust Proof Stainless Steel Which Can Kept Long Lasting Bright That Not Easy Corrode Or Rust.",
     "found_by": {
-     "gte-small-llm semantic": 7
+     "gte-small-llm semantic": 7,
+     "gte-small-llm-lr5e-06 semantic": 10
+    }
+   },
+   {
+    "id": "B0BXN534T7",
+    "title": "Fermtech 18\" Spray Cane with 6 Feet of Tubing Made in Canada. Spraying Wand for Carboy/Bottle Washing. Utility Sink/Garden Hose plus standard facuet adapter hookup. Clean Tubbing.",
+    "category": "Amazon Home",
+    "description": "This product makes cleaning your equipment a breeze, especially carboys. With flexible tubing and a spray tip it easily connects to standard utility faucets. If using at your kitchen sink you can use included faucet adapter. It is 5/16\" in diameter allowing it to be inserted into standard beer bottl",
+    "found_by": {
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    }
   ]
@@ -1827,7 +1925,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 5,
      "gte-small-llm semantic": 7,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -1934,7 +2035,9 @@
      "bge-base-en-v1.5 semantic": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 1,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -2008,7 +2111,9 @@
      "bge-base-en-v1.5 semantic": 3,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -2031,7 +2136,9 @@
      "bge-base-en-v1.5 semantic": 1,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -2054,7 +2161,9 @@
      "bge-base-en-v1.5 semantic": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -2069,7 +2178,9 @@
      "gte-small semantic": 6,
      "gte-small hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -2154,7 +2265,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -2175,7 +2289,8 @@
      "gte-small hybrid k=60 w=1.0": 6,
      "gte-small hybrid k=5 w=2.0": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=60 w=1.0": 7
+     "gte-small-llm hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -2189,7 +2304,8 @@
      "all-mpnet-base-v2 hybrid k=60 w=1.0": 8,
      "bge-small-finetuned hybrid k=60 w=1.0": 8,
      "bge-small-shopping hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 9
+     "gte-small-llm hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -2207,7 +2323,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 2,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -2230,7 +2348,8 @@
      "gte-small hybrid k=5 w=2.0": 10,
      "bge-base-en-v1.5 semantic": 9,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 6
+     "gte-small-llm hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6
     }
    },
    {
@@ -2257,7 +2376,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -2276,7 +2398,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 10,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -2298,7 +2423,8 @@
      "bge-small-en-v1.5 semantic": 9,
      "bge-base-en-v1.5 semantic": 5,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
-     "gte-small-llm semantic": 8
+     "gte-small-llm semantic": 8,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -2335,7 +2461,8 @@
      "all-mpnet-base-v2 hybrid k=5 w=2.0": 7,
      "bge-small-shopping hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=60 w=1.0": 8
+     "gte-small-llm hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7
     }
    },
    {
@@ -2387,6 +2514,15 @@
      "bge-small-finetuned semantic": 7,
      "bge-small-finetuned hybrid k=5 w=2.0": 9,
      "bge-small-shopping semantic": 9
+    }
+   },
+   {
+    "id": "B0C6T6WXW3",
+    "title": "Maxshine 2pcs Ezy Wheel Pressure Washer, Car Wash Detailing Tool Car Wash Inserts Preventing Any Unnecessary Friction, Red",
+    "category": "Automotive",
+    "description": "The upgraded 2 rollers are more convenient and smooth to move than the previous 1 roller.",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    }
   ]
@@ -2515,7 +2651,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -2532,7 +2670,8 @@
      "bge-small-shopping hybrid k=60 w=1.0": 10,
      "gte-small hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -2564,7 +2703,8 @@
      "gte-small hybrid k=60 w=1.0": 3,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2
     }
    },
    {
@@ -2605,7 +2745,8 @@
      "bge-base-en-v1.5 semantic": 10,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 1,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
-     "gte-small-llm hybrid k=60 w=1.0": 2
+     "gte-small-llm hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4
     }
    },
    {
@@ -2634,7 +2775,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 7,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -2665,7 +2809,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -2687,7 +2834,10 @@
      "gte-small hybrid k=60 w=1.0": 9,
      "gte-small hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -2711,7 +2861,9 @@
      "bge-base-en-v1.5 semantic": 8,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -2727,7 +2879,9 @@
      "bge-small-shopping hybrid k=5 w=2.0": 6,
      "gte-small semantic": 9,
      "gte-small-llm semantic": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -2762,7 +2916,8 @@
      "bge-base-en-v1.5 semantic": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    },
    {
@@ -2813,7 +2968,10 @@
      "bge-small-shopping hybrid k=5 w=2.0": 7,
      "gte-small hybrid k=60 w=1.0": 4,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=60 w=1.0": 6
+     "gte-small-llm hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -2831,7 +2989,10 @@
      "bge-small-shopping hybrid k=60 w=1.0": 7,
      "gte-small hybrid k=60 w=1.0": 6,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=60 w=1.0": 7
+     "gte-small-llm hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -2877,7 +3038,9 @@
      "bge-small-finetuned semantic": 6,
      "bge-small-finetuned hybrid k=5 w=2.0": 6,
      "bge-small-shopping semantic": 9,
-     "gte-small-llm semantic": 8
+     "gte-small-llm semantic": 8,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -2887,7 +3050,9 @@
     "description": "Practical Home Office Chair with Multi-function This mesh computer desk chair featured a foldable backrest, retractable footrest, and tilt function, providing you with comfortable support and helping you to maintain a relaxed posture during long hours of work. Weight Capacity： Up To 300LBS Weight Ca",
     "found_by": {
      "all-mpnet-base-v2 semantic": 9,
-     "gte-small-llm semantic": 9
+     "gte-small-llm semantic": 9,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -2912,7 +3077,8 @@
      "all-mpnet-base-v2 hybrid k=60 w=1.0": 7,
      "bge-small-finetuned hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=60 w=1.0": 8
+     "gte-small-llm hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7
     }
    },
    {
@@ -2987,7 +3153,8 @@
      "bge-small-finetuned hybrid k=60 w=1.0": 10,
      "bge-small-shopping hybrid k=60 w=1.0": 9,
      "gte-small hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 8
+     "gte-small-llm hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -3012,7 +3179,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -3042,7 +3211,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -3073,7 +3244,8 @@
      "bge-small-shopping hybrid k=60 w=1.0": 2,
      "bge-small-shopping hybrid k=5 w=2.0": 8,
      "gte-small hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    },
    {
@@ -3123,7 +3295,10 @@
      "gte-small hybrid k=5 w=2.0": 1,
      "bge-base-en-v1.5 semantic": 10,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 1,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 4
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -3239,7 +3414,9 @@
     "category": "",
     "description": "Surprise your father with our personalized canvas! FEATURES & SPECIFICATIONS: 1.Material: 100% cotton canvas 2. Print on front side 3. Perfect size: Canvas: 8”x12”, 12”x16”, 16”x24”, 24”x36” 4. Color: Actual color may be slightly different from the image due to different monitor and light effects 5.",
     "found_by": {
-     "semantic": 7
+     "semantic": 7,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -3282,7 +3459,8 @@
      "bge-small-finetuned hybrid k=60 w=1.0": 3,
      "bge-small-finetuned hybrid k=5 w=2.0": 10,
      "bge-small-shopping hybrid k=60 w=1.0": 3,
-     "bge-base-en-v1.5 hybrid k=60 w=1.0": 9
+     "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2
     }
    },
    {
@@ -3335,7 +3513,10 @@
      "bge-small-finetuned semantic": 6,
      "bge-small-finetuned hybrid k=5 w=2.0": 7,
      "gte-small semantic": 7,
-     "gte-small hybrid k=5 w=2.0": 8
+     "gte-small hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -3704,7 +3885,9 @@
     "found_by": {
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -3715,7 +3898,10 @@
     "found_by": {
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -3756,7 +3942,10 @@
     "description": "Features: Gnome is a mythological creature from Scandinavian folklore, also known as a tomte or nisse makes the most thoughtful gift ever, he lives in the house and secretly act as his guardian, protects the family and animals from evil and misfortune day and night. Gnome is a mythological creature ",
     "found_by": {
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -3793,7 +3982,8 @@
     "category": "Amazon Home",
     "description": "The Chinese zodiac is based on a 12-year cycle, with an animal representing each year. Chinese zodiacs are determined by birth year, so each zodiac gets the spotlight once every 12 years.",
     "found_by": {
-     "gte-small-llm hybrid k=60 w=1.0": 2
+     "gte-small-llm hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3
     }
    },
    {
@@ -3803,6 +3993,44 @@
     "description": "Chopstick length: 6.5 in / Material: Natural bamboo / Imported from Japan / This Cute Chopsticks will be the perfect gift.",
     "found_by": {
      "gte-small-llm hybrid k=60 w=1.0": 3
+    }
+   },
+   {
+    "id": "B0BZTFFXL6",
+    "title": "Disney ''It's a Small World'' Clock Face Sketchbook Ornament",
+    "category": "Amazon Home",
+    "description": "The happiest crew that ever sailed is coming home for the holidays on this sculpted Sketchbook ornament inspired by the clock facade of Walt Disney's ''it's a small world'' attraction. The clock face manually rocks from side to side.",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
+    }
+   },
+   {
+    "id": "B0CD8X1TW7",
+    "title": "Gymboree Girls' and Toddler 3-Piece Snap Clips and Tie Hair Accessories",
+    "category": "",
+    "description": "GYMBOREE — Enjoy the magic and the best time to be a kid with Gymboree, the official sponsor of childhood! Shop head-to-toe curated looks featuring special details for girls and boys.",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
+    }
+   },
+   {
+    "id": "B0C3JB32FG",
+    "title": "Graduation Gifts,Graduation Gifts for Her,2023 College Graduation Gifts for Her She Believed She Could So She Did Graduation Gift Graduation Frame Congratulations Gifts",
+    "category": "",
+    "description": "This graduation gift box is the perfect way to celebrate the special graduate in your life. The beautiful gift box is packed with everything they need to commemorate their achievements and look great while doing so. Included in the box: 1. a stylish and functional16 oz transparent glass cup with a g",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 9
+    }
+   },
+   {
+    "id": "B0BS42LJJQ",
+    "title": "KERAOO Custom Blanket Gift for Boyfriend, Valentine's Day Blankets Gift for Him, Anniversary Wedding Gift Birthday Gift for Boyfriend (for Boyfriend)",
+    "category": "",
+    "description": "BOYFRIEND GIFT - perfect birthday gifts, Christmas gifts for boyfriend, gifts for boyfriend, custom blankets for boyfriend, Valentine's Day gifts for boyfriend, Christmas gifts for boyfriend, birthday gifts for boyfriend, graduation gifts for boyfriend, birthday gifts for couples, wedding gifts for ",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    }
   ]
@@ -3834,7 +4062,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 2,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -3864,7 +4094,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -3888,7 +4121,8 @@
      "bge-base-en-v1.5 semantic": 1,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 3,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
-     "gte-small-llm hybrid k=60 w=1.0": 6
+     "gte-small-llm hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -3982,7 +4216,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -4004,7 +4241,9 @@
      "gte-small hybrid k=60 w=1.0": 4,
      "gte-small hybrid k=5 w=2.0": 5,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -4027,7 +4266,8 @@
      "bge-small-en-v1.5 hybrid k=60 w=1.0": 8,
      "bge-small-finetuned hybrid k=60 w=1.0": 8,
      "bge-small-shopping hybrid k=60 w=1.0": 10,
-     "gte-small hybrid k=60 w=1.0": 7
+     "gte-small hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -4054,7 +4294,9 @@
      "bge-base-en-v1.5 semantic": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
-     "gte-small-llm hybrid k=60 w=1.0": 7
+     "gte-small-llm hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -4094,7 +4336,10 @@
      "gte-small hybrid k=60 w=1.0": 6,
      "gte-small hybrid k=5 w=2.0": 3,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=60 w=1.0": 8
+     "gte-small-llm hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -4116,7 +4361,8 @@
      "bge-small-shopping hybrid k=5 w=2.0": 4,
      "gte-small hybrid k=60 w=1.0": 5,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=60 w=1.0": 3
+     "gte-small-llm hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5
     }
    },
    {
@@ -4126,7 +4372,8 @@
     "description": "Features: Oscar Schmidt by Washburn Handcrafted quality Quilted Maple Top Rock maple pin block Transparent Red Gloss finish 21 Chords Includes: Tuning Wrench Includes: Assorted Picks Model #: OS21CQTR",
     "found_by": {
      "semantic": 5,
-     "gte-small semantic": 10
+     "gte-small semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    },
    {
@@ -4152,7 +4399,9 @@
     "description": "A classic and versatile bass at an affordable price. The OB25 is the perfect entry level bass for younger students with smaller hands allowing them to experience the joy of playing bass without the diifficulty a larger scale bass would present to small hands. Solid wood body Maple neck Rosewood fing",
     "found_by": {
      "semantic": 7,
-     "gte-small semantic": 9
+     "gte-small semantic": 9,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -4204,7 +4453,9 @@
      "gte-small hybrid k=5 w=2.0": 9,
      "bge-base-en-v1.5 semantic": 3,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
-     "gte-small-llm semantic": 10
+     "gte-small-llm semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -4253,7 +4504,9 @@
      "bge-base-en-v1.5 semantic": 2,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -4282,7 +4535,9 @@
      "gte-small semantic": 7,
      "gte-small hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -4396,6 +4651,33 @@
     "found_by": {
      "gte-small-llm hybrid k=60 w=1.0": 10
     }
+   },
+   {
+    "id": "B0C349LRT2",
+    "title": "Remix Disc Golf Starter Backpack + Disc Set",
+    "category": "",
+    "description": "The Remix Starter Backpack Set has everything you need to get started playing disc golf! Providing a starter bag as well as an assortment of drivers, midranges, and putters, the Remix Starter Backpack Set is either a great introduction to the sport of disc golf or the perfect way to try new discs at",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 8
+    }
+   },
+   {
+    "id": "B00KX8PW98",
+    "title": "Oscar Schmidt by Washburn Left Hand LP Style Electric Guitar, Sunburst, OE20TSLH",
+    "category": "Musical Instruments",
+    "description": "Oscar Schmidt By Washburn OE20TSLH Left Hand LP Style Electric Guitar with a Solid Mahagony Body Tobacco Sunburst New in Box Kit Includes: Tuner Strap Extra Set of Strings TMS Polishing Cloth Features: Model: OE20TS Left Hand Solid Mahogany Body Set Maple Neck Rosewood Fingerboard Tune-O-matic bridg",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 9
+    }
+   },
+   {
+    "id": "B0C3CVH34D",
+    "title": "SSFRI Music Poster 6 PCS J Cole Album Cover Posters Music Posters HD Print Room Aesthetics Pictures for Living Room Bedroom Music Classroom Wall Decor Art 12x8inch frameless",
+    "category": "",
+    "description": "Products suitable for: living room, bedroom, office, kitchen, bathroom ...... ，Products can be a perfect gift for your family and friends, can be Thanksgiving, Christmas, Valentine's Day, Father's Day, Mother's Day, birthday ......Products Printed with colorfast inks on high quality for high definit",
+    "found_by": {
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
+    }
    }
   ]
  },
@@ -4447,7 +4729,9 @@
      "bge-small-en-v1.5 hybrid k=60 w=1.0": 10,
      "gte-small hybrid k=60 w=1.0": 10,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -4481,7 +4765,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -4546,7 +4832,9 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -4562,7 +4850,8 @@
      "bge-small-finetuned hybrid k=60 w=1.0": 9,
      "bge-small-shopping hybrid k=60 w=1.0": 10,
      "gte-small hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -4731,7 +5020,9 @@
      "bge-base-en-v1.5 semantic": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -4767,7 +5058,9 @@
      "gte-small hybrid k=5 w=2.0": 5,
      "bge-base-en-v1.5 semantic": 4,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
-     "gte-small-llm semantic": 10
+     "gte-small-llm semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -4783,7 +5076,10 @@
      "bge-small-finetuned hybrid k=60 w=1.0": 10,
      "bge-small-finetuned hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -4808,7 +5104,8 @@
      "bge-base-en-v1.5 semantic": 1,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 3,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
-     "gte-small-llm hybrid k=60 w=1.0": 7
+     "gte-small-llm hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3
     }
    },
    {
@@ -4826,7 +5123,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -4969,7 +5269,8 @@
     "description": "Spopsood Bamboo Kitchen Utensil Holder for countertop, Larger cooking utensil holder kitchen counter (3 Compartment with Removable front bezel)",
     "found_by": {
      "all-mpnet-base-v2 hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=60 w=1.0": 5
+     "gte-small-llm hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4
     }
    },
    {
@@ -5034,7 +5335,8 @@
     "description": "Our Kitchen shelf liner is a great way to add a quick refresh to any surface for a beautiful transformation while keeping cabinets and drawers organized. It makes your life more comfortable and beautiful! Don’t hesitate and buy now! Main features: -Made of A+ food-grade EVA material -BPA free, odor ",
     "found_by": {
      "bge-small-shopping semantic": 5,
-     "bge-small-shopping hybrid k=5 w=2.0": 6
+     "bge-small-shopping hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 8
     }
    },
    {
@@ -5071,7 +5373,9 @@
     "category": "",
     "description": "Upgrade your living space with the perfect countertops, desktops, and cooktops, and let our Premium mat take care of the rest. With an extended size and enhanced features, it safeguards against stains, scratches, and high temperatures, making meal prep a breeze while transforming your living experie",
     "found_by": {
-     "gte-small semantic": 9
+     "gte-small semantic": 9,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -5137,7 +5441,8 @@
     "description": "HICOOE 2 tiers pull out cabinet organizer are high capacity White",
     "found_by": {
      "gte-small-llm semantic": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -5147,6 +5452,37 @@
     "description": "The Garlic Mincer is a revolutionary kitchen Tool. Home cooks' kitchens are often crowded with \"single-purpose\" devices This gadget Multifuntional! this is an item for the families. With this one gadget, you can mince so many different ingredients. Once you learn how to use it, the rest is history -",
     "found_by": {
      "gte-small-llm semantic": 9
+    }
+   },
+   {
+    "id": "B0CF1J9LFG",
+    "title": "New Home Gift Ideas for Home Couple, Housewarming Gifts for New House Decorations Ideas, First Home Gift, House Warming Gifts New Apartment Recipe for a Happy New Home Essentials Cutting Board Set",
+    "category": "",
+    "description": "Best Gift for Housewarming This cutting boards can be arranging plates for the dishes family prepare, cheese, fruits, or your favorite snacks. Perfect for cutting up fruits, vegetables, and carving meats like brisket, roast, prime rib, etc. Or to display in the kitchen or dining room. Put A Smile On",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
+    }
+   },
+   {
+    "id": "B0CB754G66",
+    "title": "Rae Dunn 3 in 1 Wrap Organizer with Cutter, Plastic Wrap, Aluminum Foil and Wax Bamboo Dispenser for Kitchen Storage Organization Holder for 12\" Roll",
+    "category": "",
+    "description": "Introducing the Rae Dunn Bamboo Foil and Parchment Paper Drawer Organizer, the perfect solution to streamline your kitchen storage while adding a touch of style! Crafted with the finest quality bamboo, this drawer organizer combines functionality with a sleek, contemporary design, making it a must-h",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
+    }
+   },
+   {
+    "id": "B0BNT5SW5W",
+    "title": "Modern Mobile Kitchen Island Cart with Rubber Wood Drop-Leaf Countertop and Internal Racks,5 Wheels and 3 Drawers,Storage Cabinet,Spice Rack &Towel Rack (Black#z)",
+    "category": "",
+    "description": "This delicate kitchen island will bring convenience and more living space to your life.Put everything in its place with a beautiful combination of storage space. And it provides you with four solid wood cabinet feet, which can be replaced when you don't want to use wheels.This piece offers a stunnin",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    }
   ]
@@ -5178,7 +5514,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 2,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -5231,7 +5570,8 @@
     "found_by": {
      "keyword": 6,
      "bge-small-finetuned hybrid k=60 w=1.0": 10,
-     "bge-small-shopping hybrid k=60 w=1.0": 10
+     "bge-small-shopping hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -5258,7 +5598,10 @@
      "gte-small hybrid k=60 w=1.0": 2,
      "gte-small hybrid k=5 w=2.0": 2,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 5
+     "gte-small-llm hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -5368,7 +5711,9 @@
      "gte-small hybrid k=5 w=2.0": 10,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -5417,7 +5762,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -5439,7 +5787,8 @@
      "bge-small-shopping hybrid k=60 w=1.0": 7,
      "bge-small-shopping hybrid k=5 w=2.0": 7,
      "gte-small hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=60 w=1.0": 8
+     "gte-small-llm hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    },
    {
@@ -5458,7 +5807,9 @@
      "bge-base-en-v1.5 semantic": 6,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -5469,7 +5820,8 @@
     "found_by": {
      "semantic": 4,
      "gte-small-llm semantic": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -5521,7 +5873,8 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 2,
      "bge-small-shopping semantic": 9,
      "bge-small-shopping hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -5532,7 +5885,9 @@
     "found_by": {
      "semantic": 10,
      "gte-small-llm semantic": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -5553,7 +5908,10 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 4,
      "bge-small-shopping hybrid k=60 w=1.0": 4,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=60 w=1.0": 9
+     "gte-small-llm hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -5632,7 +5990,8 @@
     "found_by": {
      "bge-small-en-v1.5 hybrid k=60 w=1.0": 9,
      "bge-small-finetuned hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 7
+     "gte-small-llm hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7
     }
    },
    {
@@ -5685,7 +6044,9 @@
      "bge-small-shopping semantic": 5,
      "bge-small-shopping hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -5700,7 +6061,10 @@
      "gte-small hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -5772,6 +6136,16 @@
      "gte-small-llm hybrid k=60 w=1.0": 6,
      "gte-small-llm hybrid k=5 w=2.0": 9
     }
+   },
+   {
+    "id": "B0C91VV7JH",
+    "title": "Rothco Men's Modern",
+    "category": "",
+    "description": "Rothco makes quality outdoor and sports gear for all types of situation. Whether you are in a combat intensive environment, or if you are a recreational user, Rothco will fit the lifestyle of many. Quality tested and Performance driven, use Rothco",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
+    }
    }
   ]
  },
@@ -5809,7 +6183,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -5842,7 +6219,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -5875,7 +6255,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -5960,7 +6343,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -5979,7 +6365,9 @@
      "gte-small semantic": 9,
      "bge-base-en-v1.5 semantic": 10,
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -6019,7 +6407,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -6050,7 +6441,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm semantic": 8,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -6130,7 +6524,10 @@
      "gte-small hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -6149,7 +6546,10 @@
      "bge-small-shopping hybrid k=5 w=2.0": 10,
      "bge-base-en-v1.5 semantic": 9,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 9
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -6225,7 +6625,10 @@
      "gte-small semantic": 10,
      "gte-small-llm semantic": 7,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -6251,6 +6654,15 @@
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 9,
      "gte-small-llm hybrid k=5 w=2.0": 10
+    }
+   },
+   {
+    "id": "B0C64H6GKZ",
+    "title": "Reebok Men's UFC Capsule Jacket",
+    "category": "AMAZON FASHION",
+    "description": "The UFC has come a long way since its first-ever card in 1993. A tribute to MMA, this men's jacket was inspired by the decade that started it all. It's made of crinkly nylon, with a slim fit and lightweight feel. Slip it on as you head to the gym or around the city.",
+    "found_by": {
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    }
   ]
@@ -6289,7 +6701,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -6357,7 +6772,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -6390,7 +6808,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -6451,7 +6872,10 @@
      "gte-small hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -6493,7 +6917,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
      "gte-small-llm semantic": 6,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -6565,7 +6991,9 @@
      "gte-small semantic": 5,
      "gte-small hybrid k=60 w=1.0": 5,
      "gte-small hybrid k=5 w=2.0": 5,
-     "bge-base-en-v1.5 hybrid k=60 w=1.0": 8
+     "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -6584,7 +7012,10 @@
      "bge-small-shopping hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 7,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -6613,7 +7044,10 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 5,
      "bge-base-en-v1.5 semantic": 4,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 4
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -6629,7 +7063,10 @@
      "gte-small hybrid k=60 w=1.0": 9,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -6770,7 +7207,8 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 8,
      "gte-small semantic": 6,
      "gte-small hybrid k=5 w=2.0": 6,
-     "gte-small-llm semantic": 10
+     "gte-small-llm semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    },
    {
@@ -6948,6 +7386,34 @@
      "gte-small-llm semantic": 8,
      "gte-small-llm hybrid k=5 w=2.0": 10
     }
+   },
+   {
+    "id": "B0CGWVNGS8",
+    "title": "Fanmats NCAA Unisex-Adult Starter Mat",
+    "category": "Sports & Outdoors",
+    "description": "Start showing off your team pride at home and the office with a Starter Mat from Sports Licensing Solutions. Made in the U.S.A. with 100% nylon carpet in true colors and non-skid recycled vinyl backing. Serged borders add durability and style. Officially licensed and chromo jet-printed in true team ",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
+    }
+   },
+   {
+    "id": "B0BTKGPBXW",
+    "title": "Mihrab Patterned Original Luxury Velvet Prayer Mat/Rug- 750g Weight | Made in Turkey (Navy Blue)",
+    "category": "Amazon Home",
+    "description": "Mihrab style original velvet is made by high quality velvet material in Turkey",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 9
+    }
+   },
+   {
+    "id": "B0BTPBWN9F",
+    "title": "Audacity Doormat, Welcome Mat, Funny Doormat, Housewarming Gift, Audacity Definition Doormat, Definition Door Mat, Audacity Door Mat, Decor Home Kitchen Balcony Decoration 16x24 Inch",
+    "category": "",
+    "description": "Size: This Door Mat Measures 16 X 24 Inches And Is Only 1 Cm Thick, Decorate Your Sweet Home And Make Your Life Easier. material: This Welcome Mat Is Made Of High Quality Flannel Material. beautiful Floor Mat: This Thin Floor Rug Is A Great Gift For Your Home Decoration. This Fun Rug Will Make A Las",
+    "found_by": {
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
+    }
    }
   ]
  },
@@ -7067,7 +7533,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -7091,7 +7560,9 @@
      "gte-small hybrid k=5 w=2.0": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -7107,7 +7578,10 @@
      "all-mpnet-base-v2 hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 10,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -7137,7 +7611,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -7169,7 +7646,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -7201,7 +7681,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -7233,7 +7716,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -7280,7 +7766,9 @@
      "bge-base-en-v1.5 semantic": 9,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
      "gte-small-llm semantic": 8,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    },
    {
@@ -7310,7 +7798,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -7341,7 +7832,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 6,
      "gte-small-llm hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -7370,7 +7864,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm semantic": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -7442,7 +7938,9 @@
      "gte-small hybrid k=60 w=1.0": 4,
      "gte-small hybrid k=5 w=2.0": 6,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 6
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -7451,7 +7949,8 @@
     "category": "",
     "description": "Feature: The t_ube is sewn into a loop that provides millions of yards of fun! The t_ube can be used for a variety of activities to encourage group processing and debriefing, balance, cooperation, and just plain fun. The Loop stretches when at least 3 kids/adults will stand inside and keep it stretc",
     "found_by": {
-     "keyword": 2
+     "keyword": 2,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -7476,7 +7975,10 @@
      "gte-small hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -7517,7 +8019,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 1,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -7612,7 +8116,9 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm semantic": 10,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -7641,7 +8147,9 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -7726,7 +8234,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -7791,7 +8302,10 @@
      "gte-small hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -7820,7 +8334,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -7836,7 +8353,9 @@
      "gte-small semantic": 5,
      "gte-small hybrid k=5 w=2.0": 10,
      "bge-base-en-v1.5 semantic": 6,
-     "gte-small-llm semantic": 8
+     "gte-small-llm semantic": 8,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -7894,7 +8413,8 @@
     "found_by": {
      "bge-base-en-v1.5 semantic": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 9
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    },
    {
@@ -7913,7 +8433,8 @@
     "description": "Happy St. Patrick's Day, ya'll!☘️🐈💛🐕💚 St. Patrick holiday, I will never love another season more than you. 🧡🎄❄️Here’s new Holidays & beyond collection is coming now!! If there is one style in the new collection that sums up our love for this season, it's this one. Featured is our \"Lucky and festive\"",
     "found_by": {
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 7
     }
    },
    {
@@ -7922,7 +8443,36 @@
     "category": "Sports & Outdoors",
     "description": "What is a BOAZZ? Boazz (the abbreviated name for Bocce Assistant) is a multiple bocce ball retriever. Boazz was developed after observing Bocce players struggling to retrieve bocce balls. Boazz is 26″ tall. BOAZZ LiTe is our lighter plastic version (6 oz) The base has three scoops with tapered tips.",
     "found_by": {
-     "gte-small-llm semantic": 7
+     "gte-small-llm semantic": 7,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
+    }
+   },
+   {
+    "id": "B0BWVGL1JB",
+    "title": "Kid 2-in-1 Zippered Cute Crab Travel Pillow and Blanket Set, Kid Travel Essentials, Cute Plushie, Stuffed Animal",
+    "category": "",
+    "description": "Introducing our adorable 2-in-1 Zippered Crab Pillow and Blanket Set, the perfect toy for kids that will surely bring a smile to their faces! This cute stuffed animal features a cozy design and is made with premium plush materials, making it super soft and cuddly. But that's not all - this plush cra",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 8
+    }
+   },
+   {
+    "id": "B01NB0P9KV",
+    "title": "D.A. Brand Chestnut and Natural Braided Genuine Rawhide Bosal Horse Tack Equine",
+    "category": "Sports & Outdoors",
+    "description": "New our own D.A. Brand First Quality Nicely flexible braided rawhide bosal with rawhide core 1\" diameter bosal at the nose and 5/8\" at sides measures 27\" inside circumference",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 10
+    }
+   },
+   {
+    "id": "B0C1VP59FR",
+    "title": "Puppy Wreath-Dog Lovers Gift，Dog Welcome Door Hanger，Welcome We Hope You Like Dogs Farmhouse Door Sign for Front Door Porch,Decorative Door Ring Dog Year Front Door Garland",
+    "category": "",
+    "description": "Specifications This wreath measures 23 inches long and 23 inches wide. Style: Handmade Front Door Wreath Measurements are approximate & from tip to tip Applicable throughout the year. Covers indoor/outdoor versatility",
+    "found_by": {
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    }
   ]
@@ -7949,7 +8499,9 @@
      "gte-small hybrid k=60 w=1.0": 7,
      "gte-small hybrid k=5 w=2.0": 8,
      "gte-small-llm hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -7967,7 +8519,9 @@
     "category": "Amazon Home",
     "description": "MarieJStewart Personalized To My Wife Mug I Love Being Loved by You Mug Ideas Gifts to Wife from Husband Gifts for Valentine's Day Birthday Anniversary Coffee Mug Ceramic 11Oz 15Oz (Multi 3), MarieJStewart Taza personalizada con texto en inglés To My Wife I Love Being Loved by You con texto en inglé",
     "found_by": {
-     "keyword": 3
+     "keyword": 3,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -8080,7 +8634,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -8109,7 +8666,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 7,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -8140,7 +8700,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -8182,7 +8745,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -8201,7 +8767,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -8220,7 +8789,9 @@
      "bge-small-finetuned semantic": 10,
      "bge-small-finetuned hybrid k=60 w=1.0": 9,
      "gte-small hybrid k=60 w=1.0": 9,
-     "bge-base-en-v1.5 hybrid k=60 w=1.0": 9
+     "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -8327,7 +8898,10 @@
      "gte-small hybrid k=60 w=1.0": 5,
      "gte-small hybrid k=5 w=2.0": 1,
      "bge-base-en-v1.5 semantic": 10,
-     "bge-base-en-v1.5 hybrid k=60 w=1.0": 7
+     "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -8359,7 +8933,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm semantic": 6,
      "gte-small-llm hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -8389,7 +8966,8 @@
     "found_by": {
      "bge-small-en-v1.5 semantic": 9,
      "bge-base-en-v1.5 semantic": 8,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 10
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -8414,7 +8992,8 @@
      "gte-small hybrid k=5 w=2.0": 9,
      "bge-base-en-v1.5 semantic": 2,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
-     "gte-small-llm semantic": 10
+     "gte-small-llm semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 7
     }
    },
    {
@@ -8466,7 +9045,8 @@
     "description": "EZRoute 2-Pack 8.5 Glass Coffe Mugs Tea Cups- Clear Heat Cold Resistant Borosilicate Glass Insulated Double Walled Glass Coffee Cup Mug With Handle",
     "found_by": {
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    }
   ]
@@ -8599,7 +9179,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 1,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -8617,7 +9199,9 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 10,
      "bge-small-shopping hybrid k=60 w=1.0": 10,
      "gte-small hybrid k=5 w=2.0": 10,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -8628,7 +9212,8 @@
     "found_by": {
      "bm25": 3,
      "hybrid": 5,
-     "all-mpnet-base-v2 hybrid k=60 w=1.0": 8
+     "all-mpnet-base-v2 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7
     }
    },
    {
@@ -8638,7 +9223,8 @@
     "description": "Expandable Garden Hose 100FT",
     "found_by": {
      "bm25": 4,
-     "all-mpnet-base-v2 hybrid k=60 w=1.0": 9
+     "all-mpnet-base-v2 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -8721,7 +9307,8 @@
      "bge-base-en-v1.5 semantic": 2,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 5,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
-     "gte-small-llm hybrid k=60 w=1.0": 6
+     "gte-small-llm hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4
     }
    },
    {
@@ -8749,7 +9336,10 @@
      "gte-small hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -8799,7 +9389,9 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 9,
      "bge-small-shopping semantic": 3,
      "bge-small-shopping hybrid k=5 w=2.0": 3,
-     "bge-base-en-v1.5 semantic": 10
+     "bge-base-en-v1.5 semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -8879,7 +9471,10 @@
      "gte-small hybrid k=5 w=2.0": 2,
      "bge-base-en-v1.5 semantic": 3,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
-     "gte-small-llm semantic": 10
+     "gte-small-llm semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -8903,7 +9498,8 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm semantic": 8,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3
     }
    },
    {
@@ -8944,7 +9540,10 @@
      "bge-small-shopping semantic": 5,
      "bge-small-shopping hybrid k=5 w=2.0": 7,
      "gte-small semantic": 6,
-     "gte-small hybrid k=5 w=2.0": 8
+     "gte-small hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -9106,7 +9705,10 @@
      "gte-small semantic": 3,
      "gte-small hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -9172,7 +9774,9 @@
     "description": "2,4-D Amine Herbicide, formerly Shredder, provides highly effective control of challenging weeds in a wide range of crops, including corn, CRP, fallow, grain sorghum, ornamental, pasture/rangeland, rice, small grains, soybean (preplant only), sugarcane, turf and more.",
     "found_by": {
      "gte-small-llm semantic": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -9192,7 +9796,8 @@
     "description": "2 pounds of white landscaping rocks. White marble chips about 0.5 to 1.5 inches in length. Covers soil of indoor and container plants.",
     "found_by": {
      "gte-small-llm semantic": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -9211,6 +9816,35 @@
     "description": "Bird Netting, 7x100FT Bird Netting for Garden Protection, 0.67\" Square Mesh Garden Netting Bird Net, Heavy Duty Nylon Netting for Vegetable Plants, Fruit Trees, Against Birds, Deer and Other Animals",
     "found_by": {
      "gte-small-llm hybrid k=60 w=1.0": 9
+    }
+   },
+   {
+    "id": "B0BRKX2H5N",
+    "title": "30 Pack 10 Gallon Potato Grow Bags with Flap Garden Planting Bag with Handle and Harvest Window Fabric Sweet Potato Planter Potatoes Bucket Plant Pots for Tomato Vegetables Fruits",
+    "category": "",
+    "description": "Features: These planting bags for vegetables are made of fabric, to provide sufficient ventilation for the root, which can create a good overall root system structure, to help plants grow, so that you get a good harvest. You can send our garden planter bag as a practical gift to your friends and fam",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
+    }
+   },
+   {
+    "id": "B0BVPYG2FP",
+    "title": "CADORI Flying Parrot Metal,Animal Planter,Parrot Planter,Hanging Plant Bracket,Vintage Home Heavy/Duty Metal Hooks, for Outdoor Decoration Planters,Rose Flamingo,L",
+    "category": "Amazon Home",
+    "description": "Description:These Flying Parrot Flower Pots will bring lots of colors to your home/garden! Delight your kids and brighten up your garden with these farmhouse garden decorations.Specification:Material:MetelSize:15.7*4.72*2.75inch Package includes:1 xFlower PotInclude a screwa nuta screwdrivera hookan",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
+    }
+   },
+   {
+    "id": "B0BRNFCZDG",
+    "title": "Plastic Small Flower Pots,6 Pack 6 Inch Plant Pots Indoor with Drainage and Saucers for Indoor Plants,Colorful Outdoor Planters,Garden Pots Nursery House Plant Pots for Cactus,Orchid,Succulent",
+    "category": "",
+    "description": "Package Content: 6 x Plant Pots with Saucers",
+    "found_by": {
+     "gte-small-llm-lr5e-06 semantic": 10
     }
    }
   ]
@@ -9249,7 +9883,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -9282,7 +9919,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -9315,7 +9955,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -9375,7 +10018,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -9427,7 +10073,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -9502,7 +10150,8 @@
      "bge-base-en-v1.5 semantic": 7,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 6,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
-     "gte-small-llm hybrid k=60 w=1.0": 7
+     "gte-small-llm hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10
     }
    },
    {
@@ -9520,7 +10169,10 @@
      "gte-small hybrid k=60 w=1.0": 8,
      "gte-small hybrid k=5 w=2.0": 8,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -9547,7 +10199,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -9581,7 +10236,10 @@
      "gte-small hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -9595,7 +10253,10 @@
      "all-mpnet-base-v2 semantic": 4,
      "all-mpnet-base-v2 hybrid k=60 w=1.0": 5,
      "all-mpnet-base-v2 hybrid k=5 w=2.0": 4,
-     "gte-small semantic": 8
+     "gte-small semantic": 8,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -9626,7 +10287,8 @@
      "all-mpnet-base-v2 hybrid k=5 w=2.0": 6,
      "bge-base-en-v1.5 semantic": 5,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
-     "gte-small-llm semantic": 9
+     "gte-small-llm semantic": 9,
+     "gte-small-llm-lr5e-06 semantic": 7
     }
    },
    {
@@ -9698,7 +10360,9 @@
     "description": "The UFC has come a long way since its first-ever card in 1993. A tribute to MMA, this men's jacket was inspired by the decade that started it all. It's made of crinkly nylon, with a slim fit and lightweight feel. Slip it on as you head to the gym or around the city.",
     "found_by": {
      "gte-small-llm semantic": 10,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    }
   ]
@@ -9737,7 +10401,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -9777,7 +10444,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -9852,7 +10522,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -9867,7 +10540,10 @@
      "bge-small-en-v1.5 semantic": 5,
      "bge-small-en-v1.5 hybrid k=60 w=1.0": 9,
      "bge-small-en-v1.5 hybrid k=5 w=2.0": 8,
-     "all-mpnet-base-v2 hybrid k=60 w=1.0": 10
+     "all-mpnet-base-v2 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -9904,7 +10580,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -9936,7 +10614,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 8,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -9968,7 +10649,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm semantic": 6,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -10000,7 +10684,8 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm semantic": 10,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -10047,7 +10732,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -10108,7 +10796,8 @@
     "category": "Tools & Home Improvement",
     "description": "Made from durable Tritan material, which is BPA free and guaranteed for life, this bottle is also dishwasher safe, able to hold over 32 ounces of fluid, has an attached loop lid, and proudly made in the USA. It is guaranteed to be leak-proof and really great for school, Camping, Hiking, cycling, Out",
     "found_by": {
-     "all-mpnet-base-v2 semantic": 10
+     "all-mpnet-base-v2 semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 7
     }
    },
    {
@@ -10159,7 +10848,10 @@
      "gte-small hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -10178,7 +10870,9 @@
     "description": "DIJO Insulated Water Bottle",
     "found_by": {
      "gte-small-llm semantic": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    }
   ]
@@ -10271,7 +10965,10 @@
      "all-mpnet-base-v2 semantic": 7,
      "all-mpnet-base-v2 hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -10317,7 +11014,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 7,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -10339,7 +11039,9 @@
      "gte-small hybrid k=60 w=1.0": 7,
      "gte-small hybrid k=5 w=2.0": 8,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
-     "gte-small-llm hybrid k=60 w=1.0": 10
+     "gte-small-llm hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -10363,7 +11065,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -10387,7 +11092,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -10425,7 +11133,8 @@
      "gte-small hybrid k=5 w=2.0": 2,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 8,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -10453,7 +11162,8 @@
      "gte-small hybrid k=60 w=1.0": 1,
      "gte-small hybrid k=5 w=2.0": 1,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=60 w=1.0": 9
+     "gte-small-llm hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8
     }
    },
    {
@@ -10470,7 +11180,10 @@
      "gte-small hybrid k=60 w=1.0": 8,
      "gte-small-llm semantic": 8,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -10520,7 +11233,8 @@
      "gte-small semantic": 5,
      "gte-small hybrid k=5 w=2.0": 10,
      "bge-base-en-v1.5 semantic": 7,
-     "bge-base-en-v1.5 hybrid k=5 w=2.0": 8
+     "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -10552,7 +11266,10 @@
      "gte-small semantic": 10,
      "gte-small hybrid k=60 w=1.0": 9,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=60 w=1.0": 7
+     "gte-small-llm hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -10620,7 +11337,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 6,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -10693,7 +11413,9 @@
     "description": "No Polarity T10 31MM 42MM Interior LED Bulbs LED Dome Light（Pack of 20） Upgrade your standard halogen bulbs at an absolutely economical price, visually bringing luxury modifications to make your car living life more beautiful and colorful specifications： Bulb type: 1206 5050 Bulb type: 1206 5050 vol",
     "found_by": {
      "gte-small semantic": 3,
-     "gte-small hybrid k=5 w=2.0": 6
+     "gte-small hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -10753,7 +11475,9 @@
     "category": "Tools & Home Improvement",
     "description": "Various colors of light emitting lines are available for your choice to meet your design needs and imaginationIt can emit light 360 degrees, and there are three modes of use that can be freely switchedNon toxic, low heat dissipation, low energy consumption, no heat generation during use, and can be ",
     "found_by": {
-     "gte-small-llm semantic": 7
+     "gte-small-llm semantic": 7,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -10801,7 +11525,8 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 10,
      "gte-small-llm semantic": 3,
      "gte-small-llm hybrid k=60 w=1.0": 9,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 8
     }
    },
    {
@@ -10853,7 +11578,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 1,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -10928,7 +11656,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -10950,7 +11681,9 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 8,
      "gte-small-llm hybrid k=60 w=1.0": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -10982,7 +11715,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 9,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -10996,7 +11732,8 @@
      "gte-small semantic": 7,
      "gte-small hybrid k=60 w=1.0": 2,
      "gte-small hybrid k=5 w=2.0": 3,
-     "bge-base-en-v1.5 hybrid k=60 w=1.0": 9
+     "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9
     }
    },
    {
@@ -11023,7 +11760,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 10,
      "gte-small-llm hybrid k=60 w=1.0": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 semantic": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -11053,7 +11793,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 9,
      "gte-small-llm semantic": 6,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -11076,7 +11819,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 2,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -11178,7 +11924,10 @@
      "gte-small hybrid k=5 w=2.0": 2,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 8,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -11195,7 +11944,9 @@
      "bge-small-shopping hybrid k=60 w=1.0": 8,
      "bge-small-shopping hybrid k=5 w=2.0": 1,
      "gte-small semantic": 8,
-     "gte-small-llm semantic": 8
+     "gte-small-llm semantic": 8,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -11213,7 +11964,10 @@
      "bge-small-finetuned hybrid k=5 w=2.0": 10,
      "bge-small-shopping semantic": 8,
      "gte-small-llm semantic": 7,
-     "gte-small-llm hybrid k=5 w=2.0": 10
+     "gte-small-llm hybrid k=5 w=2.0": 10,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    },
    {
@@ -11304,7 +12058,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 4,
      "gte-small-llm semantic": 7,
      "gte-small-llm hybrid k=60 w=1.0": 1,
-     "gte-small-llm hybrid k=5 w=2.0": 2
+     "gte-small-llm hybrid k=5 w=2.0": 2,
+     "gte-small-llm-lr5e-06 semantic": 5,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 1,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 1
     }
    },
    {
@@ -11416,7 +12173,9 @@
      "bge-small-shopping hybrid k=60 w=1.0": 8,
      "bge-small-shopping hybrid k=5 w=2.0": 9,
      "gte-small hybrid k=5 w=2.0": 9,
-     "gte-small-llm hybrid k=60 w=1.0": 9
+     "gte-small-llm hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 8
     }
    },
    {
@@ -11492,7 +12251,8 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 4,
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 7,
      "gte-small-llm hybrid k=60 w=1.0": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 8
+     "gte-small-llm hybrid k=5 w=2.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 6
     }
    },
    {
@@ -11540,7 +12300,10 @@
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 9,
      "gte-small-llm semantic": 5,
      "gte-small-llm hybrid k=60 w=1.0": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 6
+     "gte-small-llm hybrid k=5 w=2.0": 6,
+     "gte-small-llm-lr5e-06 semantic": 10,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 7
     }
    },
    {
@@ -11571,7 +12334,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 3,
      "gte-small-llm semantic": 4,
      "gte-small-llm hybrid k=60 w=1.0": 4,
-     "gte-small-llm hybrid k=5 w=2.0": 4
+     "gte-small-llm hybrid k=5 w=2.0": 4,
+     "gte-small-llm-lr5e-06 semantic": 3,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 2,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 3
     }
    },
    {
@@ -11598,7 +12364,8 @@
      "bge-small-finetuned semantic": 9,
      "bge-small-shopping semantic": 7,
      "bge-small-shopping hybrid k=5 w=2.0": 10,
-     "gte-small-llm semantic": 10
+     "gte-small-llm semantic": 10,
+     "gte-small-llm-lr5e-06 semantic": 8
     }
    },
    {
@@ -11610,7 +12377,8 @@
      "semantic": 6,
      "all-mpnet-base-v2 semantic": 10,
      "gte-small-llm semantic": 6,
-     "gte-small-llm hybrid k=5 w=2.0": 9
+     "gte-small-llm hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 9
     }
    },
    {
@@ -11649,7 +12417,10 @@
      "bge-base-en-v1.5 hybrid k=5 w=2.0": 5,
      "gte-small-llm semantic": 1,
      "gte-small-llm hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=5 w=2.0": 1
+     "gte-small-llm hybrid k=5 w=2.0": 1,
+     "gte-small-llm-lr5e-06 semantic": 1,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 9,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 2
     }
    },
    {
@@ -11673,7 +12444,9 @@
     "description": "Jessica Simpson is famous for her fun, sexy style, and now her signature line of footwear, handbags, and sunglasses brings that same style home to you. From fun western boots to the latest dressy and casual looks, Jessica Simpson shoes, handbags, and sunglasses are where it's at for fun, flirty and ",
     "found_by": {
      "hybrid": 6,
-     "gte-small-llm hybrid k=60 w=1.0": 6
+     "gte-small-llm hybrid k=60 w=1.0": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 5,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 10
     }
    },
    {
@@ -11804,7 +12577,8 @@
      "all-mpnet-base-v2 hybrid k=5 w=2.0": 8,
      "gte-small hybrid k=60 w=1.0": 8,
      "bge-base-en-v1.5 hybrid k=60 w=1.0": 10,
-     "gte-small-llm hybrid k=60 w=1.0": 8
+     "gte-small-llm hybrid k=60 w=1.0": 8,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 7
     }
    },
    {
@@ -11814,7 +12588,9 @@
     "description": "☆☆☆☆☆☆▅▅▅▅▅▅▅▅▅▅ ☆☆☆☆☆☆▅▅▅▅▅▅▅▅▅▅ ☆☆☆☆☆☆▅▅▅▅▅▅▅▅▅▅ ▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅ ▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅ ▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅ Q&A Q1：Are these short sleeve lace shirt true to size?A1：Yes, just order your size,we are standard US size. Q2: Will it wrinkle or shrink after washed? or does it smell bad or itchy?A2: Not at all. ",
     "found_by": {
      "bge-small-finetuned semantic": 7,
-     "bge-small-finetuned hybrid k=5 w=2.0": 9
+     "bge-small-finetuned hybrid k=5 w=2.0": 9,
+     "gte-small-llm-lr5e-06 semantic": 7,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 9
     }
    },
    {
@@ -11840,7 +12616,10 @@
      "gte-small hybrid k=5 w=2.0": 8,
      "gte-small-llm semantic": 8,
      "gte-small-llm hybrid k=60 w=1.0": 5,
-     "gte-small-llm hybrid k=5 w=2.0": 7
+     "gte-small-llm hybrid k=5 w=2.0": 7,
+     "gte-small-llm-lr5e-06 semantic": 6,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 3,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 5
     }
    },
    {
@@ -11880,7 +12659,10 @@
     "description": "This sporty upper and lug-sole combo is a perfect mix to elevate your casual look Size Info • True to size Details & Care • Synthetic Lining/Synthetic Outsole • Heel style: BLOCK • Toe shape: OPEN TOE • Heel height: 3.94 inch",
     "found_by": {
      "gte-small-llm semantic": 2,
-     "gte-small-llm hybrid k=5 w=2.0": 3
+     "gte-small-llm hybrid k=5 w=2.0": 3,
+     "gte-small-llm-lr5e-06 semantic": 2,
+     "gte-small-llm-lr5e-06 hybrid k=60 w=1.0": 10,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 4
     }
    },
    {
@@ -11890,7 +12672,9 @@
     "description": "The HUE Perfect Edge Liner Combo pack offers 2 lace liners and 1 perfect edge liner. Add a little flare with the lace liners and stay practical with the perfect edge. Grab a combo pack today to keep your feet feeling fabulous!",
     "found_by": {
      "gte-small-llm semantic": 3,
-     "gte-small-llm hybrid k=5 w=2.0": 5
+     "gte-small-llm hybrid k=5 w=2.0": 5,
+     "gte-small-llm-lr5e-06 semantic": 4,
+     "gte-small-llm-lr5e-06 hybrid k=5 w=2.0": 6
     }
    }
   ]

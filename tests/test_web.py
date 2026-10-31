@@ -70,3 +70,12 @@ def test_level_6_compares_three_versions():
         pytest.skip("Amazon data or fine-tuned models not available")
     data = client.get("/api/search", params={"q": "coffee mug", "level": 6, "k": 3}).json()
     assert [c["name"] for c in data["columns"]] == list(LEVEL6_MODELS)
+
+
+def test_level_8_shows_untrained_gte_small():
+    from semantic_search.levels.level8.data import AMAZON_PRODUCTS_PATH
+
+    if not AMAZON_PRODUCTS_PATH.exists():
+        pytest.skip("Amazon data not downloaded (run `uv run prepare-data`)")
+    data = client.get("/api/search", params={"q": "phone charger", "level": 8, "k": 3}).json()
+    assert data["columns"][0]["name"] == "gte-small, no training"

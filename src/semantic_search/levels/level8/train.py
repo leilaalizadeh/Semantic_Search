@@ -40,6 +40,12 @@ DATASETS = {  # --data name -> (training file, where to save the model, model to
 }
 
 
+def load_base_model(name: str) -> SentenceTransformer:
+    """Always train in float32. gte-small is stored in float16 (half precision), and training it like that
+    made the numbers overflow: the loss went up and every weight became NaN (first Level 8 run on Colab)."""
+    return SentenceTransformer(name, model_kwargs={"dtype": torch.float32})
+
+
 def load_pairs(path=TRAIN_PATH, query_prefix: str = QUERY_PREFIX, validation_share: float = 0.05,
                seed: int = 42) -> tuple[Dataset, Dataset]:
     """Training and validation data as (anchor = query, positive = product text).
@@ -83,9 +89,7 @@ def main() -> None:
     train, validation = load_pairs(data_path, query_prefix)
     print(f"training pairs: {len(train)}, validation pairs: {len(validation)}")
 
-    # Always train in float32. gte-small is stored in float16 (half precision), and training it like that
-    # made the numbers overflow: the loss went up and every weight became NaN (first Level 8 run on Colab).
-    model = SentenceTransformer(base_model, model_kwargs={"dtype": torch.float32})
+    model = load_base_model(base_model)
     # Product texts are cut after this many tokens. Training needs much more memory than searching
     # (it also stores gradients), and 256 tokens filled an 8 GB Mac.
     model.max_seq_length = args.max_length

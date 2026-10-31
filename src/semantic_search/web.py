@@ -44,6 +44,9 @@ from semantic_search.levels.level5.hybrid import HybridSearch as Level5Hybrid
 from semantic_search.levels.level6 import load_products as level6_load_products
 from semantic_search.levels.level6.semantic import SemanticSearch as Level6Semantic
 from semantic_search.levels.level6.train import OUTPUT_DIR as T5_MODEL_DIR, QUERY_PREFIX, SHOPPING_OUTPUT_DIR
+from semantic_search.levels.level8 import load_products as level8_load_products
+from semantic_search.levels.level8.semantic import SemanticSearch as Level8Semantic
+from semantic_search.levels.level8.train import LLM_OUTPUT_DIR
 
 PAGE = Path(__file__).parent / "static" / "index.html"
 LABEL_PAGE = Path(__file__).parent / "static" / "label.html"
@@ -208,6 +211,20 @@ def index_search(engine, index, query_vecs, k: int, repeats: int = 5) -> dict:
     return {"kind": "semantic", "ms": min(times), "results": results}
 
 
+# Level 8: gte-small without training, and fine-tuned on LLM-written queries with two learning rates.
+# The fine-tuned models are made on Colab and are not in git, so their columns only appear if the folder exists.
+LEVEL8_MODELS = {  # column name -> model (a name on Hugging Face, or a folder made by train.py)
+    "gte-small, no training": "thenlper/gte-small",
+    "Fine-tuned, learning rate 2e-5": str(LLM_OUTPUT_DIR),
+    "Fine-tuned, learning rate 5e-6": str(LLM_OUTPUT_DIR.with_name(LLM_OUTPUT_DIR.name + "-lr5e-06")),
+}
+
+
+@cache
+def level8_engine(model: str) -> Level8Semantic:
+    return Level8Semantic(level8_load_products(AMAZON_PRODUCTS_PATH), model, query_prefix="")
+
+
 class RagClient:
     """Level 7: talks to the RAG service (levels/level7/rag_service.py), which runs as its own process.
 
@@ -250,7 +267,7 @@ rag_client = RagClient()
 @app.get("/api/search")  # URL: /api/search?q=...&level=1&k=5&ef_search=64
 def search(
     q: str,
-    level: int = Query(1, ge=1, le=7),
+    level: int = Query(1, ge=1, le=8),
     k: int = Query(5, ge=1, le=50),
     ef_search: int = Query(64, ge=1, le=1024),
 ):
@@ -275,6 +292,20 @@ def search(
             "columns": [{"name": "Search results, checked by the LLM", "kind": "rag",
                          "ms": reply["search_ms"], "note": "search only", "results": results}],
         }
+    if level == 8:
+        require_amazon_data()
+        columns = []
+        for name, model in LEVEL8_MODELS.items():
+            if name != "gte-small, no training" and not Path(model).exists():
+                continue  # trained on Colab and not downloaded to this computer
+            engine = level8_engine(model)  # build before timing
+            start = time.perf_counter()
+            results = engine.search(query, k)
+            columns.append({"name": name, "kind": "semantic", "ms": ms_since(start),
+                            "note": "includes embedding the query",
+                            "results": [to_dict(s, p) for s, p in results]})
+        return {"level": level, "query": query, "num_products": len(engine.products),
+                "embed_ms": None, "columns": columns}
     if level == 1:
         engine = level1_engine()
         columns = keyword_vs_semantic(level1, engine, query, k, level1_tokenize)

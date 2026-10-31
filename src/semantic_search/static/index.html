@@ -44,7 +44,7 @@
   h1 { font-size: 26px; margin: 0 0 4px; }
   .sub { color: var(--muted); margin: 0 0 24px; }
 
-  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; overflow-x: auto; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 0 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
   .tab {
     border: 0; background: none; color: var(--muted); font: inherit; font-weight: 600;
     padding: 10px 10px; font-size: 14px; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
@@ -343,6 +343,35 @@ const LEVELS = {
       ["Each answer takes 15 to 30 seconds on the laptop, and the first question loads the LLM (about a minute)."],
     ],
     examples: ["I need a toy for my dog", "I'm going camping with my kids, what should I buy?", "i have cold keep me warm", "what do I need for a picnic?"],
+  },
+  8: {
+    tab: "Level 8 · Training again",
+    title: "Level 8: fine-tuning with training queries written by an LLM",
+    intro: "Level 6 trained on T5 questions and got worse. Here a bigger LLM writes better training queries, and gte-small, the best model, is trained on them.",
+    steps: [
+      "On a Colab GPU, Qwen2.5-3B wrote 3 searches for each of the 5,000 products: the kind of product, a need it solves, and a feature. 14,911 queries, for example \"baby bedding for boys\" or \"gift idea for dad on his birthday\".",
+      "gte-small was fine-tuned on them (batch 64, texts of 256 tokens), once with learning rate 2e-5 and once with 5e-6.",
+      "The first run on Colab broke: gte-small is stored in float16, the numbers overflowed and every weight became NaN. Training now always uses float32 and refuses to save a broken model.",
+      "Measured on the labeled queries, both trained versions are worse than gte-small without training. They improved some needs (kitchen, back pain) but lost more on exact searches like \"phone charger\" and \"LED light\".",
+    ],
+    tryThis: "Try \"phone charger\" and \"gift for a 6 year old\": the trained models drift away from the right products.",
+    table: {
+      caption: "Every fine-tuning in this project, nDCG@10 on the labeled queries",
+      head: ["Model", "Training data", "Learning rate", "nDCG@10", "Without training"],
+      rows: [
+        ["BGE-small", "T5 questions", "2e-5", "0.648", "0.674"],
+        ["BGE-small", "shopping-style queries", "2e-5", "0.657", "0.674"],
+        ["gte-small", "LLM-written queries", "2e-5", "0.688", "0.734"],
+        ["gte-small", "LLM-written queries", "5e-6", "0.680", "0.734"],
+      ],
+    },
+    problems: [
+      ["No fine-tuning beat the model it started from. Synthetic queries about 5,000 products are too narrow, and the model forgets part of what it knew."],
+      ["Training on \"gift idea for ...\" queries taught the model that anything giftable fits \"gift\": K-pop cards and throwing knives for \"gift for a 6 year old\"."],
+      ["Fine-tuning usually works with real searches and clicks from users, which this project does not have."],
+      ["The trained models are made on Colab and are not in git, so their columns only appear after downloading them into models/."],
+    ],
+    examples: ["phone charger", "gift for a 6 year old", "my kitchen is too messy", "LED light"],
   },
 };
 const EF_VALUES = [1, 4, 16, 64, 128, 256, 512, 1024];

@@ -20,6 +20,7 @@ Search quality on 18 labeled test queries (nDCG@10, higher is better, all measur
 | Embeddings, all-MiniLM-L6-v2 | 0.65 |
 | Embeddings, BGE-small | 0.67 |
 | BGE-small fine-tuned on 15k synthetic queries | 0.65 |
+| gte-small fine-tuned on 15k LLM-written queries | 0.69 |
 | Embeddings, gte-small | 0.73 |
 
 RAG answers on 20 test questions (share of recommended products that are relevant):
@@ -34,9 +35,10 @@ RAG answers on 20 test questions (share of recommended products that are relevan
 - I labeled 808 query-product pairs by hand, and a second labeler (an AI model) labeled them too.
   We agreed on 91% of them (Cohen's kappa 0.78). Some changes that looked better at first did not
   hold up once I measured them.
-- Fine-tuning did not help. The training loss went from 0.31 to 0.10, but the generated training
-  queries were questions like "what is a hose nozzle", while real searches look like "coffee mug".
-  Switching to another existing model helped more than training.
+- Fine-tuning did not help. I tried it 4 times, with 3 kinds of generated training queries and 2
+  learning rates. The training loss always went down, but every trained model scored lower on my
+  labeled queries than the model it started from. Generated queries about 5,000 products were too
+  narrow, and the model forgot part of what it knew. Switching to another existing model helped more.
 - A 3x bigger embedding model scored lower than gte-small.
 - Without a check, the LLM recommended whatever the search found, for example a dog statue for
   "dog toy". A score threshold could not tell when to say "nothing fits", but asking the LLM yes or no
@@ -58,6 +60,7 @@ in `src/semantic_search/levels/levelN/`, so every version can still be run and c
 | 5 | Labeled test set, P@5 / R@10 / MRR / nDCG@10, experiments | numbers instead of opinions |
 | 6 | Fine-tuning with synthetic queries, comparing more models | gte-small wins, fine-tuning doesn't |
 | 7 | RAG with a local LLM and an LLM product check | grounded answers, 91% precision with 3B |
+| 8 | Fine-tuning again, with training queries written by an LLM (on Colab) | still below no training |
 
 ![Hybrid search tab: BM25, semantic and hybrid results side by side](docs/images/level4_hybrid.png)
 
@@ -70,7 +73,9 @@ Stack: Python, PyTorch, sentence-transformers, FAISS, Hugging Face transformers 
 │   ├── products.json             # tiny hand-made catalog (30 products)
 │   ├── amazon_products.json      # real Amazon sample (created by `prepare-data`, not in git)
 │   └── eval/                     # test set: pool of query-product pairs, labels, RAG answers
-├── notebooks/level7_colab.ipynb  # RAG evaluation with a bigger LLM on a free Colab GPU
+├── notebooks/
+│   ├── level7_colab.ipynb        # RAG evaluation with a bigger LLM on a free Colab GPU
+│   └── level8_colab.ipynb        # LLM-written training queries and fine-tuning on a Colab GPU
 ├── src/semantic_search/
 │   ├── web.py                    # web app (FastAPI), one tab per level
 │   ├── static/                   # search page and labeling page
@@ -81,7 +86,8 @@ Stack: Python, PyTorch, sentence-transformers, FAISS, Hugging Face transformers 
 │       ├── level4/               # + BM25 and hybrid search
 │       ├── level5/               # + evaluation: labels, metrics, experiments
 │       ├── level6/               # + fine-tuning: synthetic training queries, training
-│       └── level7/               # + RAG: an LLM answers with products from the search (latest)
+│       ├── level7/               # + RAG: an LLM answers with products from the search
+│       └── level8/               # + fine-tuning with LLM-written training queries (latest)
 └── tests/
 ```
 
@@ -272,6 +278,38 @@ an LLM check works if the model is big enough and the question is right.
 The LLM can't be loaded in the web server (FAISS is loaded there first, and the LLM must come before
 FAISS), so the web app runs RAG in its own process (`levels/level7/rag_service.py`).
 
+## Level 8: fine-tuning with LLM-written training queries
+
+Level 6 showed that the T5 training queries ("what is a hose nozzle") did not look like real searches.
+Here a bigger LLM writes them, and the best model, gte-small, is trained on them.
+
+1. Training data (`levels/level8/generate_llm_queries.py`, on a Colab GPU): `Qwen2.5-3B-Instruct` writes
+   3 searches per product: the kind of product, a need it solves, and a feature. 14,911 queries, for
+   example "baby bedding for boys" or "gift idea for dad on his birthday". The test queries are removed.
+2. Training (`train.py --data llm`): gte-small, batch 64, texts of 256 tokens, learning rate 2e-5 or 5e-6.
+3. The first run broke: gte-small is stored in float16, training in float16 overflowed, and every weight
+   became NaN. Training now loads the model in float32 and refuses to save a model with NaN weights.
+   The embedding cache also checks when the weights were saved, so a retrained model is not mixed up
+   with an older one that has the same folder name.
+
+| Model | Training data | Learning rate | nDCG@10 | Same model without training |
+|---|---|---|---|---|
+| BGE-small | T5 questions | 2e-5 | 0.648 | 0.674 |
+| BGE-small | shopping-style queries | 2e-5 | 0.657 | 0.674 |
+| gte-small | LLM-written queries | 2e-5 | 0.688 | 0.734 |
+| gte-small | LLM-written queries | 5e-6 | 0.680 | 0.734 |
+
+(Measured on 870 labeled pairs.) The LLM-written queries were better than the T5 ones, and some needs
+got better (my kitchen is too messy 0.39 -> 0.51), but exact searches got worse (phone charger
+0.62 -> 0.32, LED light 0.86 -> 0.53). Queries like "gift idea for ..." taught the model that anything
+giftable fits "gift". No fine-tuning beat the model it started from, so gte-small without training
+stays the default. Fine-tuning usually needs real user searches and clicks.
+
+```bash
+# on Colab: notebooks/level8_colab.ipynb (writes the queries and trains)
+uv run python -m semantic_search.levels.level8.compare_models --models gte-small,gte-small-llm,gte-small-llm-lr5e-06
+```
+
 ## Web app
 
 ```bash
@@ -281,7 +319,8 @@ uv run web          # then open http://127.0.0.1:8000
 One tab per level: Level 1 (30 products), Level 2 (Amazon data), Level 3 (Flat vs HNSW with
 search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid), Level 5 (results table, and
 BM25 vs semantic vs hybrid with BGE-small), Level 6 (BGE-small before and after fine-tuning, and gte-small),
-Level 7 (ask a question, get an LLM answer with the products it used). Each tab runs that level's own code from
+Level 7 (ask a question, get an LLM answer with the products it used),
+Level 8 (gte-small without training and its two fine-tuned versions). Each tab runs that level's own code from
 `src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
 `benchmark` commands run the latest level. Only the import paths and the data
 folder depth were changed, and `tests/test_levels.py` checks that against git.
@@ -299,6 +338,5 @@ A link like `http://127.0.0.1:8000/?q=running+shoes#level2` opens a search direc
 ## Next steps
 
 - Add more test queries, so close methods can be told apart.
-- Better training data for fine-tuning: queries written like real shoppers write them,
-  including needs ("my car is dirty"), for example made by a larger LLM.
+- Fine-tune with real data: searches and clicks from users, instead of generated queries.
 - Run RAG with a bigger LLM in the web app (for example through an API), since 3B does not fit in 8 GB.
