@@ -104,7 +104,7 @@ uv run ask --check "I need a toy for my dog"   # RAG answer in the terminal
 uv run pytest                             # run the tests
 ```
 
-The first run downloads the models (an embedding model of ~130 MB and, for RAG, an LLM of ~3 GB).
+The first run downloads the models (an embedding model of ~70 MB and, for RAG, an LLM of ~3 GB).
 
 ## Level 1: keyword vs. semantic search
 
@@ -302,7 +302,7 @@ Here a bigger LLM writes them, and the best model, gte-small, is trained on them
 (Measured on 870 labeled pairs.) The LLM-written queries were better than the T5 ones, and some needs
 got better (my kitchen is too messy 0.39 -> 0.51), but exact searches got worse (phone charger
 0.62 -> 0.32, LED light 0.86 -> 0.53). Queries like "gift idea for ..." taught the model that anything
-giftable fits "gift". No fine-tuning beat the model it started from, so gte-small without training
+giftable fits "gift" (gift for a 6 year old 0.31 -> 0.08). No fine-tuning beat the model it started from, so gte-small without training
 stays the default. Fine-tuning usually needs real user searches and clicks.
 
 ```bash
@@ -321,9 +321,9 @@ search times and an efSearch slider), Level 4 (BM25 vs semantic vs hybrid), Leve
 BM25 vs semantic vs hybrid with BGE-small), Level 6 (BGE-small before and after fine-tuning, and gte-small),
 Level 7 (ask a question, get an LLM answer with the products it used),
 Level 8 (gte-small without training and its two fine-tuned versions). Each tab runs that level's own code from
-`src/semantic_search/levels/`, copied from the git tags. The `semantic-search`, `prepare-data` and
-`benchmark` commands run the latest level. Only the import paths and the data
-folder depth were changed, and `tests/test_levels.py` checks that against git.
+`src/semantic_search/levels/`. The `semantic-search`, `prepare-data`, `benchmark` and `ask`
+commands run the latest level. Levels 1 to 3 were copied from their git tags with only the import
+paths and the data folder depth changed, and `tests/test_levels.py` checks that against git.
 The first search on the Level 2 tab takes about 25 seconds, because Level 2 had no embedding cache.
 
 You can also run an old level's command-line app:
